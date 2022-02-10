@@ -1,67 +1,76 @@
 package main;
 
+import java.util.Map;
 import main.metamodel.Machine;
+import main.metamodel.Transition;
 
 public class StateMachine {
-
+	
+	private Map<String, Transition> transitions;
+	private String eventName, variableName, targetStateName, equalsConditionName, greaterConditionName, lessConditionName, incrementName, decrementName;
+	private int variableValue, equalsConditionValue, greaterConditionValue, lessConditionValue;
+	
 	public Machine build() {
-		// TODO Auto-generated method stub
+		//Take lists of states and transitions and give to a new machine object and return it?
 		return null;
 	}
 
 	public StateMachine state(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 	public StateMachine initial() {
-		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 	public StateMachine when(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		if(eventName != null) {
+			Transition transition = new Transition();
+		}
+		return this;
 	}
 
 	public StateMachine to(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		targetStateName = string;
+		return this;
 	}
 
 	public StateMachine integer(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 	public StateMachine set(String string, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		variableName = string;
+		variableValue = i;
+		return this;
 	}
 
 	public StateMachine increment(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		incrementName = string;
+		return this;
 	}
 
 	public StateMachine decrement(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		decrementName = string;
+		return this;
 	}
 
 	public StateMachine ifEquals(String string, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		equalsConditionName = string;
+		equalsConditionValue = i;
+		return this;
 	}
 
 	public StateMachine ifGreaterThan(String string, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		greaterConditionName = string;
+		greaterConditionValue = i;
+		return this;
 	}
 
 	public StateMachine ifLessThan(String string, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		lessConditionName = string;
+		lessConditionValue = i;
+		return this;
 	}
 
 }

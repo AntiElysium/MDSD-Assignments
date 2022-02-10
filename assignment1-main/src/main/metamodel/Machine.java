@@ -1,32 +1,37 @@
 package main.metamodel;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Machine {
 
+	private State initialState;
+	private Map<String, State> states;
+	private List<String> variables; //We only have integers so no need to store types.
+	
+	public Machine(State initialState) {
+		this.initialState = initialState;
+	}
+	
 	public List<State> getStates() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<State>(states.values());
 	}
 
 	public State getInitialState() {
-		// TODO Auto-generated method stub
-		return null;
+		return initialState;
 	}
 
 	public State getState(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		return states.get(string);
 	}
 
 	public int numberOfIntegers() {
-		// TODO Auto-generated method stub
-		return 0;
+		return variables.size();
 	}
 
 	public boolean hasInteger(String string) {
-		// TODO Auto-generated method stub
-		return false;
+		return variables.contains(string);
 	}
 
 }

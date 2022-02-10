@@ -1,70 +1,126 @@
 package main.metamodel;
 
 public class Transition {
-
+	
+	private String event; //Event fires transition
+	private State target;
+	private String operationVariablename, conditionVariableName;
+	private Integer conditionComparedValue;
+	private boolean incrementOperation = false;
+	private boolean decrementOperation = false;
+	private boolean setOperation = false;
+	private boolean conditional = false;
+	private boolean conditionGreaterThan = false;
+	private boolean conditionLessThan = false;
+	private boolean conditionEqual = false;
+	private boolean operation = false;
+	
 	public Object getEvent() {
-		// TODO Auto-generated method stub
-		return null;
+		return event;
 	}
 
 	public State getTarget() {
-		// TODO Auto-generated method stub
-		return null;
+		return target;
 	}
 
 	public boolean hasSetOperation() {
-		// TODO Auto-generated method stub
-		return false;
+		return setOperation;
 	}
 
 	public boolean hasIncrementOperation() {
-		// TODO Auto-generated method stub
-		return false;
+		return incrementOperation;
 	}
 
 	public boolean hasDecrementOperation() {
-		// TODO Auto-generated method stub
-		return false;
+		return decrementOperation;
 	}
 
 	public Object getOperationVariableName() {
-		// TODO Auto-generated method stub
-		return null;
+		return operationVariablename;
 	}
 
 	public boolean isConditional() {
-		// TODO Auto-generated method stub
-		return false;
+		return conditional;
 	}
 
 	public Object getConditionVariableName() {
-		// TODO Auto-generated method stub
-		return null;
+		return conditionVariableName;
 	}
 
 	public Integer getConditionComparedValue() {
-		// TODO Auto-generated method stub
-		return null;
+		return conditionComparedValue;
 	}
 
 	public boolean isConditionEqual() {
-		// TODO Auto-generated method stub
-		return false;
+		return conditionEqual;
 	}
 
 	public boolean isConditionGreaterThan() {
-		// TODO Auto-generated method stub
-		return false;
+		return conditionGreaterThan;
 	}
 
 	public boolean isConditionLessThan() {
-		// TODO Auto-generated method stub
-		return false;
+		return conditionLessThan;
 	}
 
 	public boolean hasOperation() {
-		// TODO Auto-generated method stub
-		return false;
+		return operation;
 	}
 
+	public void setEvent(String event) {
+		this.event = event;
+	}
+
+	public void setTarget(State target) {
+		this.target = target;
+	}
+
+	public void setOperationVariablename(String operationVariablename) {
+		this.operationVariablename = operationVariablename;
+	}
+
+	public void setConditionVariableName(String conditionVariableName) {
+		if(conditionVariableName != null) {
+			conditional = true;			
+		}
+		this.conditionVariableName = conditionVariableName;
+	}
+
+	public void setConditionComparedValue(Integer conditionComparedValue) {
+		this.conditionComparedValue = conditionComparedValue;
+	}
+
+	public void setIncrementOperation(boolean incrementOperation) {
+		this.incrementOperation = incrementOperation;
+	}
+
+	public void setDecrementOperation(boolean decrementOperation) {
+		this.decrementOperation = decrementOperation;
+	}
+
+	public void setSetOperation(boolean setOperation) {
+		this.setOperation = setOperation;
+	}
+
+	/*public void setConditional(boolean conditional) {
+		this.conditional = conditional;
+	}*/
+
+	public void setConditionGreaterThan(boolean conditionGreaterThan) {
+		this.conditionGreaterThan = conditionGreaterThan;
+	}
+
+	public void setConditionLessThan(boolean conditionLessThan) {
+		this.conditionLessThan = conditionLessThan;
+	}
+
+	public void setConditionEqual(boolean conditionequal) {
+		this.conditionEqual = conditionequal;
+	}
+
+	public void setOperation(boolean operation) {
+		this.operation = operation;
+	}
+
+	
 }
