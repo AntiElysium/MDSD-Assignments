@@ -28,5 +28,11 @@ public class State {
 	public Transition getTransitionByEvent(String string) {
 		return transitions.get(string);
 	}
+	
+	public void setTransitions(List<Transition> transitions) {
+		transitions.forEach(transition => {
+			this.transitions.put(TRANSITION EVENT NAME, TRANSITION ITSELF)
+		});
+	}
 
 }

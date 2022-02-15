@@ -34,7 +34,9 @@ public class StateMachine {
 		/*if(eventName != null) {
 			Transition transition = new Transition();
 		}*/
-		transitions.put(string,new Transition());
+		Transition trans = new Transition();
+		trans.setEvent(string);
+		transitions.put(string,trans);
 		currentTransition = string;
 		return this;
 	}
