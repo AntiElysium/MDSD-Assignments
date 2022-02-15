@@ -5,7 +5,7 @@ public class Transition {
 	private String event; //Event fires transition
 	private State target;
 	private String operationVariablename, conditionVariableName;
-	private Integer operationVariableValue, conditionComparedValue;
+	private Integer conditionComparedValue;
 	private boolean incrementOperation = false;
 	private boolean decrementOperation = false;
 	private boolean setOperation = false;
@@ -75,9 +75,8 @@ public class Transition {
 		this.target = target;
 	}
 
-	public void setOperationVariables(String operationVariablename, int operationVariableValue) {
+	public void setOperationVariablename(String operationVariablename) {
 		this.operationVariablename = operationVariablename;
-		this.operationVariableValue = operationVariableValue;
 	}
 
 	public void setConditionVariableName(String conditionVariableName) {

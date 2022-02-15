@@ -10,9 +10,9 @@ public class Machine {
 	private Map<String, State> states;
 	private List<String> variables; //We only have integers so no need to store types.
 	
-	/*public Machine(State initialState) {
+	public Machine(State initialState) {
 		this.initialState = initialState;
-	}*/
+	}
 	
 	public List<State> getStates() {
 		return new ArrayList<State>(states.values());
