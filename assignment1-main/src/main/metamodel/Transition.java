@@ -79,6 +79,10 @@ public class Transition {
 		this.operationVariablename = operationVariablename;
 		this.operationVariableValue = operationVariableValue;
 	}
+	
+	public void setOperationVariableName(String operationVariableName) {
+		this.operationVariablename = operationVariableName;
+	}
 
 	public void setConditionVariableName(String conditionVariableName) {
 		if(conditionVariableName != null) {

@@ -30,8 +30,8 @@ public class State {
 	}
 	
 	public void setTransitions(List<Transition> transitions) {
-		transitions.forEach(transition => {
-			this.transitions.put(TRANSITION EVENT NAME, TRANSITION ITSELF)
+		transitions.forEach(transition -> {
+			this.transitions.put((String) transition.getEvent(), transition);
 		});
 	}
 

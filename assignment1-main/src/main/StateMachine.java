@@ -15,6 +15,7 @@ public class StateMachine {
 	private Machine metamodel = new Machine();
 	private Map<String,State> states;
 	private String currentTransition;
+	private String currStateEvent;
 	
 	public Machine build() {
 		//Take lists of states and transitions and give to a new machine object and return it?
@@ -23,10 +24,12 @@ public class StateMachine {
 
 	public StateMachine state(String string) {
 		states.put(string, new State(string));
+		currStateEvent = string;
 		return this;
 	}
 
 	public StateMachine initial() {
+		metamodel.setInitialState(states.get(currStateEvent));
 		return this;
 	}
 
@@ -49,6 +52,7 @@ public class StateMachine {
 	}
 
 	public StateMachine integer(String string) {
+		metamodel.addVariable(string);
 		return this;
 	}
 
@@ -60,34 +64,48 @@ public class StateMachine {
 	}
 
 	public StateMachine increment(String string) {
-		incrementName = string;
+		//incrementName = string;
+		Transition currTran = transitions.get(currentTransition);
+		currTran.setOperationVariableName(string);
+		currTran.setIncrementOperation(true);
 		return this;
 	}
 
 	public StateMachine decrement(String string) {
-		decrementName = string;
+		//decrementName = string;
+		Transition currTran = transitions.get(currentTransition);
+		currTran.setOperationVariableName(string);
+		currTran.setDecrementOperation(true);
 		return this;
 	}
 
 	public StateMachine ifEquals(String string, int i) {
 		//equalsConditionName = string;
 		//equalsConditionValue = i;
-		Transition curr = transitions.get(currentTransition);
-		curr.setConditionVariableName(string);
-		curr.setConditionComparedValue(i);
-		curr.setConditionEqual(true);
+		Transition currTran = transitions.get(currentTransition);
+		currTran.setConditionVariableName(string);
+		currTran.setConditionComparedValue(i);
+		currTran.setConditionEqual(true);
 		return this;
 	}
 
 	public StateMachine ifGreaterThan(String string, int i) {
-		greaterConditionName = string;
-		greaterConditionValue = i;
+		//greaterConditionName = string;
+		//greaterConditionValue = i;
+		Transition currTran = transitions.get(currentTransition);
+		currTran.setConditionVariableName(string);
+		currTran.setConditionComparedValue(i);
+		currTran.setConditionGreaterThan(true);
 		return this;
 	}
 
 	public StateMachine ifLessThan(String string, int i) {
-		lessConditionName = string;
-		lessConditionValue = i;
+		//lessConditionName = string;
+		//lessConditionValue = i;
+		Transition currTran = transitions.get(currentTransition);
+		currTran.setConditionVariableName(string);
+		currTran.setConditionComparedValue(i);
+		currTran.setConditionLessThan(true);
 		return this;
 	}
 

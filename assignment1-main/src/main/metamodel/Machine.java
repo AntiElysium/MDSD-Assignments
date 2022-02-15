@@ -14,10 +14,18 @@ public class Machine {
 		this.initialState = initialState;
 	}*/
 	
+	public void setInitialState(State state) {
+		this.initialState = state;
+	}
+	
 	public List<State> getStates() {
 		return new ArrayList<State>(states.values());
 	}
 
+	public void addVariable(String variable) {
+		variables.add(variable);
+	}
+	
 	public State getInitialState() {
 		return initialState;
 	}
