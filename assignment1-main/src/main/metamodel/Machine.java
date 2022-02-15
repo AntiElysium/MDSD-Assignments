@@ -8,7 +8,7 @@ public class Machine {
 
 	private State initialState;
 	private Map<String, State> states;
-	private List<String> variables; //We only have integers so no need to store types.
+	private Map<String, Integer> variables; //We only have integers so no need to store types.
 	
 	/*public Machine(State initialState) {
 		this.initialState = initialState;
@@ -22,8 +22,8 @@ public class Machine {
 		return new ArrayList<State>(states.values());
 	}
 
-	public void addVariable(String variable) {
-		variables.add(variable);
+	public void addVariable(String variable, int value) {
+		variables.put(variable, value);
 	}
 	
 	public State getInitialState() {
@@ -39,7 +39,7 @@ public class Machine {
 	}
 
 	public boolean hasInteger(String string) {
-		return variables.contains(string);
+		return variables.get(string) != null;
 	}
 
 }

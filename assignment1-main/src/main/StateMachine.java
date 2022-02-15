@@ -52,7 +52,7 @@ public class StateMachine {
 	}
 
 	public StateMachine integer(String string) {
-		metamodel.addVariable(string);
+		metamodel.addVariable(string, 0);
 		return this;
 	}
 
