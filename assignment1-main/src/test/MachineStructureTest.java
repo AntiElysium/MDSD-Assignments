@@ -97,6 +97,7 @@ public class MachineStructureTest {
 					build();
 		State state = m.getState("state 1");
 		List<Transition> transitions = state.getTransitions();
+		System.out.println("Transitions size " + transitions.size());
 		assertEquals(2, transitions.size());
 		assertTrue(transitions.stream().anyMatch(transition -> transition.getEvent().equals("change to 2")));
 		assertEquals("state 2", state.getTransitionByEvent("change to 2").getTarget().getName());
@@ -135,6 +136,7 @@ public class MachineStructureTest {
 					state("state 2").
 					build();
 		Transition transition = m.getState("state 1").getTransitions().get(0);
+		System.out.println("Transition " + transition);
 		assertTrue(transition.hasSetOperation());
 		assertFalse(transition.hasIncrementOperation());
 		assertFalse(transition.hasDecrementOperation());

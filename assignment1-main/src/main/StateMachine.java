@@ -29,6 +29,10 @@ public class StateMachine {
 	}
 
 	public StateMachine state(String string) {
+		if(currStateEvent != null) {
+			states.get(currStateEvent).setTransitions(transitions);
+			transitions = new HashMap<>();			
+		}
 		states.put(string, new State(string));
 		currStateEvent = string;
 		return this;
