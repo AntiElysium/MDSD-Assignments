@@ -69,7 +69,9 @@ public class StateMachine {
 	public StateMachine set(String string, int i) {
 		//variableName = string;
 		//variableValue = i;
-		transitions.get(currentTransition).setOperationVariables(string, i);
+		Transition currTran = transitions.get(currentTransition);
+		currTran.setOperationVariables(string, i);
+		currTran.setSetOperation(true);
 		return this;
 	}
 
@@ -78,6 +80,7 @@ public class StateMachine {
 		Transition currTran = transitions.get(currentTransition);
 		currTran.setOperationVariableName(string);
 		currTran.setIncrementOperation(true);
+		currTran.setOperation(true);
 		return this;
 	}
 
@@ -86,6 +89,7 @@ public class StateMachine {
 		Transition currTran = transitions.get(currentTransition);
 		currTran.setOperationVariableName(string);
 		currTran.setDecrementOperation(true);
+		currTran.setOperation(true);
 		return this;
 	}
 
