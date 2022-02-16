@@ -46,12 +46,16 @@ public class StateMachine {
 	}
 
 	public StateMachine when(String string) {
+		if(transitions.containsKey(string) ) {
+			return this;
+		}
 		/*if(eventName != null) {
 			Transition transition = new Transition();
 		}*/
 		Transition trans = new Transition();
 		trans.setEvent(string);
 		transitions.put(string,trans);
+		System.out.println("Transitions "+ transitions);
 		currentTransition = string;
 		return this;
 	}
@@ -80,18 +84,22 @@ public class StateMachine {
 	public StateMachine increment(String string) {
 		//incrementName = string;
 		Transition currTran = transitions.get(currentTransition);
-		currTran.setOperationVariableName(string);
-		currTran.setIncrementOperation(true);
-		currTran.setOperation(true);
+		if(!currTran.hasDecrementOperation()) {
+			currTran.setOperationVariableName(string);
+			currTran.setIncrementOperation(true);
+			currTran.setOperation(true);			
+		}
 		return this;
 	}
 
 	public StateMachine decrement(String string) {
 		//decrementName = string;
 		Transition currTran = transitions.get(currentTransition);
-		currTran.setOperationVariableName(string);
-		currTran.setDecrementOperation(true);
-		currTran.setOperation(true);
+		if(!currTran.hasIncrementOperation()) {
+			currTran.setOperationVariableName(string);
+			currTran.setDecrementOperation(true);
+			currTran.setOperation(true);			
+		}
 		return this;
 	}
 
