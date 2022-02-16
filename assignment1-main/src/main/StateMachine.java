@@ -33,7 +33,9 @@ public class StateMachine {
 			states.get(currStateEvent).setTransitions(transitions);
 			transitions = new HashMap<>();			
 		}
-		states.put(string, new State(string));
+		if(states.get(string) == null) {
+			states.put(string, new State(string));			
+		}
 		currStateEvent = string;
 		return this;
 	}

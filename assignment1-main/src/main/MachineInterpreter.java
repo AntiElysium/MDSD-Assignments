@@ -2,6 +2,7 @@ package main;
 
 import main.metamodel.Machine;
 import main.metamodel.State;
+import main.metamodel.Transition;
 
 public class MachineInterpreter {
 
@@ -19,6 +20,10 @@ public class MachineInterpreter {
 
 	public void processEvent(String string) {
 		
+		Transition t = currentState.getTransitionByEvent(string);
+		if(t != null) {
+			currentState = t.getTarget();
+		}
 	}
 
 	public int getInteger(String string) {
