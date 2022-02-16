@@ -36,6 +36,10 @@ public class Machine {
 		variables.put(variable, value);
 	}
 	
+	public int getVariable(String variable) {
+		return variables.get(variable);
+	}
+	
 	public State getInitialState() {
 		return initialState;
 	}

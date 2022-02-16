@@ -38,6 +38,10 @@ public class Transition {
 	public Object getOperationVariableName() {
 		return operationVariablename;
 	}
+	
+	public int getOperationVariableValue() {
+		return operationVariableValue;
+	}
 
 	public boolean isConditional() {
 		return conditional;

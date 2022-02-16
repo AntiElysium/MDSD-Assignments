@@ -19,15 +19,25 @@ public class MachineInterpreter {
 	}
 
 	public void processEvent(String string) {
-		
 		Transition t = currentState.getTransitionByEvent(string);
-		if(t != null) {
-			currentState = t.getTarget();
+		if(t == null) {
+			return;
 		}
+		checkForOperationVar(t);
+		
+		
+		currentState = t.getTarget();
 	}
 
 	public int getInteger(String string) {
-		return 0;
+		return machine.getVariable(string);
 	}
-
+	
+	private void checkForOperationVar(Transition t) {
+		String varName = (String) t.getOperationVariableName();
+		if(varName != null) {
+			machine.addVariable(varName, t.getOperationVariableValue());
+		}
+	}
+	
 }
