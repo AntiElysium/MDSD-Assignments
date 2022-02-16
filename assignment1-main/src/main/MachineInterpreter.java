@@ -19,6 +19,7 @@ public class MachineInterpreter {
 	}
 
 	public void processEvent(String string) {
+		boolean conditionFulfilled = true;
 		Transition t = currentState.getTransitionByEvent(string);
 		if(t == null) {
 			return;
@@ -30,9 +31,14 @@ public class MachineInterpreter {
 			checkForIncrementOperation(t);
 			checkForDecrementOperation(t);
 		}
+		if(t.isConditional()) {
+			conditionFulfilled = false;
+			conditionFulfilled = checkForEqualOperation(t, conditionFulfilled);
+			conditionFulfilled = checkForGreaterOperation(t, conditionFulfilled);
+			conditionFulfilled = checkForLessOperation(t, conditionFulfilled);
+		}
 		
-		
-		currentState = t.getTarget();
+		if(conditionFulfilled) currentState = t.getTarget();
 	}
 
 	public int getInteger(String string) {
@@ -58,4 +64,27 @@ public class MachineInterpreter {
 		}
 	}
 	
+	private boolean checkForEqualOperation(Transition t, boolean b) {
+		if(t.isConditionEqual()) {
+			int val = machine.getVariable((String) t.getConditionVariableName());
+			return val == t.getConditionComparedValue();
+		} 
+		return b;
+	}
+	
+	private boolean checkForLessOperation(Transition t, boolean b) {
+		if(t.isConditionLessThan()) {
+			int val = machine.getVariable((String) t.getConditionVariableName());
+			return val < t.getConditionComparedValue();
+		}
+		return b;		
+	}
+	
+	private boolean checkForGreaterOperation(Transition t, boolean b) {
+		if(t.isConditionGreaterThan()) {
+			int val = machine.getVariable((String) t.getConditionVariableName());
+			return val > t.getConditionComparedValue();
+		}
+		return b;
+	}
 }
