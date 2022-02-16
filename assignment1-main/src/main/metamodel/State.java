@@ -1,6 +1,7 @@
 package main.metamodel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,11 @@ public class State {
 	
 	public State(String name) {
 		this.name = name;
+		transitions = new HashMap<>();
+	}
+	
+	public void setTransitions(Map<String, Transition> transitions) {
+		this.transitions = transitions;
 	}
 
 	public Object getName() {

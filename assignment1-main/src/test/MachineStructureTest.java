@@ -25,7 +25,6 @@ public class MachineStructureTest {
 	@Test
 	public void emptyMachine() {
 		Machine m = stateMachine.build();
-		
 		assertTrue(m.getStates().isEmpty());
 	}
 	

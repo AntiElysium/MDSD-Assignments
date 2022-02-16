@@ -1,6 +1,7 @@
 package main.metamodel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,8 +15,17 @@ public class Machine {
 		this.initialState = initialState;
 	}*/
 	
+	public Machine() {
+		states = new HashMap<>();
+		variables = new HashMap<>();
+	}
+	
 	public void setInitialState(State state) {
 		this.initialState = state;
+	}
+	
+	public void setStates(Map<String, State> states) {
+		this.states = states;
 	}
 	
 	public List<State> getStates() {

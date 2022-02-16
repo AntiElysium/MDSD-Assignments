@@ -1,6 +1,6 @@
 package main;
 
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 import main.metamodel.Machine;
@@ -17,8 +17,14 @@ public class StateMachine {
 	private String currentTransition;
 	private String currStateEvent;
 	
+	public StateMachine() {
+		states = new HashMap<>();
+		transitions = new HashMap<>();
+	}
+	
 	public Machine build() {
 		//Take lists of states and transitions and give to a new machine object and return it?
+		metamodel.setStates(states);
 		return metamodel;
 	}
 
