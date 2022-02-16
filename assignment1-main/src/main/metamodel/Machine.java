@@ -36,6 +36,14 @@ public class Machine {
 		variables.put(variable, value);
 	}
 	
+	public void incrementVariable(String variable) {
+		variables.replace(variable, variables.get(variable)+1);
+	}
+	
+	public void decrementVariable(String variable) {
+		variables.replace(variable, variables.get(variable)-1);
+	}
+	
 	public int getVariable(String variable) {
 		return variables.get(variable);
 	}

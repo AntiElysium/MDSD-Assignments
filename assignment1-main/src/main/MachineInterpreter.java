@@ -23,7 +23,13 @@ public class MachineInterpreter {
 		if(t == null) {
 			return;
 		}
-		checkForOperationVar(t);
+		if(t.hasSetOperation()) {
+			checkForOperationVar(t);
+		}
+		if(t.hasOperation()) {
+			checkForIncrementOperation(t);
+			checkForDecrementOperation(t);
+		}
 		
 		
 		currentState = t.getTarget();
@@ -37,6 +43,18 @@ public class MachineInterpreter {
 		String varName = (String) t.getOperationVariableName();
 		if(varName != null) {
 			machine.addVariable(varName, t.getOperationVariableValue());
+		}
+	}
+	
+	private void checkForIncrementOperation(Transition t) {
+		if(t.hasIncrementOperation()) {
+			machine.incrementVariable((String) t.getOperationVariableName());
+		}
+	}
+	
+	private void checkForDecrementOperation(Transition t) {
+		if(t.hasDecrementOperation()) {
+			machine.decrementVariable((String) t.getOperationVariableName());
 		}
 	}
 	
