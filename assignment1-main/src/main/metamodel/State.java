@@ -8,11 +8,7 @@ import java.util.Map;
 public class State {
 	
 	private String name;
-	
-	//String is event. (The string that is in when("ME"))
 	private Map<String, Transition> transitions;
-	
-	//Add way to add transitions either through constructor or adder
 	
 	public State(String name) {
 		this.name = name;
@@ -40,5 +36,4 @@ public class State {
 			this.transitions.put((String) transition.getEvent(), transition);
 		});
 	}
-
 }

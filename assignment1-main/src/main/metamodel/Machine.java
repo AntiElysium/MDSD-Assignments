@@ -10,11 +10,7 @@ public class Machine {
 	private State initialState;
 	private Map<String, State> states;
 	private Map<String, Integer> variables; //We only have integers so no need to store types.
-	
-	/*public Machine(State initialState) {
-		this.initialState = initialState;
-	}*/
-	
+
 	public Machine() {
 		states = new HashMap<>();
 		variables = new HashMap<>();
@@ -63,5 +59,4 @@ public class Machine {
 	public boolean hasInteger(String string) {
 		return variables.get(string) != null;
 	}
-
 }

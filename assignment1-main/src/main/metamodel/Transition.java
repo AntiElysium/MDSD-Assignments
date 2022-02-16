@@ -111,10 +111,6 @@ public class Transition {
 		this.setOperation = setOperation;
 	}
 
-	/*public void setConditional(boolean conditional) {
-		this.conditional = conditional;
-	}*/
-
 	public void setConditionGreaterThan(boolean conditionGreaterThan) {
 		this.conditionGreaterThan = conditionGreaterThan;
 	}
@@ -130,6 +126,4 @@ public class Transition {
 	public void setOperation(boolean operation) {
 		this.operation = operation;
 	}
-
-	
 }
