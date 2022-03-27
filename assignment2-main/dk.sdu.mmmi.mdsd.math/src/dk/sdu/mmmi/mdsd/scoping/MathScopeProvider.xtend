@@ -3,6 +3,8 @@
  */
 package dk.sdu.mmmi.mdsd.scoping
 
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +13,21 @@ package dk.sdu.mmmi.mdsd.scoping
  * on how and when to use it.
  */
 class MathScopeProvider extends AbstractMathScopeProvider {
-
+	/*val epackage = dk.sdu.mmmi.mdsd.math.eINSTANCE
+	
+	override getScope(EObject context, EReference reference){
+		if (reference == epackage.SJSymbolRef_Symbol) {
+			return scopeForSymbolRef(context)
+		} else {
+			return super.getScope(context, reference)
+		}
+	}
+	
+	def protected IScope scopeForSymbolRef(EObject context){
+		val container = context.eContainer
+		return switch(container){
+			
+			default: scopeForSymbolRef(container)
+		}
+	}*/
 }
