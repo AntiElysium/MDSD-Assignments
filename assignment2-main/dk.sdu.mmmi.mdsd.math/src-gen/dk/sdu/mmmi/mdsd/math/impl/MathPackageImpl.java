@@ -3,16 +3,15 @@
  */
 package dk.sdu.mmmi.mdsd.math.impl;
 
-import dk.sdu.mmmi.mdsd.math.Div;
+import dk.sdu.mmmi.mdsd.math.Divide;
 import dk.sdu.mmmi.mdsd.math.Exp;
-import dk.sdu.mmmi.mdsd.math.ExpOp;
 import dk.sdu.mmmi.mdsd.math.LetMath;
 import dk.sdu.mmmi.mdsd.math.Letend;
 import dk.sdu.mmmi.mdsd.math.MathExp;
 import dk.sdu.mmmi.mdsd.math.MathFactory;
 import dk.sdu.mmmi.mdsd.math.MathPackage;
 import dk.sdu.mmmi.mdsd.math.Minus;
-import dk.sdu.mmmi.mdsd.math.Mult;
+import dk.sdu.mmmi.mdsd.math.Multiply;
 import dk.sdu.mmmi.mdsd.math.OriginExp;
 import dk.sdu.mmmi.mdsd.math.Parenthesis;
 import dk.sdu.mmmi.mdsd.math.Plus;
@@ -54,13 +53,6 @@ public class MathPackageImpl extends EPackageImpl implements MathPackage
    * @generated
    */
   private EClass expEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass expOpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -123,14 +115,14 @@ public class MathPackageImpl extends EPackageImpl implements MathPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass multEClass = null;
+  private EClass multiplyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass divEClass = null;
+  private EClass divideEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -237,50 +229,6 @@ public class MathPackageImpl extends EPackageImpl implements MathPackage
   public EClass getExp()
   {
     return expEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExp_Left()
-  {
-    return (EReference)expEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExp_Operator()
-  {
-    return (EReference)expEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getExp_Right()
-  {
-    return (EReference)expEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getExpOp()
-  {
-    return expOpEClass;
   }
 
   /**
@@ -432,6 +380,28 @@ public class MathPackageImpl extends EPackageImpl implements MathPackage
    * @generated
    */
   @Override
+  public EReference getPlus_Left()
+  {
+    return (EReference)plusEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPlus_Right()
+  {
+    return (EReference)plusEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getMinus()
   {
     return minusEClass;
@@ -443,9 +413,9 @@ public class MathPackageImpl extends EPackageImpl implements MathPackage
    * @generated
    */
   @Override
-  public EClass getMult()
+  public EReference getMinus_Left()
   {
-    return multEClass;
+    return (EReference)minusEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -454,9 +424,75 @@ public class MathPackageImpl extends EPackageImpl implements MathPackage
    * @generated
    */
   @Override
-  public EClass getDiv()
+  public EReference getMinus_Right()
   {
-    return divEClass;
+    return (EReference)minusEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMultiply()
+  {
+    return multiplyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMultiply_Left()
+  {
+    return (EReference)multiplyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMultiply_Right()
+  {
+    return (EReference)multiplyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDivide()
+  {
+    return divideEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDivide_Left()
+  {
+    return (EReference)divideEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDivide_Right()
+  {
+    return (EReference)divideEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -496,11 +532,6 @@ public class MathPackageImpl extends EPackageImpl implements MathPackage
     mathExpEClass = createEClass(MATH_EXP);
 
     expEClass = createEClass(EXP);
-    createEReference(expEClass, EXP__LEFT);
-    createEReference(expEClass, EXP__OPERATOR);
-    createEReference(expEClass, EXP__RIGHT);
-
-    expOpEClass = createEClass(EXP_OP);
 
     primaryEClass = createEClass(PRIMARY);
 
@@ -521,12 +552,20 @@ public class MathPackageImpl extends EPackageImpl implements MathPackage
     createEReference(variableUseEClass, VARIABLE_USE__REF);
 
     plusEClass = createEClass(PLUS);
+    createEReference(plusEClass, PLUS__LEFT);
+    createEReference(plusEClass, PLUS__RIGHT);
 
     minusEClass = createEClass(MINUS);
+    createEReference(minusEClass, MINUS__LEFT);
+    createEReference(minusEClass, MINUS__RIGHT);
 
-    multEClass = createEClass(MULT);
+    multiplyEClass = createEClass(MULTIPLY);
+    createEReference(multiplyEClass, MULTIPLY__LEFT);
+    createEReference(multiplyEClass, MULTIPLY__RIGHT);
 
-    divEClass = createEClass(DIV);
+    divideEClass = createEClass(DIVIDE);
+    createEReference(divideEClass, DIVIDE__LEFT);
+    createEReference(divideEClass, DIVIDE__RIGHT);
   }
 
   /**
@@ -559,15 +598,16 @@ public class MathPackageImpl extends EPackageImpl implements MathPackage
 
     // Add supertypes to classes
     mathExpEClass.getESuperTypes().add(this.getLetMath());
+    primaryEClass.getESuperTypes().add(this.getExp());
     parenthesisEClass.getESuperTypes().add(this.getPrimary());
     letendEClass.getESuperTypes().add(this.getPrimary());
     letendEClass.getESuperTypes().add(this.getLetMath());
     numberEClass.getESuperTypes().add(this.getPrimary());
     variableUseEClass.getESuperTypes().add(this.getPrimary());
-    plusEClass.getESuperTypes().add(this.getExpOp());
-    minusEClass.getESuperTypes().add(this.getExpOp());
-    multEClass.getESuperTypes().add(this.getExpOp());
-    divEClass.getESuperTypes().add(this.getExpOp());
+    plusEClass.getESuperTypes().add(this.getExp());
+    minusEClass.getESuperTypes().add(this.getExp());
+    multiplyEClass.getESuperTypes().add(this.getExp());
+    divideEClass.getESuperTypes().add(this.getExp());
 
     // Initialize classes and features; add operations and parameters
     initEClass(originExpEClass, OriginExp.class, "OriginExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -576,11 +616,6 @@ public class MathPackageImpl extends EPackageImpl implements MathPackage
     initEClass(mathExpEClass, MathExp.class, "MathExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(expEClass, Exp.class, "Exp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExp_Left(), this.getPrimary(), null, "left", null, 0, 1, Exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExp_Operator(), this.getExpOp(), null, "operator", null, 0, 1, Exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExp_Right(), this.getExp(), null, "right", null, 0, 1, Exp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(expOpEClass, ExpOp.class, "ExpOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(primaryEClass, Primary.class, "Primary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -601,12 +636,20 @@ public class MathPackageImpl extends EPackageImpl implements MathPackage
     initEReference(getVariableUse_Ref(), this.getLetMath(), null, "ref", null, 0, 1, VariableUse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPlus_Left(), this.getExp(), null, "left", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPlus_Right(), this.getExp(), null, "right", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(minusEClass, Minus.class, "Minus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMinus_Left(), this.getExp(), null, "left", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMinus_Right(), this.getExp(), null, "right", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(multEClass, Mult.class, "Mult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(multiplyEClass, Multiply.class, "Multiply", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMultiply_Left(), this.getExp(), null, "left", null, 0, 1, Multiply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMultiply_Right(), this.getPrimary(), null, "right", null, 0, 1, Multiply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(divEClass, Div.class, "Div", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(divideEClass, Divide.class, "Divide", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDivide_Left(), this.getExp(), null, "left", null, 0, 1, Divide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDivide_Right(), this.getPrimary(), null, "right", null, 0, 1, Divide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

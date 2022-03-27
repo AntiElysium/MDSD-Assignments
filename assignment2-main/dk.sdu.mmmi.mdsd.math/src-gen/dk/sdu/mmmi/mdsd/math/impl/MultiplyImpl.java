@@ -5,7 +5,8 @@ package dk.sdu.mmmi.mdsd.math.impl;
 
 import dk.sdu.mmmi.mdsd.math.Exp;
 import dk.sdu.mmmi.mdsd.math.MathPackage;
-import dk.sdu.mmmi.mdsd.math.Plus;
+import dk.sdu.mmmi.mdsd.math.Multiply;
+import dk.sdu.mmmi.mdsd.math.Primary;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -17,19 +18,19 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Plus</b></em>'.
+ * An implementation of the model object '<em><b>Multiply</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link dk.sdu.mmmi.mdsd.math.impl.PlusImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link dk.sdu.mmmi.mdsd.math.impl.PlusImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link dk.sdu.mmmi.mdsd.math.impl.MultiplyImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link dk.sdu.mmmi.mdsd.math.impl.MultiplyImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PlusImpl extends ExpImpl implements Plus
+public class MultiplyImpl extends ExpImpl implements Multiply
 {
   /**
    * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
@@ -49,14 +50,14 @@ public class PlusImpl extends ExpImpl implements Plus
    * @generated
    * @ordered
    */
-  protected Exp right;
+  protected Primary right;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PlusImpl()
+  protected MultiplyImpl()
   {
     super();
   }
@@ -69,7 +70,7 @@ public class PlusImpl extends ExpImpl implements Plus
   @Override
   protected EClass eStaticClass()
   {
-    return MathPackage.Literals.PLUS;
+    return MathPackage.Literals.MULTIPLY;
   }
 
   /**
@@ -94,7 +95,7 @@ public class PlusImpl extends ExpImpl implements Plus
     left = newLeft;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MathPackage.PLUS__LEFT, oldLeft, newLeft);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MathPackage.MULTIPLY__LEFT, oldLeft, newLeft);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -112,14 +113,14 @@ public class PlusImpl extends ExpImpl implements Plus
     {
       NotificationChain msgs = null;
       if (left != null)
-        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MathPackage.PLUS__LEFT, null, msgs);
+        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MathPackage.MULTIPLY__LEFT, null, msgs);
       if (newLeft != null)
-        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MathPackage.PLUS__LEFT, null, msgs);
+        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MathPackage.MULTIPLY__LEFT, null, msgs);
       msgs = basicSetLeft(newLeft, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MathPackage.PLUS__LEFT, newLeft, newLeft));
+      eNotify(new ENotificationImpl(this, Notification.SET, MathPackage.MULTIPLY__LEFT, newLeft, newLeft));
   }
 
   /**
@@ -128,7 +129,7 @@ public class PlusImpl extends ExpImpl implements Plus
    * @generated
    */
   @Override
-  public Exp getRight()
+  public Primary getRight()
   {
     return right;
   }
@@ -138,13 +139,13 @@ public class PlusImpl extends ExpImpl implements Plus
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRight(Exp newRight, NotificationChain msgs)
+  public NotificationChain basicSetRight(Primary newRight, NotificationChain msgs)
   {
-    Exp oldRight = right;
+    Primary oldRight = right;
     right = newRight;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MathPackage.PLUS__RIGHT, oldRight, newRight);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MathPackage.MULTIPLY__RIGHT, oldRight, newRight);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -156,20 +157,20 @@ public class PlusImpl extends ExpImpl implements Plus
    * @generated
    */
   @Override
-  public void setRight(Exp newRight)
+  public void setRight(Primary newRight)
   {
     if (newRight != right)
     {
       NotificationChain msgs = null;
       if (right != null)
-        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MathPackage.PLUS__RIGHT, null, msgs);
+        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MathPackage.MULTIPLY__RIGHT, null, msgs);
       if (newRight != null)
-        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MathPackage.PLUS__RIGHT, null, msgs);
+        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MathPackage.MULTIPLY__RIGHT, null, msgs);
       msgs = basicSetRight(newRight, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MathPackage.PLUS__RIGHT, newRight, newRight));
+      eNotify(new ENotificationImpl(this, Notification.SET, MathPackage.MULTIPLY__RIGHT, newRight, newRight));
   }
 
   /**
@@ -182,9 +183,9 @@ public class PlusImpl extends ExpImpl implements Plus
   {
     switch (featureID)
     {
-      case MathPackage.PLUS__LEFT:
+      case MathPackage.MULTIPLY__LEFT:
         return basicSetLeft(null, msgs);
-      case MathPackage.PLUS__RIGHT:
+      case MathPackage.MULTIPLY__RIGHT:
         return basicSetRight(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -200,9 +201,9 @@ public class PlusImpl extends ExpImpl implements Plus
   {
     switch (featureID)
     {
-      case MathPackage.PLUS__LEFT:
+      case MathPackage.MULTIPLY__LEFT:
         return getLeft();
-      case MathPackage.PLUS__RIGHT:
+      case MathPackage.MULTIPLY__RIGHT:
         return getRight();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -218,11 +219,11 @@ public class PlusImpl extends ExpImpl implements Plus
   {
     switch (featureID)
     {
-      case MathPackage.PLUS__LEFT:
+      case MathPackage.MULTIPLY__LEFT:
         setLeft((Exp)newValue);
         return;
-      case MathPackage.PLUS__RIGHT:
-        setRight((Exp)newValue);
+      case MathPackage.MULTIPLY__RIGHT:
+        setRight((Primary)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -238,11 +239,11 @@ public class PlusImpl extends ExpImpl implements Plus
   {
     switch (featureID)
     {
-      case MathPackage.PLUS__LEFT:
+      case MathPackage.MULTIPLY__LEFT:
         setLeft((Exp)null);
         return;
-      case MathPackage.PLUS__RIGHT:
-        setRight((Exp)null);
+      case MathPackage.MULTIPLY__RIGHT:
+        setRight((Primary)null);
         return;
     }
     super.eUnset(featureID);
@@ -258,12 +259,12 @@ public class PlusImpl extends ExpImpl implements Plus
   {
     switch (featureID)
     {
-      case MathPackage.PLUS__LEFT:
+      case MathPackage.MULTIPLY__LEFT:
         return left != null;
-      case MathPackage.PLUS__RIGHT:
+      case MathPackage.MULTIPLY__RIGHT:
         return right != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //PlusImpl
+} //MultiplyImpl

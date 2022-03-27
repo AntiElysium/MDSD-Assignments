@@ -3,16 +3,15 @@
  */
 package dk.sdu.mmmi.mdsd.math.impl;
 
-import dk.sdu.mmmi.mdsd.math.Div;
+import dk.sdu.mmmi.mdsd.math.Divide;
 import dk.sdu.mmmi.mdsd.math.Exp;
-import dk.sdu.mmmi.mdsd.math.ExpOp;
 import dk.sdu.mmmi.mdsd.math.LetMath;
 import dk.sdu.mmmi.mdsd.math.Letend;
 import dk.sdu.mmmi.mdsd.math.MathExp;
 import dk.sdu.mmmi.mdsd.math.MathFactory;
 import dk.sdu.mmmi.mdsd.math.MathPackage;
 import dk.sdu.mmmi.mdsd.math.Minus;
-import dk.sdu.mmmi.mdsd.math.Mult;
+import dk.sdu.mmmi.mdsd.math.Multiply;
 import dk.sdu.mmmi.mdsd.math.OriginExp;
 import dk.sdu.mmmi.mdsd.math.Parenthesis;
 import dk.sdu.mmmi.mdsd.math.Plus;
@@ -82,7 +81,6 @@ public class MathFactoryImpl extends EFactoryImpl implements MathFactory
       case MathPackage.ORIGIN_EXP: return createOriginExp();
       case MathPackage.MATH_EXP: return createMathExp();
       case MathPackage.EXP: return createExp();
-      case MathPackage.EXP_OP: return createExpOp();
       case MathPackage.PRIMARY: return createPrimary();
       case MathPackage.PARENTHESIS: return createParenthesis();
       case MathPackage.LETEND: return createLetend();
@@ -91,8 +89,8 @@ public class MathFactoryImpl extends EFactoryImpl implements MathFactory
       case MathPackage.VARIABLE_USE: return createVariableUse();
       case MathPackage.PLUS: return createPlus();
       case MathPackage.MINUS: return createMinus();
-      case MathPackage.MULT: return createMult();
-      case MathPackage.DIV: return createDiv();
+      case MathPackage.MULTIPLY: return createMultiply();
+      case MathPackage.DIVIDE: return createDivide();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -132,18 +130,6 @@ public class MathFactoryImpl extends EFactoryImpl implements MathFactory
   {
     ExpImpl exp = new ExpImpl();
     return exp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ExpOp createExpOp()
-  {
-    ExpOpImpl expOp = new ExpOpImpl();
-    return expOp;
   }
 
   /**
@@ -248,10 +234,10 @@ public class MathFactoryImpl extends EFactoryImpl implements MathFactory
    * @generated
    */
   @Override
-  public Mult createMult()
+  public Multiply createMultiply()
   {
-    MultImpl mult = new MultImpl();
-    return mult;
+    MultiplyImpl multiply = new MultiplyImpl();
+    return multiply;
   }
 
   /**
@@ -260,10 +246,10 @@ public class MathFactoryImpl extends EFactoryImpl implements MathFactory
    * @generated
    */
   @Override
-  public Div createDiv()
+  public Divide createDivide()
   {
-    DivImpl div = new DivImpl();
-    return div;
+    DivideImpl divide = new DivideImpl();
+    return divide;
   }
 
   /**

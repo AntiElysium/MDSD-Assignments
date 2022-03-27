@@ -175,78 +175,25 @@ ruleExp returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getExpAccess().getLeftPrimaryParserRuleCall_0_0());
-				}
-				lv_left_0_0=rulePrimary
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getExpRule());
-					}
-					set(
-						$current,
-						"left",
-						lv_left_0_0,
-						"dk.sdu.mmmi.mdsd.Math.Primary");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getExpAccess().getOperatorExpOpParserRuleCall_1_0_0());
-					}
-					lv_operator_1_0=ruleExpOp
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getExpRule());
-						}
-						set(
-							$current,
-							"operator",
-							lv_operator_1_0,
-							"dk.sdu.mmmi.mdsd.Math.ExpOp");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getExpAccess().getRightExpParserRuleCall_1_1_0());
-					}
-					lv_right_2_0=ruleExp
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getExpRule());
-						}
-						set(
-							$current,
-							"right",
-							lv_right_2_0,
-							"dk.sdu.mmmi.mdsd.Math.Exp");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-	)
+	{
+		newCompositeNode(grammarAccess.getExpAccess().getPlusOrMinusParserRuleCall());
+	}
+	this_PlusOrMinus_0=rulePlusOrMinus
+	{
+		$current = $this_PlusOrMinus_0.current;
+		afterParserOrEnumRuleCall();
+	}
 ;
 
-// Entry rule entryRuleExpOp
-entryRuleExpOp returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpOpRule()); }
-	iv_ruleExpOp=ruleExpOp
-	{ $current=$iv_ruleExpOp.current; }
+// Entry rule entryRulePlusOrMinus
+entryRulePlusOrMinus returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPlusOrMinusRule()); }
+	iv_rulePlusOrMinus=rulePlusOrMinus
+	{ $current=$iv_rulePlusOrMinus.current; }
 	EOF;
 
-// Rule ExpOp
-ruleExpOp returns [EObject current=null]
+// Rule PlusOrMinus
+rulePlusOrMinus returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -254,61 +201,175 @@ ruleExpOp returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		{
+			newCompositeNode(grammarAccess.getPlusOrMinusAccess().getMulOrDivParserRuleCall_0());
+		}
+		this_MulOrDiv_0=ruleMulOrDiv
+		{
+			$current = $this_MulOrDiv_0.current;
+			afterParserOrEnumRuleCall();
+		}
 		(
 			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getPlusOrMinusAccess().getPlusLeftAction_1_0_0(),
+							$current);
+					}
+				)
+				otherlv_2='+'
 				{
-					$current = forceCreateModelElement(
-						grammarAccess.getExpOpAccess().getPlusAction_0_0(),
-						$current);
+					newLeafNode(otherlv_2, grammarAccess.getPlusOrMinusAccess().getPlusSignKeyword_1_0_1());
 				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getPlusOrMinusAccess().getRightMulOrDivParserRuleCall_1_0_2_0());
+						}
+						lv_right_3_0=ruleMulOrDiv
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getPlusOrMinusRule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_3_0,
+								"dk.sdu.mmmi.mdsd.Math.MulOrDiv");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
 			)
-			otherlv_1='+'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getExpOpAccess().getPlusSignKeyword_0_1());
-			}
-		)
-		    |
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getPlusOrMinusAccess().getMinusLeftAction_1_1_0(),
+							$current);
+					}
+				)
+				otherlv_5='-'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getPlusOrMinusAccess().getHyphenMinusKeyword_1_1_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getPlusOrMinusAccess().getRightMulOrDivParserRuleCall_1_1_2_0());
+						}
+						lv_right_6_0=ruleMulOrDiv
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getPlusOrMinusRule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_6_0,
+								"dk.sdu.mmmi.mdsd.Math.MulOrDiv");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleMulOrDiv
+entryRuleMulOrDiv returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMulOrDivRule()); }
+	iv_ruleMulOrDiv=ruleMulOrDiv
+	{ $current=$iv_ruleMulOrDiv.current; }
+	EOF;
+
+// Rule MulOrDiv
+ruleMulOrDiv returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getMulOrDivAccess().getPrimaryParserRuleCall_0());
+		}
+		this_Primary_0=rulePrimary
+		{
+			$current = $this_Primary_0.current;
+			afterParserOrEnumRuleCall();
+		}
 		(
 			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getMulOrDivAccess().getMultiplyLeftAction_1_0_0(),
+							$current);
+					}
+				)
+				otherlv_2='*'
 				{
-					$current = forceCreateModelElement(
-						grammarAccess.getExpOpAccess().getMinusAction_1_0(),
-						$current);
+					newLeafNode(otherlv_2, grammarAccess.getMulOrDivAccess().getAsteriskKeyword_1_0_1());
 				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getMulOrDivAccess().getRightPrimaryParserRuleCall_1_0_2_0());
+						}
+						lv_right_3_0=rulePrimary
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getMulOrDivRule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_3_0,
+								"dk.sdu.mmmi.mdsd.Math.Primary");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
 			)
-			otherlv_3='-'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getExpOpAccess().getHyphenMinusKeyword_1_1());
-			}
-		)
-		    |
-		(
+			    |
 			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getMulOrDivAccess().getDivideLeftAction_1_1_0(),
+							$current);
+					}
+				)
+				otherlv_5='/'
 				{
-					$current = forceCreateModelElement(
-						grammarAccess.getExpOpAccess().getMultAction_2_0(),
-						$current);
+					newLeafNode(otherlv_5, grammarAccess.getMulOrDivAccess().getSolidusKeyword_1_1_1());
 				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getMulOrDivAccess().getRightPrimaryParserRuleCall_1_1_2_0());
+						}
+						lv_right_6_0=rulePrimary
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getMulOrDivRule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_6_0,
+								"dk.sdu.mmmi.mdsd.Math.Primary");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
 			)
-			otherlv_5='*'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getExpOpAccess().getAsteriskKeyword_2_1());
-			}
-		)
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getExpOpAccess().getDivAction_3_0(),
-						$current);
-				}
-			)
-			otherlv_7='/'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getExpOpAccess().getSolidusKeyword_3_1());
-			}
-		)
+		)*
 	)
 ;
 

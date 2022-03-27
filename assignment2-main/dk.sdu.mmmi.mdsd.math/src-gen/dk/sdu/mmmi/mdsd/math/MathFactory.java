@@ -51,15 +51,6 @@ public interface MathFactory extends EFactory
   Exp createExp();
 
   /**
-   * Returns a new object of class '<em>Exp Op</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Exp Op</em>'.
-   * @generated
-   */
-  ExpOp createExpOp();
-
-  /**
    * Returns a new object of class '<em>Primary</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -132,22 +123,22 @@ public interface MathFactory extends EFactory
   Minus createMinus();
 
   /**
-   * Returns a new object of class '<em>Mult</em>'.
+   * Returns a new object of class '<em>Multiply</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mult</em>'.
+   * @return a new object of class '<em>Multiply</em>'.
    * @generated
    */
-  Mult createMult();
+  Multiply createMultiply();
 
   /**
-   * Returns a new object of class '<em>Div</em>'.
+   * Returns a new object of class '<em>Divide</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Div</em>'.
+   * @return a new object of class '<em>Divide</em>'.
    * @generated
    */
-  Div createDiv();
+  Divide createDivide();
 
   /**
    * Returns the package supported by this factory.

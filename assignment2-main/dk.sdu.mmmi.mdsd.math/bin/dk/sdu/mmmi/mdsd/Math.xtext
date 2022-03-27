@@ -10,12 +10,16 @@ MathExp:
 	'var' name=ID '=' exp=Exp
 ;
 
-Exp: // Illegal due to left recursion
-	left=Primary (operator=ExpOp right=Exp)?
+Exp:
+	PlusOrMinus
 ;
 
-ExpOp:
-	{Plus} '+' | {Minus} '-'	 | {Mult} '*' | {Div} '/'	
+PlusOrMinus returns Exp:
+	MulOrDiv ({Plus.left=current} '+' right=MulOrDiv | {Minus.left=current} '-' right=MulOrDiv)*
+;
+
+MulOrDiv returns Exp:
+	Primary ({Multiply.left=current} '*' right=Primary | {Divide.left=current} '/' right=Primary)*
 ;
 
 Primary:

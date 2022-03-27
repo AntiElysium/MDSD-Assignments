@@ -6,22 +6,22 @@ package dk.sdu.mmmi.mdsd.math;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Plus</b></em>'.
+ * A representation of the model object '<em><b>Multiply</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link dk.sdu.mmmi.mdsd.math.Plus#getLeft <em>Left</em>}</li>
- *   <li>{@link dk.sdu.mmmi.mdsd.math.Plus#getRight <em>Right</em>}</li>
+ *   <li>{@link dk.sdu.mmmi.mdsd.math.Multiply#getLeft <em>Left</em>}</li>
+ *   <li>{@link dk.sdu.mmmi.mdsd.math.Multiply#getRight <em>Right</em>}</li>
  * </ul>
  *
- * @see dk.sdu.mmmi.mdsd.math.MathPackage#getPlus()
+ * @see dk.sdu.mmmi.mdsd.math.MathPackage#getMultiply()
  * @model
  * @generated
  */
-public interface Plus extends Exp
+public interface Multiply extends Exp
 {
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
@@ -29,14 +29,14 @@ public interface Plus extends Exp
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left</em>' containment reference.
    * @see #setLeft(Exp)
-   * @see dk.sdu.mmmi.mdsd.math.MathPackage#getPlus_Left()
+   * @see dk.sdu.mmmi.mdsd.math.MathPackage#getMultiply_Left()
    * @model containment="true"
    * @generated
    */
   Exp getLeft();
 
   /**
-   * Sets the value of the '{@link dk.sdu.mmmi.mdsd.math.Plus#getLeft <em>Left</em>}' containment reference.
+   * Sets the value of the '{@link dk.sdu.mmmi.mdsd.math.Multiply#getLeft <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Left</em>' containment reference.
@@ -50,21 +50,21 @@ public interface Plus extends Exp
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(Exp)
-   * @see dk.sdu.mmmi.mdsd.math.MathPackage#getPlus_Right()
+   * @see #setRight(Primary)
+   * @see dk.sdu.mmmi.mdsd.math.MathPackage#getMultiply_Right()
    * @model containment="true"
    * @generated
    */
-  Exp getRight();
+  Primary getRight();
 
   /**
-   * Sets the value of the '{@link dk.sdu.mmmi.mdsd.math.Plus#getRight <em>Right</em>}' containment reference.
+   * Sets the value of the '{@link dk.sdu.mmmi.mdsd.math.Multiply#getRight <em>Right</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Right</em>' containment reference.
    * @see #getRight()
    * @generated
    */
-  void setRight(Exp value);
+  void setRight(Primary value);
 
-} // Plus
+} // Multiply

@@ -4,13 +4,8 @@
 package dk.sdu.mmmi.mdsd.generator;
 
 import com.google.common.collect.Iterators;
-import dk.sdu.mmmi.mdsd.math.Div;
 import dk.sdu.mmmi.mdsd.math.Exp;
-import dk.sdu.mmmi.mdsd.math.ExpOp;
 import dk.sdu.mmmi.mdsd.math.MathExp;
-import dk.sdu.mmmi.mdsd.math.Minus;
-import dk.sdu.mmmi.mdsd.math.Mult;
-import dk.sdu.mmmi.mdsd.math.Plus;
 import dk.sdu.mmmi.mdsd.math.Primary;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,44 +38,26 @@ public class MathGenerator extends AbstractGenerator {
   }
   
   public static int computeExp(final Exp exp) {
-    int _xblockexpression = (int) 0;
-    {
-      final int left = MathGenerator.computePrim(exp.getLeft());
-      int _switchResult = (int) 0;
-      ExpOp _operator = exp.getOperator();
-      boolean _matched = false;
-      if (_operator instanceof Plus) {
-        _matched=true;
-        int _computeExp = MathGenerator.computeExp(exp.getRight());
-        _switchResult = (left + _computeExp);
-      }
-      if (!_matched) {
-        if (_operator instanceof Minus) {
-          _matched=true;
-          int _computeExp = MathGenerator.computeExp(exp.getRight());
-          _switchResult = (left - _computeExp);
-        }
-      }
-      if (!_matched) {
-        if (_operator instanceof Mult) {
-          _matched=true;
-          int _computeExp = MathGenerator.computeExp(exp.getRight());
-          _switchResult = (left * _computeExp);
-        }
-      }
-      if (!_matched) {
-        if (_operator instanceof Div) {
-          _matched=true;
-          int _computeExp = MathGenerator.computeExp(exp.getRight());
-          _switchResult = (left / _computeExp);
-        }
-      }
-      if (!_matched) {
-        _switchResult = left;
-      }
-      _xblockexpression = _switchResult;
-    }
-    return _xblockexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nMult cannot be resolved to a type."
+      + "\nDiv cannot be resolved to a type."
+      + "\nThe method or field left is undefined for the type Exp"
+      + "\nThe method or field operator is undefined for the type Exp"
+      + "\nThe method or field right is undefined for the type Exp"
+      + "\nThe method or field right is undefined for the type Exp"
+      + "\nThe method or field right is undefined for the type Exp"
+      + "\nThe method or field right is undefined for the type Exp"
+      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
+      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
+      + "\ncomputePrim cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\ncomputeExp cannot be resolved"
+      + "\n- cannot be resolved"
+      + "\ncomputeExp cannot be resolved"
+      + "\n* cannot be resolved"
+      + "\ncomputeExp cannot be resolved"
+      + "\n/ cannot be resolved"
+      + "\ncomputeExp cannot be resolved");
   }
   
   public static int computePrim(final Primary factor) {

@@ -3,15 +3,14 @@
  */
 package dk.sdu.mmmi.mdsd.math.util;
 
-import dk.sdu.mmmi.mdsd.math.Div;
+import dk.sdu.mmmi.mdsd.math.Divide;
 import dk.sdu.mmmi.mdsd.math.Exp;
-import dk.sdu.mmmi.mdsd.math.ExpOp;
 import dk.sdu.mmmi.mdsd.math.LetMath;
 import dk.sdu.mmmi.mdsd.math.Letend;
 import dk.sdu.mmmi.mdsd.math.MathExp;
 import dk.sdu.mmmi.mdsd.math.MathPackage;
 import dk.sdu.mmmi.mdsd.math.Minus;
-import dk.sdu.mmmi.mdsd.math.Mult;
+import dk.sdu.mmmi.mdsd.math.Multiply;
 import dk.sdu.mmmi.mdsd.math.OriginExp;
 import dk.sdu.mmmi.mdsd.math.Parenthesis;
 import dk.sdu.mmmi.mdsd.math.Plus;
@@ -104,11 +103,6 @@ public class MathAdapterFactory extends AdapterFactoryImpl
         return createExpAdapter();
       }
       @Override
-      public Adapter caseExpOp(ExpOp object)
-      {
-        return createExpOpAdapter();
-      }
-      @Override
       public Adapter casePrimary(Primary object)
       {
         return createPrimaryAdapter();
@@ -149,14 +143,14 @@ public class MathAdapterFactory extends AdapterFactoryImpl
         return createMinusAdapter();
       }
       @Override
-      public Adapter caseMult(Mult object)
+      public Adapter caseMultiply(Multiply object)
       {
-        return createMultAdapter();
+        return createMultiplyAdapter();
       }
       @Override
-      public Adapter caseDiv(Div object)
+      public Adapter caseDivide(Divide object)
       {
-        return createDivAdapter();
+        return createDivideAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -221,21 +215,6 @@ public class MathAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.math.ExpOp <em>Exp Op</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see dk.sdu.mmmi.mdsd.math.ExpOp
-   * @generated
-   */
-  public Adapter createExpOpAdapter()
   {
     return null;
   }
@@ -361,31 +340,31 @@ public class MathAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.math.Mult <em>Mult</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.math.Multiply <em>Multiply</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mmmi.mdsd.math.Mult
+   * @see dk.sdu.mmmi.mdsd.math.Multiply
    * @generated
    */
-  public Adapter createMultAdapter()
+  public Adapter createMultiplyAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.math.Div <em>Div</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.math.Divide <em>Divide</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mmmi.mdsd.math.Div
+   * @see dk.sdu.mmmi.mdsd.math.Divide
    * @generated
    */
-  public Adapter createDivAdapter()
+  public Adapter createDivideAdapter()
   {
     return null;
   }
