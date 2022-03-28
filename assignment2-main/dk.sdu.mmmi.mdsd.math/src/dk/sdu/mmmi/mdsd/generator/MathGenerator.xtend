@@ -46,14 +46,11 @@ class MathGenerator extends AbstractGenerator {
 	//
 	
 	def static compute(OriginExp root) { 
-		//root.expressions.forEach[variables.put(it.name,it.exp.computeExp)]
 		for(MathExp exp : root.expressions){
 			var localVariables = new HashMap<String, Integer>();
 			localVariables.putAll(variables)
 			variables.put(exp.name,exp.exp.computeExp(localVariables))
 		}
-		
-		//root.exp.computeExp
 		return variables
 	}
 	
@@ -72,7 +69,7 @@ class MathGenerator extends AbstractGenerator {
 			Number: exp.value
 			Parenthesis: exp.exp.computeExp(localVariables)
 			VariableUse: exp.variableCase(localVariables)
-			Letend: exp.letendCase(localVariables)//exp.exp.computeExp
+			Letend: exp.letendCase(localVariables)
 		}
 	}
 	
@@ -85,7 +82,7 @@ class MathGenerator extends AbstractGenerator {
 				localVariables.put((exp.ref as MathExp).name, temp)
 				return temp	
 			}
-			Letend: localVariables.get((exp.ref as Letend).name)//(exp.ref as Letend).exp.computeExp
+			Letend: localVariables.get((exp.ref as Letend).name)
 		}
 	}
 	
