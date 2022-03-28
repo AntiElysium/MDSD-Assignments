@@ -39,16 +39,12 @@ public class MathGenerator extends AbstractGenerator {
   
   public static int computeExp(final Exp exp) {
     throw new Error("Unresolved compilation problems:"
-      + "\nMult cannot be resolved to a type."
-      + "\nDiv cannot be resolved to a type."
       + "\nThe method or field left is undefined for the type Exp"
       + "\nThe method or field operator is undefined for the type Exp"
       + "\nThe method or field right is undefined for the type Exp"
       + "\nThe method or field right is undefined for the type Exp"
       + "\nThe method or field right is undefined for the type Exp"
       + "\nThe method or field right is undefined for the type Exp"
-      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
-      + "\nUnreachable code: The case can never match. It is already handled by a previous condition."
       + "\ncomputePrim cannot be resolved"
       + "\n+ cannot be resolved"
       + "\ncomputeExp cannot be resolved"

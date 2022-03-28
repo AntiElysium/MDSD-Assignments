@@ -3,6 +3,10 @@
  */
 package dk.sdu.mmmi.mdsd.validation
 
+import org.eclipse.xtext.validation.Check
+import dk.sdu.mmmi.mdsd.math.MathExp
+import dk.sdu.mmmi.mdsd.math.MathPackage
+import dk.sdu.mmmi.mdsd.math.OriginExp
 
 /**
  * This class contains custom validation rules. 
@@ -22,4 +26,12 @@ class MathValidator extends AbstractMathValidator {
 //		}
 //	}
 	
+	
+	@Check
+	def checkUniqueNames(MathExp exp){
+		var names = (exp.eContainer as OriginExp).expressions.map[name].toList()
+		if(names.filter[it == exp.name].length > 1) {
+			error('Name is not unique',MathPackage.Literals.LET_MATH__NAME, 'invalidName')
+		}
+	}
 }

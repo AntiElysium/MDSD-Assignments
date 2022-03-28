@@ -5,6 +5,11 @@ package dk.sdu.mmmi.mdsd.scoping
 
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
+import dk.sdu.mmmi.mdsd.math.MathPackage
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.Scopes
+import dk.sdu.mmmi.mdsd.math.Letend
+import dk.sdu.mmmi.mdsd.math.OriginExp
 
 /**
  * This class contains custom scoping description.
@@ -13,21 +18,18 @@ import org.eclipse.emf.ecore.EReference
  * on how and when to use it.
  */
 class MathScopeProvider extends AbstractMathScopeProvider {
-	/*val epackage = dk.sdu.mmmi.mdsd.math.eINSTANCE
-	
 	override getScope(EObject context, EReference reference){
-		if (reference == epackage.SJSymbolRef_Symbol) {
-			return scopeForSymbolRef(context)
-		} else {
-			return super.getScope(context, reference)
+		if(reference == MathPackage.Literals.VARIABLE_USE__REF) {
+			return context.gatherVariables
 		}
+		return super.getScope(context, reference)
 	}
 	
-	def protected IScope scopeForSymbolRef(EObject context){
-		val container = context.eContainer
-		return switch(container){
-			
-			default: scopeForSymbolRef(container)
+	def protected IScope gatherVariables(EObject context){
+		return switch (context.eContainer) {
+			Letend: Scopes.scopeFor(newArrayList(context.eContainer), gatherVariables(context.eContainer))
+			OriginExp: Scopes.scopeFor((context.eContainer as OriginExp).expressions.filter[it != context])
+			default: gatherVariables(context.eContainer)
 		}
-	}*/
+	}
 }

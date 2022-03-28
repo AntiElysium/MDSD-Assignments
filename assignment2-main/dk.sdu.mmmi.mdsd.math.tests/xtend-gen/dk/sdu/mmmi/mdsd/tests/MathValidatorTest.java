@@ -1,7 +1,7 @@
 package dk.sdu.mmmi.mdsd.tests;
 
 import com.google.inject.Inject;
-import dk.sdu.mmmi.mdsd.math.MathExp;
+import dk.sdu.mmmi.mdsd.math.OriginExp;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.extensions.InjectionExtension;
@@ -19,7 +19,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class MathValidatorTest {
   @Inject
   @Extension
-  private ParseHelper<MathExp> _parseHelper;
+  private ParseHelper<OriginExp> _parseHelper;
   
   @Inject
   @Extension
@@ -35,7 +35,7 @@ public class MathValidatorTest {
       _builder.newLine();
       _builder.append("var x = let i = y in i end");
       _builder.newLine();
-      final MathExp result = this._parseHelper.parse(_builder);
+      final OriginExp result = this._parseHelper.parse(_builder);
       int _size = this._validationTestHelper.validate(result.eResource()).size();
       boolean _greaterThan = (_size > 0);
       Assertions.assertTrue(_greaterThan);

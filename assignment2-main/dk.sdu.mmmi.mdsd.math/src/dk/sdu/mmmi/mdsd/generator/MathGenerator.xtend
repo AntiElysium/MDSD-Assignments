@@ -3,11 +3,11 @@
  */
 package dk.sdu.mmmi.mdsd.generator
 
-import dk.sdu.mmmi.mdsd.math.Div
+import dk.sdu.mmmi.mdsd.math.Divide
 import dk.sdu.mmmi.mdsd.math.Exp
 import dk.sdu.mmmi.mdsd.math.MathExp
 import dk.sdu.mmmi.mdsd.math.Minus
-import dk.sdu.mmmi.mdsd.math.Mult
+import dk.sdu.mmmi.mdsd.math.Multiply
 import dk.sdu.mmmi.mdsd.math.Plus
 import dk.sdu.mmmi.mdsd.math.Primary
 import java.util.HashMap
@@ -50,8 +50,8 @@ class MathGenerator extends AbstractGenerator {
 		switch exp.operator {
 			Plus: left+exp.right.computeExp
 			Minus: left-exp.right.computeExp
-			Mult: left*exp.right.computeExp
-			Div: left/exp.right.computeExp
+			Multiply: left*exp.right.computeExp
+			Divide: left/exp.right.computeExp
 			default: left
 		}
 	}

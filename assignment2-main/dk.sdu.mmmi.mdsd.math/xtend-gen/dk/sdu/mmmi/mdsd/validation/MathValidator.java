@@ -3,6 +3,18 @@
  */
 package dk.sdu.mmmi.mdsd.validation;
 
+import com.google.common.base.Objects;
+import dk.sdu.mmmi.mdsd.math.MathExp;
+import dk.sdu.mmmi.mdsd.math.MathPackage;
+import dk.sdu.mmmi.mdsd.math.OriginExp;
+import java.util.List;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
+
 /**
  * This class contains custom validation rules.
  * 
@@ -10,4 +22,21 @@ package dk.sdu.mmmi.mdsd.validation;
  */
 @SuppressWarnings("all")
 public class MathValidator extends AbstractMathValidator {
+  @Check
+  public void checkUniqueNames(final MathExp exp) {
+    EObject _eContainer = exp.eContainer();
+    final Function1<MathExp, String> _function = (MathExp it) -> {
+      return it.getName();
+    };
+    List<String> names = IterableExtensions.<String>toList(ListExtensions.<MathExp, String>map(((OriginExp) _eContainer).getExpressions(), _function));
+    final Function1<String, Boolean> _function_1 = (String it) -> {
+      String _name = exp.getName();
+      return Boolean.valueOf(Objects.equal(it, _name));
+    };
+    int _length = ((Object[])Conversions.unwrapArray(IterableExtensions.<String>filter(names, _function_1), Object.class)).length;
+    boolean _greaterThan = (_length > 1);
+    if (_greaterThan) {
+      this.error("Name is not unique", MathPackage.Literals.LET_MATH__NAME, "invalidName");
+    }
+  }
 }

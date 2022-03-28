@@ -3,6 +3,19 @@
  */
 package dk.sdu.mmmi.mdsd.scoping;
 
+import com.google.common.base.Objects;
+import dk.sdu.mmmi.mdsd.math.Letend;
+import dk.sdu.mmmi.mdsd.math.MathExp;
+import dk.sdu.mmmi.mdsd.math.MathPackage;
+import dk.sdu.mmmi.mdsd.math.OriginExp;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+
 /**
  * This class contains custom scoping description.
  * 
@@ -11,4 +24,36 @@ package dk.sdu.mmmi.mdsd.scoping;
  */
 @SuppressWarnings("all")
 public class MathScopeProvider extends AbstractMathScopeProvider {
+  @Override
+  public IScope getScope(final EObject context, final EReference reference) {
+    boolean _equals = Objects.equal(reference, MathPackage.Literals.VARIABLE_USE__REF);
+    if (_equals) {
+      return this.gatherVariables(context);
+    }
+    return super.getScope(context, reference);
+  }
+  
+  protected IScope gatherVariables(final EObject context) {
+    IScope _switchResult = null;
+    EObject _eContainer = context.eContainer();
+    boolean _matched = false;
+    if (_eContainer instanceof Letend) {
+      _matched=true;
+      _switchResult = Scopes.scopeFor(CollectionLiterals.<EObject>newArrayList(context.eContainer()), this.gatherVariables(context.eContainer()));
+    }
+    if (!_matched) {
+      if (_eContainer instanceof OriginExp) {
+        _matched=true;
+        EObject _eContainer_1 = context.eContainer();
+        final Function1<MathExp, Boolean> _function = (MathExp it) -> {
+          return Boolean.valueOf((!Objects.equal(it, context)));
+        };
+        _switchResult = Scopes.scopeFor(IterableExtensions.<MathExp>filter(((OriginExp) _eContainer_1).getExpressions(), _function));
+      }
+    }
+    if (!_matched) {
+      _switchResult = this.gatherVariables(context.eContainer());
+    }
+    return _switchResult;
+  }
 }
