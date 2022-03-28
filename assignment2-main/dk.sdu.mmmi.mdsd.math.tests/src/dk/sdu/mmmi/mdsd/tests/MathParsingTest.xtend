@@ -13,11 +13,12 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 
 import static extension dk.sdu.mmmi.mdsd.generator.MathGenerator.compute
+import dk.sdu.mmmi.mdsd.math.OriginExp
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MathInjectorProvider)
 class MathParsingTest {
-	@Inject extension ParseHelper<MathExp> 
+	@Inject extension ParseHelper<OriginExp> 
 	
 	// T01 Minimal
 	@Test

@@ -8,6 +8,7 @@ import dk.sdu.mmmi.mdsd.math.Exp
 import dk.sdu.mmmi.mdsd.math.MathExp
 import dk.sdu.mmmi.mdsd.math.Minus
 import dk.sdu.mmmi.mdsd.math.Multiply
+import dk.sdu.mmmi.mdsd.math.Number
 import dk.sdu.mmmi.mdsd.math.Plus
 import dk.sdu.mmmi.mdsd.math.Primary
 import java.util.HashMap
@@ -17,6 +18,10 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import dk.sdu.mmmi.mdsd.math.OriginExp
+import dk.sdu.mmmi.mdsd.math.Parenthesis
+import dk.sdu.mmmi.mdsd.math.VariableUse
+import dk.sdu.mmmi.mdsd.math.Letend
 
 /**
  * Generates code from your model files on save.
@@ -28,8 +33,8 @@ class MathGenerator extends AbstractGenerator {
 	static Map<String, Integer> variables = new HashMap();
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		val math = resource.allContents.filter(MathExp).next
-		val result = variables//math.compute
+		val root = resource.allContents.filter(OriginExp).next
+		val result = root.compute
 		
 		// You can replace with hovering, see Bettini Chapter 8
 		result.displayPanel
@@ -40,20 +45,56 @@ class MathGenerator extends AbstractGenerator {
 	// Note: written according to illegal left-recursive grammar, requires fix
 	//
 	
-	def static compute(MathExp math) { 
-		math.exp.computeExp
+	def static compute(OriginExp root) { 
+		//root.expressions.forEach[variables.put(it.name,it.exp.computeExp)]
+		for(MathExp exp : root.expressions){
+			var localVariables = new HashMap<String, Integer>();
+			localVariables.putAll(variables)
+			variables.put(exp.name,exp.exp.computeExp(localVariables))
+		}
+		
+		//root.exp.computeExp
 		return variables
 	}
 	
-	def static int computeExp(Exp exp) {
-		val left = exp.left.computePrim
-		switch exp.operator {
-			Plus: left+exp.right.computeExp
-			Minus: left-exp.right.computeExp
-			Multiply: left*exp.right.computeExp
-			Divide: left/exp.right.computeExp
-			default: left
+	def static int computeExp(Exp exp, Map<String,Integer> localVariables) {
+		switch exp {
+			Plus: exp.left.computeExp(localVariables)+exp.right.computeExp(localVariables)
+			Minus: exp.left.computeExp(localVariables)-exp.right.computeExp(localVariables)
+			Multiply: exp.left.computeExp(localVariables)*exp.right.computeExp(localVariables)
+			Divide: exp.left.computeExp(localVariables)/exp.right.computeExp(localVariables)
+			Primary: exp.primaryCase(localVariables)
 		}
+	}
+	
+	def static int primaryCase(Primary exp, Map<String,Integer> localVariables){
+		switch exp {
+			Number: exp.value
+			Parenthesis: exp.exp.computeExp(localVariables)
+			VariableUse: exp.variableCase(localVariables)
+			Letend: exp.letendCase(localVariables)//exp.exp.computeExp
+		}
+	}
+	
+	def static int variableCase(VariableUse exp, Map<String, Integer> localVariables) {
+		switch exp.ref {
+			MathExp: {
+				var	globalVariables = new HashMap<String,Integer>
+				globalVariables.putAll(variables)
+				var temp = (exp.ref as MathExp).exp.computeExp(globalVariables)
+				localVariables.put((exp.ref as MathExp).name, temp)
+				return temp	
+			}
+			Letend: localVariables.get((exp.ref as Letend).name)//(exp.ref as Letend).exp.computeExp
+		}
+	}
+	
+	def static int letendCase(Letend exp, Map<String, Integer> localVariables){
+		val oldStored = localVariables.get(exp.name)
+		localVariables.put(exp.name,exp.^val.computeExp(localVariables))
+		val stored = exp.exp.computeExp(localVariables)
+		localVariables.put(exp.name, oldStored)
+		return stored
 	}
 	
 	def static int computePrim(Primary factor) { 
