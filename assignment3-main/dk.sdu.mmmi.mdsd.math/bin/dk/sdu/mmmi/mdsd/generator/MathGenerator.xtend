@@ -30,10 +30,11 @@ class MathGenerator extends AbstractGenerator {
 	static Map<String, Integer> variables;
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		val math = resource.allContents.filter(MathExp).next
+		/*val math = resource.allContents.filter(MathExp).next
 		val result = math.compute
-		result.displayPanel
+		result.displayPanel*/
 		
+		resource.allContents.filter[Program]
 	}
 		
 	def void displayPanel(Map<String, Integer> result) {

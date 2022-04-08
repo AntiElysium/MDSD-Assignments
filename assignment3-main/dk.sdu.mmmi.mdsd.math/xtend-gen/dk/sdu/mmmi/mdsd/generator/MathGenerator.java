@@ -3,7 +3,6 @@
  */
 package dk.sdu.mmmi.mdsd.generator;
 
-import com.google.common.collect.Iterators;
 import dk.sdu.mmmi.mdsd.math.Binding;
 import dk.sdu.mmmi.mdsd.math.Div;
 import dk.sdu.mmmi.mdsd.math.LetBinding;
@@ -37,9 +36,8 @@ public class MathGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    final MathExp math = Iterators.<MathExp>filter(resource.getAllContents(), MathExp.class).next();
-    final Map<String, Integer> result = MathGenerator.compute(math);
-    this.displayPanel(result);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field Program is undefined");
   }
   
   public void displayPanel(final Map<String, Integer> result) {
