@@ -5,13 +5,16 @@ package dk.sdu.mmmi.mdsd.serializer;
 
 import com.google.inject.Inject;
 import dk.sdu.mmmi.mdsd.math.Div;
+import dk.sdu.mmmi.mdsd.math.External;
 import dk.sdu.mmmi.mdsd.math.LetBinding;
 import dk.sdu.mmmi.mdsd.math.MathExp;
 import dk.sdu.mmmi.mdsd.math.MathNumber;
 import dk.sdu.mmmi.mdsd.math.MathPackage;
+import dk.sdu.mmmi.mdsd.math.Method;
 import dk.sdu.mmmi.mdsd.math.Minus;
 import dk.sdu.mmmi.mdsd.math.Mult;
 import dk.sdu.mmmi.mdsd.math.Plus;
+import dk.sdu.mmmi.mdsd.math.Program;
 import dk.sdu.mmmi.mdsd.math.VarBinding;
 import dk.sdu.mmmi.mdsd.math.VariableUse;
 import dk.sdu.mmmi.mdsd.services.MathGrammarAccess;
@@ -43,6 +46,9 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case MathPackage.DIV:
 				sequence_Factor(context, (Div) semanticObject); 
 				return; 
+			case MathPackage.EXTERNAL:
+				sequence_External(context, (External) semanticObject); 
+				return; 
 			case MathPackage.LET_BINDING:
 				sequence_LetBinding(context, (LetBinding) semanticObject); 
 				return; 
@@ -52,6 +58,9 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case MathPackage.MATH_NUMBER:
 				sequence_Primary(context, (MathNumber) semanticObject); 
 				return; 
+			case MathPackage.METHOD:
+				sequence_Method(context, (Method) semanticObject); 
+				return; 
 			case MathPackage.MINUS:
 				sequence_Exp(context, (Minus) semanticObject); 
 				return; 
@@ -60,6 +69,9 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case MathPackage.PLUS:
 				sequence_Exp(context, (Plus) semanticObject); 
+				return; 
+			case MathPackage.PROGRAM:
+				sequence_Program(context, (Program) semanticObject); 
 				return; 
 			case MathPackage.VAR_BINDING:
 				sequence_VarBinding(context, (VarBinding) semanticObject); 
@@ -123,6 +135,18 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getExpAccess().getPlusLeftAction_1_0_0_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getExpAccess().getRightFactorParserRuleCall_1_1_0(), semanticObject.getRight());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     External returns External
+	 *
+	 * Constraint:
+	 *     (name=ID (args+='int' args+='int'*)?)
+	 */
+	protected void sequence_External(ISerializationContext context, External semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -226,6 +250,25 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Method returns Method
+	 *     Exp returns Method
+	 *     Exp.Plus_1_0_0_0 returns Method
+	 *     Exp.Minus_1_0_1_0 returns Method
+	 *     Factor returns Method
+	 *     Factor.Mult_1_0_0_0 returns Method
+	 *     Factor.Div_1_0_1_0 returns Method
+	 *     Primary returns Method
+	 *
+	 * Constraint:
+	 *     (ref=[External|ID] (exps+=Exp exps+=Exp*)?)
+	 */
+	protected void sequence_Method(ISerializationContext context, Method semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Exp returns MathNumber
 	 *     Exp.Plus_1_0_0_0 returns MathNumber
 	 *     Exp.Minus_1_0_1_0 returns MathNumber
@@ -245,6 +288,18 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPrimaryAccess().getValueINTTerminalRuleCall_0_1_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Program returns Program
+	 *
+	 * Constraint:
+	 *     (name=ID externals+=External* mathExps+=MathExp*)
+	 */
+	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -73,6 +73,28 @@ public class MathSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case MathPackage.PROGRAM:
+      {
+        Program program = (Program)theEObject;
+        T result = caseProgram(program);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MathPackage.EXTERNAL:
+      {
+        External external = (External)theEObject;
+        T result = caseExternal(external);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MathPackage.METHOD:
+      {
+        Method method = (Method)theEObject;
+        T result = caseMethod(method);
+        if (result == null) result = caseExpression(method);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MathPackage.MATH_EXP:
       {
         MathExp mathExp = (MathExp)theEObject;
@@ -161,6 +183,54 @@ public class MathSwitch<T> extends Switch<T>
       }
       default: return defaultCase(theEObject);
     }
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Program</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Program</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProgram(Program object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>External</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>External</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExternal(External object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMethod(Method object)
+  {
+    return null;
   }
 
   /**

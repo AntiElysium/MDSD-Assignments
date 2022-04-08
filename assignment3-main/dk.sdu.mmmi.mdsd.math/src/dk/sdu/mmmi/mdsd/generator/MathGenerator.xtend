@@ -34,7 +34,7 @@ class MathGenerator extends AbstractGenerator {
 		val result = math.compute
 		result.displayPanel*/
 		
-		resource.allContents.filter[Program]
+		resource.allContents.filter(Program)
 	}
 		
 	def void displayPanel(Map<String, Integer> result) {
