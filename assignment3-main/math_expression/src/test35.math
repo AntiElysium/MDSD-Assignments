@@ -1,0 +1,34 @@
+var x = let x = 2 in let y = 3 in let y = 2 in y * x end + y end + x end + 79
+
+/*int x = grfr() + 79;
+
+private int grfr(){
+	int x = 2;
+	return dska(x);
+}
+
+private int dska(int x) {
+	int y = 3;
+	return skafdid(x,y);	
+}
+
+private int skafdid(int x, int y) {
+	int ytemp = y;
+	y = 2;
+	return fds(x, ytemp, y);
+}
+
+private int fds(int x, int ytemp, int y) {
+	int result = y * x;
+	return fdsa(x, ytemp, result);
+}
+
+private int fdsa(int x, int y, int result) {
+	result += y;
+	return gfd(x, result);
+}
+
+private int gfd(int x, int result) {
+	result += x;
+	return result;
+}*/
