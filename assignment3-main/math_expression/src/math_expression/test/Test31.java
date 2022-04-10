@@ -16,6 +16,6 @@ public class Test31 {
 	}
 	
 	interface External {		
-	public int pow (int n1127091649592937628, int n1624501649592937628)
+	public int pow (int n1968011649593317150, int n5513141649593317150);
 	}
 }

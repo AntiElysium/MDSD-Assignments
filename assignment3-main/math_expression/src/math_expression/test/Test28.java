@@ -16,6 +16,6 @@ public class Test28 {
 	}
 	
 	interface External {		
-	public int sqrt (int n8343551649592937591)
+	public int sqrt (int n860171649593317152);
 	}
 }

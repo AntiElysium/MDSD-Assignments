@@ -14,8 +14,8 @@ public class Test30 {
 	}
 	
 	interface External {		
-	public int pow (int n4535871649592937600, int n6728691649592937600)
-	public int sqrt (int n9009541649592937600)
-	public int pi ()
+	public int pow (int n7799261649593317154, int n4942731649593317154);
+	public int sqrt (int n2222891649593317155);
+	public int pi ();
 	}
 }

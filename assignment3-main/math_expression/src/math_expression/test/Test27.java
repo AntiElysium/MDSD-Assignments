@@ -16,6 +16,6 @@ public class Test27 {
 	}
 	
 	interface External {		
-	public int pi ()
+	public int pi ();
 	}
 }
