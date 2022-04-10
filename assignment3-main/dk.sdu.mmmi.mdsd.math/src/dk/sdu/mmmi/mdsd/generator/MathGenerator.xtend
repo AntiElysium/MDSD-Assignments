@@ -48,7 +48,7 @@ class MathGenerator extends AbstractGenerator {
 	
 	def compile(Program program){
 		'''
-		package math_expression;
+		package math_expression.test;
 		
 		public class «program.name» {
 			«FOR varBinding: program.mathExps.variables»
@@ -96,7 +96,7 @@ class MathGenerator extends AbstractGenerator {
 	def String resolveBinding(Binding binding) {
 		switch (binding) {
 			VarBinding: '''«binding.name» = «binding.expression.resolve»'''
-			LetBinding: 
+			LetBinding: "1" //TODO
 		}
 	}
 	

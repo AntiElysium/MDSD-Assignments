@@ -53,7 +53,7 @@ public class MathGenerator extends AbstractGenerator {
   
   public CharSequence compile(final Program program) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package math_expression;");
+    _builder.append("package math_expression.test;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
@@ -246,8 +246,25 @@ public class MathGenerator extends AbstractGenerator {
   }
   
   public String resolveBinding(final Binding binding) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nno viable alternative at input \'}\'");
+    String _switchResult = null;
+    boolean _matched = false;
+    if (binding instanceof VarBinding) {
+      _matched=true;
+      StringConcatenation _builder = new StringConcatenation();
+      String _name = ((VarBinding)binding).getName();
+      _builder.append(_name);
+      _builder.append(" = ");
+      String _resolve = this.resolve(((VarBinding)binding).getExpression());
+      _builder.append(_resolve);
+      _switchResult = _builder.toString();
+    }
+    if (!_matched) {
+      if (binding instanceof LetBinding) {
+        _matched=true;
+        _switchResult = "1";
+      }
+    }
+    return _switchResult;
   }
   
   public String listAllExpressions(final Method method) {
