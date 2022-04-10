@@ -38,13 +38,13 @@ public class MathGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//Program:
 		//    'program' name=ID
 		//    externals+=External*
-		//    mathExps+=MathExp*
+		//    mathExps=MathExp
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'program' name=ID
 		//externals+=External*
-		//mathExps+=MathExp*
+		//mathExps=MathExp
 		public Group getGroup() { return cGroup; }
 		
 		//'program'
@@ -62,7 +62,7 @@ public class MathGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//External
 		public RuleCall getExternalsExternalParserRuleCall_2_0() { return cExternalsExternalParserRuleCall_2_0; }
 		
-		//mathExps+=MathExp*
+		//mathExps=MathExp
 		public Assignment getMathExpsAssignment_3() { return cMathExpsAssignment_3; }
 		
 		//MathExp
@@ -574,7 +574,7 @@ public class MathGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	//Program:
 	//    'program' name=ID
 	//    externals+=External*
-	//    mathExps+=MathExp*
+	//    mathExps=MathExp
 	//;
 	public ProgramElements getProgramAccess() {
 		return pProgram;

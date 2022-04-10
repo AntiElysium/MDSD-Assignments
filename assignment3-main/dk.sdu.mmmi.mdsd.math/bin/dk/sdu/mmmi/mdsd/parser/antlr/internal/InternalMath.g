@@ -127,7 +127,7 @@ ruleProgram returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getProgramRule());
 					}
-					add(
+					set(
 						$current,
 						"mathExps",
 						lv_mathExps_3_0,
@@ -135,7 +135,7 @@ ruleProgram returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)
 	)
 ;
 

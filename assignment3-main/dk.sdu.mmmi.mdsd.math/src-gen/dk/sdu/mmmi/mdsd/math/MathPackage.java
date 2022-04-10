@@ -86,7 +86,7 @@ public interface MathPackage extends EPackage
   int PROGRAM__EXTERNALS = 1;
 
   /**
-   * The feature id for the '<em><b>Math Exps</b></em>' containment reference list.
+   * The feature id for the '<em><b>Math Exps</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -601,10 +601,10 @@ public interface MathPackage extends EPackage
   EReference getProgram_Externals();
 
   /**
-   * Returns the meta object for the containment reference list '{@link dk.sdu.mmmi.mdsd.math.Program#getMathExps <em>Math Exps</em>}'.
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.math.Program#getMathExps <em>Math Exps</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Math Exps</em>'.
+   * @return the meta object for the containment reference '<em>Math Exps</em>'.
    * @see dk.sdu.mmmi.mdsd.math.Program#getMathExps()
    * @see #getProgram()
    * @generated
@@ -1021,7 +1021,7 @@ public interface MathPackage extends EPackage
     EReference PROGRAM__EXTERNALS = eINSTANCE.getProgram_Externals();
 
     /**
-     * The meta object literal for the '<em><b>Math Exps</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Math Exps</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

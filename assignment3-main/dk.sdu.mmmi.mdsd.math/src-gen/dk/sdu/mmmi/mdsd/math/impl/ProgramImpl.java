@@ -72,14 +72,14 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   protected EList<External> externals;
 
   /**
-   * The cached value of the '{@link #getMathExps() <em>Math Exps</em>}' containment reference list.
+   * The cached value of the '{@link #getMathExps() <em>Math Exps</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMathExps()
    * @generated
    * @ordered
    */
-  protected EList<MathExp> mathExps;
+  protected MathExp mathExps;
 
   /**
    * <!-- begin-user-doc -->
@@ -148,13 +148,48 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * @generated
    */
   @Override
-  public EList<MathExp> getMathExps()
+  public MathExp getMathExps()
   {
-    if (mathExps == null)
-    {
-      mathExps = new EObjectContainmentEList<MathExp>(MathExp.class, this, MathPackage.PROGRAM__MATH_EXPS);
-    }
     return mathExps;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetMathExps(MathExp newMathExps, NotificationChain msgs)
+  {
+    MathExp oldMathExps = mathExps;
+    mathExps = newMathExps;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MathPackage.PROGRAM__MATH_EXPS, oldMathExps, newMathExps);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setMathExps(MathExp newMathExps)
+  {
+    if (newMathExps != mathExps)
+    {
+      NotificationChain msgs = null;
+      if (mathExps != null)
+        msgs = ((InternalEObject)mathExps).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MathPackage.PROGRAM__MATH_EXPS, null, msgs);
+      if (newMathExps != null)
+        msgs = ((InternalEObject)newMathExps).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MathPackage.PROGRAM__MATH_EXPS, null, msgs);
+      msgs = basicSetMathExps(newMathExps, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MathPackage.PROGRAM__MATH_EXPS, newMathExps, newMathExps));
   }
 
   /**
@@ -170,7 +205,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
       case MathPackage.PROGRAM__EXTERNALS:
         return ((InternalEList<?>)getExternals()).basicRemove(otherEnd, msgs);
       case MathPackage.PROGRAM__MATH_EXPS:
-        return ((InternalEList<?>)getMathExps()).basicRemove(otherEnd, msgs);
+        return basicSetMathExps(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -214,8 +249,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         getExternals().addAll((Collection<? extends External>)newValue);
         return;
       case MathPackage.PROGRAM__MATH_EXPS:
-        getMathExps().clear();
-        getMathExps().addAll((Collection<? extends MathExp>)newValue);
+        setMathExps((MathExp)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -238,7 +272,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         getExternals().clear();
         return;
       case MathPackage.PROGRAM__MATH_EXPS:
-        getMathExps().clear();
+        setMathExps((MathExp)null);
         return;
     }
     super.eUnset(featureID);
@@ -259,7 +293,7 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
       case MathPackage.PROGRAM__EXTERNALS:
         return externals != null && !externals.isEmpty();
       case MathPackage.PROGRAM__MATH_EXPS:
-        return mathExps != null && !mathExps.isEmpty();
+        return mathExps != null;
     }
     return super.eIsSet(featureID);
   }

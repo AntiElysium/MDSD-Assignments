@@ -25,6 +25,7 @@ import dk.sdu.mmmi.mdsd.math.Expression
 import dk.sdu.mmmi.mdsd.math.Parentheses
 import dk.sdu.mmmi.mdsd.math.Binding
 import dk.sdu.mmmi.mdsd.math.Method
+import java.util.Random
 
 /**
  * Generates code from your model files on save.
@@ -50,17 +51,13 @@ class MathGenerator extends AbstractGenerator {
 		package math_expression;
 		
 		public class «program.name» {
-			«FOR mathExp: program.mathExps»
-			«FOR varBinding: mathExp.variables»
+			«FOR varBinding: program.mathExps.variables»
 			public int «varBinding.name»;
-			«ENDFOR»
 			«ENDFOR»
 			
 			public void compute() {
-				«FOR mathExp: program.mathExps»
-				«FOR varBinding: mathExp.variables»
+				«FOR varBinding: program.mathExps.variables»
 				«varBinding.name» = «varBinding.expression.resolve»;
-				«ENDFOR»
 				«ENDFOR»
 			}
 			
@@ -72,11 +69,11 @@ class MathGenerator extends AbstractGenerator {
 			}
 			
 			interface External {		
-			«ENDIF»
 			«FOR external : program.externals»
 				public int «external.name» («external.listAll»)
 			«ENDFOR»
 			}
+			«ENDIF»
 		}
 		'''
 	}
@@ -95,25 +92,28 @@ class MathGenerator extends AbstractGenerator {
 	def String resolveBinding(Binding binding) {
 		switch (binding) {
 			VarBinding: '''«binding.name» = «binding.expression.resolve»'''
-			LetBinding: 
+			LetBinding: ":)"
 		}
 	}
 	
 	def String listAllExpressions(Method method){
 		var output = ""
 		for(exp : method.exps){
-			output += exp + ", "
+			output += exp.resolve + ", "
 		}
-		output.substring(0, output.length - 3)
+		if(output.length() > 2) 
+			output = output.substring(0, output.length() - 2)
 		return output
 	}
 	
+	Random r = new Random()
 	def String listAll(External external) {
 		var output = ""
 		for(arg : external.args){
-			output += arg + ", "
+			output += '''«arg» n«r.nextInt(1000000)»«System.currentTimeMillis()», '''
 		}
-		output.substring(0, output.length - 3)
+		if(output.length() > 2) 
+			output = output.substring(0, output.length() - 2)
 		return output
 	}
 	

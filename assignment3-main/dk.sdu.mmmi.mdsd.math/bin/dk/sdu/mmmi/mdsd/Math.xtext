@@ -4,7 +4,7 @@ generate math "http://www.sdu.dk/mmmi/mdsd/Math"
 Program:
 	'program' name=ID
 	externals+=External*
-	mathExps+=MathExp*
+	mathExps=MathExp
 ;
 
 External:

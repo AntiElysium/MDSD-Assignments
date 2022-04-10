@@ -62,15 +62,25 @@ public interface Program extends EObject
   EList<External> getExternals();
 
   /**
-   * Returns the value of the '<em><b>Math Exps</b></em>' containment reference list.
-   * The list contents are of type {@link dk.sdu.mmmi.mdsd.math.MathExp}.
+   * Returns the value of the '<em><b>Math Exps</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Math Exps</em>' containment reference list.
+   * @return the value of the '<em>Math Exps</em>' containment reference.
+   * @see #setMathExps(MathExp)
    * @see dk.sdu.mmmi.mdsd.math.MathPackage#getProgram_MathExps()
    * @model containment="true"
    * @generated
    */
-  EList<MathExp> getMathExps();
+  MathExp getMathExps();
+
+  /**
+   * Sets the value of the '{@link dk.sdu.mmmi.mdsd.math.Program#getMathExps <em>Math Exps</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Math Exps</em>' containment reference.
+   * @see #getMathExps()
+   * @generated
+   */
+  void setMathExps(MathExp value);
 
 } // Program

@@ -22,6 +22,7 @@ import dk.sdu.mmmi.mdsd.math.VariableUse;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import org.eclipse.emf.common.util.EList;
@@ -61,19 +62,14 @@ public class MathGenerator extends AbstractGenerator {
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     {
-      EList<MathExp> _mathExps = program.getMathExps();
-      for(final MathExp mathExp : _mathExps) {
-        {
-          EList<VarBinding> _variables = mathExp.getVariables();
-          for(final VarBinding varBinding : _variables) {
-            _builder.append("\t");
-            _builder.append("public int ");
-            String _name_1 = varBinding.getName();
-            _builder.append(_name_1, "\t");
-            _builder.append(";");
-            _builder.newLineIfNotEmpty();
-          }
-        }
+      EList<VarBinding> _variables = program.getMathExps().getVariables();
+      for(final VarBinding varBinding : _variables) {
+        _builder.append("\t");
+        _builder.append("public int ");
+        String _name_1 = varBinding.getName();
+        _builder.append(_name_1, "\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("\t");
@@ -82,21 +78,16 @@ public class MathGenerator extends AbstractGenerator {
     _builder.append("public void compute() {");
     _builder.newLine();
     {
-      EList<MathExp> _mathExps_1 = program.getMathExps();
-      for(final MathExp mathExp_1 : _mathExps_1) {
-        {
-          EList<VarBinding> _variables_1 = mathExp_1.getVariables();
-          for(final VarBinding varBinding_1 : _variables_1) {
-            _builder.append("\t\t");
-            String _name_2 = varBinding_1.getName();
-            _builder.append(_name_2, "\t\t");
-            _builder.append(" = ");
-            String _resolve = this.resolve(varBinding_1.getExpression());
-            _builder.append(_resolve, "\t\t");
-            _builder.append(";");
-            _builder.newLineIfNotEmpty();
-          }
-        }
+      EList<VarBinding> _variables_1 = program.getMathExps().getVariables();
+      for(final VarBinding varBinding_1 : _variables_1) {
+        _builder.append("\t\t");
+        String _name_2 = varBinding_1.getName();
+        _builder.append(_name_2, "\t\t");
+        _builder.append(" = ");
+        String _resolve = this.resolve(varBinding_1.getExpression());
+        _builder.append(_resolve, "\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("\t");
@@ -131,25 +122,25 @@ public class MathGenerator extends AbstractGenerator {
         _builder.append("\t");
         _builder.append("interface External {\t\t");
         _builder.newLine();
-      }
-    }
-    {
-      EList<External> _externals = program.getExternals();
-      for(final External external : _externals) {
+        {
+          EList<External> _externals = program.getExternals();
+          for(final External external : _externals) {
+            _builder.append("\t");
+            _builder.append("public int ");
+            String _name_4 = external.getName();
+            _builder.append(_name_4, "\t");
+            _builder.append(" (");
+            String _listAll = this.listAll(external);
+            _builder.append(_listAll, "\t");
+            _builder.append(")");
+            _builder.newLineIfNotEmpty();
+          }
+        }
         _builder.append("\t");
-        _builder.append("public int ");
-        String _name_4 = external.getName();
-        _builder.append(_name_4, "\t");
-        _builder.append(" (");
-        String _listAll = this.listAll(external);
-        _builder.append(_listAll, "\t");
-        _builder.append(")");
-        _builder.newLineIfNotEmpty();
+        _builder.append("}");
+        _builder.newLine();
       }
     }
-    _builder.append("\t");
-    _builder.append("}");
-    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
     return _builder;
@@ -203,8 +194,25 @@ public class MathGenerator extends AbstractGenerator {
   }
   
   public String resolveBinding(final Binding binding) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nno viable alternative at input \'}\'");
+    String _switchResult = null;
+    boolean _matched = false;
+    if (binding instanceof VarBinding) {
+      _matched=true;
+      StringConcatenation _builder = new StringConcatenation();
+      String _name = ((VarBinding)binding).getName();
+      _builder.append(_name);
+      _builder.append(" = ");
+      String _resolve = this.resolve(((VarBinding)binding).getExpression());
+      _builder.append(_resolve);
+      _switchResult = _builder.toString();
+    }
+    if (!_matched) {
+      if (binding instanceof LetBinding) {
+        _matched=true;
+        _switchResult = ":)";
+      }
+    }
+    return _switchResult;
   }
   
   public String listAllExpressions(final Method method) {
@@ -212,25 +220,44 @@ public class MathGenerator extends AbstractGenerator {
     EList<Expression> _exps = method.getExps();
     for (final Expression exp : _exps) {
       String _output = output;
-      String _plus = (exp + ", ");
+      String _resolve = this.resolve(exp);
+      String _plus = (_resolve + ", ");
       output = (_output + _plus);
     }
     int _length = output.length();
-    int _minus = (_length - 3);
-    output.substring(0, _minus);
+    boolean _greaterThan = (_length > 2);
+    if (_greaterThan) {
+      int _length_1 = output.length();
+      int _minus = (_length_1 - 2);
+      output = output.substring(0, _minus);
+    }
     return output;
   }
+  
+  private Random r = new Random();
   
   public String listAll(final External external) {
     String output = "";
     EList<String> _args = external.getArgs();
     for (final String arg : _args) {
       String _output = output;
-      output = (_output + (arg + ", "));
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append(arg);
+      _builder.append(" n");
+      int _nextInt = this.r.nextInt(1000000);
+      _builder.append(_nextInt);
+      long _currentTimeMillis = System.currentTimeMillis();
+      _builder.append(_currentTimeMillis);
+      _builder.append(", ");
+      output = (_output + _builder);
     }
     int _length = output.length();
-    int _minus = (_length - 3);
-    output.substring(0, _minus);
+    boolean _greaterThan = (_length > 2);
+    if (_greaterThan) {
+      int _length_1 = output.length();
+      int _minus = (_length_1 - 2);
+      output = output.substring(0, _minus);
+    }
     return output;
   }
   

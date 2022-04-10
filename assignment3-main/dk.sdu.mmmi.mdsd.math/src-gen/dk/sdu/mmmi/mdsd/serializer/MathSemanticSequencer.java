@@ -314,7 +314,7 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Program returns Program
 	 *
 	 * Constraint:
-	 *     (name=ID externals+=External* mathExps+=MathExp*)
+	 *     (name=ID externals+=External* mathExps=MathExp)
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
