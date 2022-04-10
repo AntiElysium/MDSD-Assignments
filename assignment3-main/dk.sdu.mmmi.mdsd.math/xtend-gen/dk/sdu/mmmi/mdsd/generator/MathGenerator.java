@@ -246,25 +246,8 @@ public class MathGenerator extends AbstractGenerator {
   }
   
   public String resolveBinding(final Binding binding) {
-    String _switchResult = null;
-    boolean _matched = false;
-    if (binding instanceof VarBinding) {
-      _matched=true;
-      StringConcatenation _builder = new StringConcatenation();
-      String _name = ((VarBinding)binding).getName();
-      _builder.append(_name);
-      _builder.append(" = ");
-      String _resolve = this.resolve(((VarBinding)binding).getExpression());
-      _builder.append(_resolve);
-      _switchResult = _builder.toString();
-    }
-    if (!_matched) {
-      if (binding instanceof LetBinding) {
-        _matched=true;
-        _switchResult = ":)";
-      }
-    }
-    return _switchResult;
+    throw new Error("Unresolved compilation problems:"
+      + "\nno viable alternative at input \'}\'");
   }
   
   public String listAllExpressions(final Method method) {

@@ -96,7 +96,7 @@ class MathGenerator extends AbstractGenerator {
 	def String resolveBinding(Binding binding) {
 		switch (binding) {
 			VarBinding: '''«binding.name» = «binding.expression.resolve»'''
-			LetBinding: ":)"
+			LetBinding: 
 		}
 	}
 	
