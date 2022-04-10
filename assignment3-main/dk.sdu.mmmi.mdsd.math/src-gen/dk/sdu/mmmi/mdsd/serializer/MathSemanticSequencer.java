@@ -13,6 +13,7 @@ import dk.sdu.mmmi.mdsd.math.MathPackage;
 import dk.sdu.mmmi.mdsd.math.Method;
 import dk.sdu.mmmi.mdsd.math.Minus;
 import dk.sdu.mmmi.mdsd.math.Mult;
+import dk.sdu.mmmi.mdsd.math.Parentheses;
 import dk.sdu.mmmi.mdsd.math.Plus;
 import dk.sdu.mmmi.mdsd.math.Program;
 import dk.sdu.mmmi.mdsd.math.VarBinding;
@@ -67,6 +68,9 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case MathPackage.MULT:
 				sequence_Factor(context, (Mult) semanticObject); 
 				return; 
+			case MathPackage.PARENTHESES:
+				sequence_Primary(context, (Parentheses) semanticObject); 
+				return; 
 			case MathPackage.PLUS:
 				sequence_Exp(context, (Plus) semanticObject); 
 				return; 
@@ -89,10 +93,6 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Exp returns Minus
 	 *     Exp.Plus_1_0_0_0 returns Minus
 	 *     Exp.Minus_1_0_1_0 returns Minus
-	 *     Factor returns Minus
-	 *     Factor.Mult_1_0_0_0 returns Minus
-	 *     Factor.Div_1_0_1_0 returns Minus
-	 *     Primary returns Minus
 	 *
 	 * Constraint:
 	 *     (left=Exp_Minus_1_0_1_0 right=Factor)
@@ -116,10 +116,6 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Exp returns Plus
 	 *     Exp.Plus_1_0_0_0 returns Plus
 	 *     Exp.Minus_1_0_1_0 returns Plus
-	 *     Factor returns Plus
-	 *     Factor.Mult_1_0_0_0 returns Plus
-	 *     Factor.Div_1_0_1_0 returns Plus
-	 *     Primary returns Plus
 	 *
 	 * Constraint:
 	 *     (left=Exp_Plus_1_0_0_0 right=Factor)
@@ -158,7 +154,6 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Factor returns Div
 	 *     Factor.Mult_1_0_0_0 returns Div
 	 *     Factor.Div_1_0_1_0 returns Div
-	 *     Primary returns Div
 	 *
 	 * Constraint:
 	 *     (left=Factor_Div_1_0_1_0 right=Primary)
@@ -185,7 +180,6 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Factor returns Mult
 	 *     Factor.Mult_1_0_0_0 returns Mult
 	 *     Factor.Div_1_0_1_0 returns Mult
-	 *     Primary returns Mult
 	 *
 	 * Constraint:
 	 *     (left=Factor_Mult_1_0_0_0 right=Primary)
@@ -287,6 +281,30 @@ public class MathSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPrimaryAccess().getValueINTTerminalRuleCall_0_1_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns Parentheses
+	 *     Exp.Plus_1_0_0_0 returns Parentheses
+	 *     Exp.Minus_1_0_1_0 returns Parentheses
+	 *     Factor returns Parentheses
+	 *     Factor.Mult_1_0_0_0 returns Parentheses
+	 *     Factor.Div_1_0_1_0 returns Parentheses
+	 *     Primary returns Parentheses
+	 *
+	 * Constraint:
+	 *     exp=Exp
+	 */
+	protected void sequence_Primary(ISerializationContext context, Parentheses semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MathPackage.Literals.PARENTHESES__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MathPackage.Literals.PARENTHESES__EXP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryAccess().getExpExpParserRuleCall_1_2_0(), semanticObject.getExp());
 		feeder.finish();
 	}
 	

@@ -146,6 +146,11 @@ public class MathAdapterFactory extends AdapterFactoryImpl
         return createMathNumberAdapter();
       }
       @Override
+      public Adapter caseParentheses(Parentheses object)
+      {
+        return createParenthesesAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -373,6 +378,21 @@ public class MathAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMathNumberAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.math.Parentheses <em>Parentheses</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.math.Parentheses
+   * @generated
+   */
+  public Adapter createParenthesesAdapter()
   {
     return null;
   }

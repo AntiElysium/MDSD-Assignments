@@ -55,5 +55,8 @@
     <genClasses ecoreClass="Math.ecore#//MathNumber">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Math.ecore#//MathNumber/value"/>
     </genClasses>
+    <genClasses ecoreClass="Math.ecore#//Parentheses">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Math.ecore#//Parentheses/exp"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -19,6 +19,12 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import dk.sdu.mmmi.mdsd.math.Program
+import dk.sdu.mmmi.mdsd.math.External
+import dk.sdu.mmmi.mdsd.math.Expression
+import dk.sdu.mmmi.mdsd.math.Parentheses
+import dk.sdu.mmmi.mdsd.math.Binding
+import dk.sdu.mmmi.mdsd.math.Method
 
 /**
  * Generates code from your model files on save.
@@ -34,9 +40,86 @@ class MathGenerator extends AbstractGenerator {
 		val result = math.compute
 		result.displayPanel*/
 		
-		resource.allContents.filter(Program)
+		val p = resource.allContents.filter(Program).next
+		fsa.generateFile("math_expression/" + p.name + ".java", p.compile)
 	}
+	
+	
+	def compile(Program program){
+		'''
+		package math_expression;
 		
+		public class «program.name» {
+			«FOR mathExp: program.mathExps»
+			«FOR varBinding: mathExp.variables»
+			public int «varBinding.name»;
+			«ENDFOR»
+			«ENDFOR»
+			
+			public void compute() {
+				«FOR mathExp: program.mathExps»
+				«FOR varBinding: mathExp.variables»
+				«varBinding.name» = «varBinding.expression.resolve»;
+				«ENDFOR»
+				«ENDFOR»
+			}
+			
+			«IF !program.externals.empty»
+			private External external;	
+			
+			public «program.name»(External external){
+				this.external = external;
+			}
+			
+			interface External {		
+			«ENDIF»
+			«FOR external : program.externals»
+				public int «external.name» («external.listAll»)
+			«ENDFOR»
+			}
+		}
+		'''
+	}
+	
+	def String resolve(Expression expression){
+		var output = ""
+		switch (expression) {
+			MathNumber: output += expression.value
+			Parentheses: output += '''( «expression.exp.resolve» )'''
+			VariableUse: output += expression.ref.resolveBinding
+			Method: output += '''this.external.«expression.ref.name»(«expression.listAllExpressions»)'''
+		}
+		return output
+	}
+	
+	def String resolveBinding(Binding binding) {
+		switch (binding) {
+			VarBinding: '''«binding.name» = «binding.expression.resolve»'''
+			LetBinding: 
+		}
+	}
+	
+	def String listAllExpressions(Method method){
+		var output = ""
+		for(exp : method.exps){
+			output += exp + ", "
+		}
+		output.substring(0, output.length - 3)
+		return output
+	}
+	
+	def String listAll(External external) {
+		var output = ""
+		for(arg : external.args){
+			output += arg + ", "
+		}
+		output.substring(0, output.length - 3)
+		return output
+	}
+	
+	
+	
+	//Old sheit
 	def void displayPanel(Map<String, Integer> result) {
 		var resultString = ""
 		for (entry : result.entrySet()) {

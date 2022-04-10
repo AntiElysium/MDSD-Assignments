@@ -609,48 +609,66 @@ rulePrimary returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_2='('
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getPrimaryAccess().getParenthesesAction_1_0(),
+						$current);
+				}
+			)
+			otherlv_3='('
 			{
-				newLeafNode(otherlv_2, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_1_0());
+				newLeafNode(otherlv_3, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_1_1());
 			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPrimaryAccess().getExpExpParserRuleCall_1_2_0());
+					}
+					lv_exp_4_0=ruleExp
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPrimaryRule());
+						}
+						set(
+							$current,
+							"exp",
+							lv_exp_4_0,
+							"dk.sdu.mmmi.mdsd.Math.Exp");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_5=')'
 			{
-				newCompositeNode(grammarAccess.getPrimaryAccess().getExpParserRuleCall_1_1());
-			}
-			this_Exp_3=ruleExp
-			{
-				$current = $this_Exp_3.current;
-				afterParserOrEnumRuleCall();
-			}
-			otherlv_4=')'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_1_2());
+				newLeafNode(otherlv_5, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_1_3());
 			}
 		)
 		    |
 		{
 			newCompositeNode(grammarAccess.getPrimaryAccess().getVariableUseParserRuleCall_2());
 		}
-		this_VariableUse_5=ruleVariableUse
+		this_VariableUse_6=ruleVariableUse
 		{
-			$current = $this_VariableUse_5.current;
+			$current = $this_VariableUse_6.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
 			newCompositeNode(grammarAccess.getPrimaryAccess().getLetBindingParserRuleCall_3());
 		}
-		this_LetBinding_6=ruleLetBinding
+		this_LetBinding_7=ruleLetBinding
 		{
-			$current = $this_LetBinding_6.current;
+			$current = $this_LetBinding_7.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
 			newCompositeNode(grammarAccess.getPrimaryAccess().getMethodParserRuleCall_4());
 		}
-		this_Method_7=ruleMethod
+		this_Method_8=ruleMethod
 		{
-			$current = $this_Method_7.current;
+			$current = $this_Method_8.current;
 			afterParserOrEnumRuleCall();
 		}
 	)

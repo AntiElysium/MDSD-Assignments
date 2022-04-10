@@ -79,6 +79,7 @@ public class MathFactoryImpl extends EFactoryImpl implements MathFactory
       case MathPackage.MULT: return createMult();
       case MathPackage.DIV: return createDiv();
       case MathPackage.MATH_NUMBER: return createMathNumber();
+      case MathPackage.PARENTHESES: return createParentheses();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -250,6 +251,18 @@ public class MathFactoryImpl extends EFactoryImpl implements MathFactory
   {
     MathNumberImpl mathNumber = new MathNumberImpl();
     return mathNumber;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Parentheses createParentheses()
+  {
+    ParenthesesImpl parentheses = new ParenthesesImpl();
+    return parentheses;
   }
 
   /**

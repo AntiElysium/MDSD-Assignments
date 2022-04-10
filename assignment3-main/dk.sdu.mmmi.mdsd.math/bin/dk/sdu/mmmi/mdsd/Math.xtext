@@ -32,7 +32,7 @@ Factor returns Expression:
 ;
 
 Primary returns Expression:
-	{MathNumber} value=INT  | '(' Exp ')'  |  VariableUse | LetBinding | Method
+	{MathNumber} value=INT  | {Parentheses} '(' exp=Exp ')'  |  VariableUse | LetBinding | Method
 ;
 
 LetBinding:

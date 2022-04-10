@@ -150,6 +150,15 @@ public interface MathFactory extends EFactory
   MathNumber createMathNumber();
 
   /**
+   * Returns a new object of class '<em>Parentheses</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parentheses</em>'.
+   * @generated
+   */
+  Parentheses createParentheses();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

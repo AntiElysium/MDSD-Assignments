@@ -539,6 +539,34 @@ public interface MathPackage extends EPackage
    */
   int MATH_NUMBER_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.math.impl.ParenthesesImpl <em>Parentheses</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.math.impl.ParenthesesImpl
+   * @see dk.sdu.mmmi.mdsd.math.impl.MathPackageImpl#getParentheses()
+   * @generated
+   */
+  int PARENTHESES = 14;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESES__EXP = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Parentheses</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESES_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
 
   /**
    * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.math.Program <em>Program</em>}'.
@@ -923,6 +951,27 @@ public interface MathPackage extends EPackage
   EAttribute getMathNumber_Value();
 
   /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.math.Parentheses <em>Parentheses</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parentheses</em>'.
+   * @see dk.sdu.mmmi.mdsd.math.Parentheses
+   * @generated
+   */
+  EClass getParentheses();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.math.Parentheses#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see dk.sdu.mmmi.mdsd.math.Parentheses#getExp()
+   * @see #getParentheses()
+   * @generated
+   */
+  EReference getParentheses_Exp();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1260,6 +1309,24 @@ public interface MathPackage extends EPackage
      * @generated
      */
     EAttribute MATH_NUMBER__VALUE = eINSTANCE.getMathNumber_Value();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.math.impl.ParenthesesImpl <em>Parentheses</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.math.impl.ParenthesesImpl
+     * @see dk.sdu.mmmi.mdsd.math.impl.MathPackageImpl#getParentheses()
+     * @generated
+     */
+    EClass PARENTHESES = eINSTANCE.getParentheses();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARENTHESES__EXP = eINSTANCE.getParentheses_Exp();
 
   }
 
