@@ -190,6 +190,58 @@ public class MathGenerator extends AbstractGenerator {
         output = (_output + _builder);
       }
     }
+    if (!_matched) {
+      if (expression instanceof Plus) {
+        _matched=true;
+        String _output = output;
+        StringConcatenation _builder = new StringConcatenation();
+        String _resolve = this.resolve(((Plus)expression).getLeft());
+        _builder.append(_resolve);
+        _builder.append(" + ");
+        String _resolve_1 = this.resolve(((Plus)expression).getRight());
+        _builder.append(_resolve_1);
+        output = (_output + _builder);
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof Minus) {
+        _matched=true;
+        String _output = output;
+        StringConcatenation _builder = new StringConcatenation();
+        String _resolve = this.resolve(((Minus)expression).getLeft());
+        _builder.append(_resolve);
+        _builder.append(" - ");
+        String _resolve_1 = this.resolve(((Minus)expression).getRight());
+        _builder.append(_resolve_1);
+        output = (_output + _builder);
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof Div) {
+        _matched=true;
+        String _output = output;
+        StringConcatenation _builder = new StringConcatenation();
+        String _resolve = this.resolve(((Div)expression).getLeft());
+        _builder.append(_resolve);
+        _builder.append(" / ");
+        String _resolve_1 = this.resolve(((Div)expression).getRight());
+        _builder.append(_resolve_1);
+        output = (_output + _builder);
+      }
+    }
+    if (!_matched) {
+      if (expression instanceof Mult) {
+        _matched=true;
+        String _output = output;
+        StringConcatenation _builder = new StringConcatenation();
+        String _resolve = this.resolve(((Mult)expression).getLeft());
+        _builder.append(_resolve);
+        _builder.append(" * ");
+        String _resolve_1 = this.resolve(((Mult)expression).getRight());
+        _builder.append(_resolve_1);
+        output = (_output + _builder);
+      }
+    }
     return output;
   }
   

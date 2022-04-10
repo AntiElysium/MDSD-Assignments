@@ -85,6 +85,10 @@ class MathGenerator extends AbstractGenerator {
 			Parentheses: output += '''( «expression.exp.resolve» )'''
 			VariableUse: output += expression.ref.resolveBinding
 			Method: output += '''this.external.«expression.ref.name»(«expression.listAllExpressions»)'''
+			Plus: output += '''«expression.left.resolve» + «expression.right.resolve»'''
+			Minus: output += '''«expression.left.resolve» - «expression.right.resolve»'''
+			Div: output += '''«expression.left.resolve» / «expression.right.resolve»'''
+			Mult: output += '''«expression.left.resolve» * «expression.right.resolve»'''
 		}
 		return output
 	}
