@@ -26,6 +26,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 
 /**
  * Generates code from your model files on save.
@@ -34,7 +35,7 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class MathGenerator extends AbstractGenerator {
-  private static Map<String, Integer> variables;
+  private static Map<String, String> variables = CollectionLiterals.<String, String>newHashMap();
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
@@ -255,10 +256,20 @@ public class MathGenerator extends AbstractGenerator {
     if (!_matched) {
       if (binding instanceof LetBinding) {
         _matched=true;
-        _switchResult = "1";
+        _switchResult = this.letBindings(((LetBinding)binding));
       }
     }
     return _switchResult;
+  }
+  
+  public String letBindings(final LetBinding binding) {
+    MathGenerator.variables.put(binding.getName(), this.resolve(binding.getBinding()));
+    this.resolveBody(binding.getBody());
+    return "";
+  }
+  
+  public String resolveBody(final Expression expression) {
+    return null;
   }
   
   public String listAllExpressions(final Method method) {
