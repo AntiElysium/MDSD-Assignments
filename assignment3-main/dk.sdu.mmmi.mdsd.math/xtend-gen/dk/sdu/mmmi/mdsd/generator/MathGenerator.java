@@ -256,7 +256,7 @@ public class MathGenerator extends AbstractGenerator {
     if (!_matched) {
       if (binding instanceof LetBinding) {
         _matched=true;
-        _switchResult = this.letBindings(((LetBinding)binding));
+        _switchResult = "1";
       }
     }
     return _switchResult;
@@ -265,11 +265,11 @@ public class MathGenerator extends AbstractGenerator {
   public String letBindings(final LetBinding binding) {
     MathGenerator.variables.put(binding.getName(), this.resolve(binding.getBinding()));
     this.resolveBody(binding.getBody());
-    return "";
+    return "I don\'t know man";
   }
   
   public String resolveBody(final Expression expression) {
-    return null;
+    return "¯\\_(ツ)_/¯";
   }
   
   public String listAllExpressions(final Method method) {

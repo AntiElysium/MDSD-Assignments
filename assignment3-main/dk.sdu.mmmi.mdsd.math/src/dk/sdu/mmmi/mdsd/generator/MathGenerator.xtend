@@ -93,19 +93,18 @@ class MathGenerator extends AbstractGenerator {
 	def String resolveBinding(Binding binding) {
 		switch (binding) {
 			VarBinding: '''«binding.name» = «binding.expression.resolve»'''
-			LetBinding: binding.letBindings//"1" //TODO
+			LetBinding: "1" //binding.letBindings 
 		}
-	}
-	
+	}	
 	
 	def String letBindings(LetBinding binding) {
 		variables.put(binding.name,binding.binding.resolve)
 		binding.body.resolveBody
-		return ""
+		return "I don't know man"
 	}
 	
 	def String resolveBody(Expression expression) {
-		
+		return "¯\\_(ツ)_/¯";
 	}
 	
 	def String listAllExpressions(Method method){
