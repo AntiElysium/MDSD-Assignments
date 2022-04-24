@@ -32,3 +32,7 @@ private int gfd(int x, int result) {
 	result += x;
 	return result;
 }*/
+
+/*
+	2*2+3+2+79
+*/
