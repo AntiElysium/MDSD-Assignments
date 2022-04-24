@@ -37,6 +37,8 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 public class MathGenerator extends AbstractGenerator {
   private static Map<String, String> variables = CollectionLiterals.<String, String>newHashMap();
   
+  private int funNum = 0;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final Program p = Iterators.<Program>filter(resource.getAllContents(), Program.class).next();
@@ -263,9 +265,62 @@ public class MathGenerator extends AbstractGenerator {
   }
   
   public String letBindings(final LetBinding binding) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("f");
+    int _plusPlus = this.funNum++;
+    _builder.append(_plusPlus);
+    _builder.append("(0);");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    String _generateMethod = this.generateMethod(binding);
+    _builder.append(_generateMethod, "\t\t");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String generateMethod(final LetBinding binding) {
     MathGenerator.variables.put(binding.getName(), this.resolve(binding.getBinding()));
     this.resolveBody(binding.getBody());
-    return "I don\'t know man";
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("private int f");
+    _builder.append(this.funNum);
+    _builder.append("(");
+    String _generateParams = this.generateParams();
+    _builder.append(_generateParams);
+    _builder.append(", int result) {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("int ");
+    String _name = binding.getName();
+    _builder.append(_name, "\t\t\t");
+    _builder.append(" = ");
+    String _resolve = this.resolve(binding.getBinding());
+    _builder.append(_resolve, "\t\t\t");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("return ");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String generateParams() {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _isEmpty = MathGenerator.variables.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append("asd");
+        _builder.newLine();
+      }
+    }
+    return _builder.toString();
   }
   
   public String resolveBody(final Expression expression) {

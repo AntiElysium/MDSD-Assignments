@@ -36,6 +36,7 @@ class MathGenerator extends AbstractGenerator {
 	
 	//static Map<String, Integer> variables = newHashMap;
 	static Map<String, String> variables = newHashMap;
+	var funNum = 0;
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val p = resource.allContents.filter(Program).next
@@ -98,9 +99,32 @@ class MathGenerator extends AbstractGenerator {
 	}	
 	
 	def String letBindings(LetBinding binding) {
+		//variables.put(binding.name,binding.binding.resolve)
+		//binding.body.resolveBody
+		
+		return '''f«funNum++»(0);
+		}
+		«binding.generateMethod»
+		'''
+		//return "I don't know man"
+	}
+	
+	def String generateMethod(LetBinding binding){
 		variables.put(binding.name,binding.binding.resolve)
 		binding.body.resolveBody
-		return "I don't know man"
+		return '''private int f«funNum»(«generateParams()», int result) {
+			int «binding.name» = «binding.binding.resolve»;
+			return 
+		}
+		'''
+	}
+	
+	def String generateParams() {
+		return '''
+			«IF !variables.empty»
+			asd
+			«ENDIF»
+		'''
 	}
 	
 	def String resolveBody(Expression expression) {
