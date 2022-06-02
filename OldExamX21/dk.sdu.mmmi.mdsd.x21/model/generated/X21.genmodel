@@ -6,11 +6,85 @@
     copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="X21" basePackage="dk.sdu.mmmi.mdsd" disposableProviderFactory="true"
       fileExtensions="X21" ecorePackage="X21.ecore#/">
-    <genClasses ecoreClass="X21.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Model/greetings"/>
+    <genClasses ecoreClass="X21.ecore#//X21">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//X21/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//X21/declarations"/>
     </genClasses>
-    <genClasses ecoreClass="X21.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//Greeting/name"/>
+    <genClasses ecoreClass="X21.ecore#//Declaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//Declaration/name"/>
     </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Function">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Function/lambda"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Lambda">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//Lambda/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//Lambda/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Lambda/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Input">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//Input/type"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//Node/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Node/lambda"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Stream">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//Stream/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Stream/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//Element/nodeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//Element/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Element/Lambda"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//Element/outputName"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//DataDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//DataDecl/declNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//DataDecl/types"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Exp"/>
+    <genClasses ecoreClass="X21.ecore#//Expression"/>
+    <genClasses ecoreClass="X21.ecore#//Atomic"/>
+    <genClasses ecoreClass="X21.ecore#//LetBinding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//LetBinding/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//LetBinding/binding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//LetBinding/body"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//IfStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//IfStatement/statement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//IfStatement/trueExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//IfStatement/falseExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//LogicExp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//LogicExp/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//LogicExp/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//LogicExp/right"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Plus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Plus/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Plus/right"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Minus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Minus/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Minus/right"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Mult">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Mult/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Mult/right"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Div">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Div/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Div/right"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//Parenthesis">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Parenthesis/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//IntValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//IntValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//None"/>
   </genPackages>
 </genmodel:GenModel>

@@ -73,17 +73,195 @@ public class X21Switch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case X21Package.MODEL:
+      case X21Package.X21:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        X21 x21 = (X21)theEObject;
+        T result = caseX21(x21);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case X21Package.GREETING:
+      case X21Package.DECLARATION:
       {
-        Greeting greeting = (Greeting)theEObject;
-        T result = caseGreeting(greeting);
+        Declaration declaration = (Declaration)theEObject;
+        T result = caseDeclaration(declaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.PARAMETER:
+      {
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
+        if (result == null) result = caseDeclaration(parameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.FUNCTION:
+      {
+        Function function = (Function)theEObject;
+        T result = caseFunction(function);
+        if (result == null) result = caseDeclaration(function);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.LAMBDA:
+      {
+        Lambda lambda = (Lambda)theEObject;
+        T result = caseLambda(lambda);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.INPUT:
+      {
+        Input input = (Input)theEObject;
+        T result = caseInput(input);
+        if (result == null) result = caseDeclaration(input);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.NODE:
+      {
+        Node node = (Node)theEObject;
+        T result = caseNode(node);
+        if (result == null) result = caseDeclaration(node);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.STREAM:
+      {
+        Stream stream = (Stream)theEObject;
+        T result = caseStream(stream);
+        if (result == null) result = caseDeclaration(stream);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.ELEMENT:
+      {
+        Element element = (Element)theEObject;
+        T result = caseElement(element);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.DATA_DECL:
+      {
+        DataDecl dataDecl = (DataDecl)theEObject;
+        T result = caseDataDecl(dataDecl);
+        if (result == null) result = caseDeclaration(dataDecl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.EXP:
+      {
+        Exp exp = (Exp)theEObject;
+        T result = caseExp(exp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
+        if (result == null) result = caseExp(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.ATOMIC:
+      {
+        Atomic atomic = (Atomic)theEObject;
+        T result = caseAtomic(atomic);
+        if (result == null) result = caseExpression(atomic);
+        if (result == null) result = caseExp(atomic);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.LET_BINDING:
+      {
+        LetBinding letBinding = (LetBinding)theEObject;
+        T result = caseLetBinding(letBinding);
+        if (result == null) result = caseAtomic(letBinding);
+        if (result == null) result = caseExpression(letBinding);
+        if (result == null) result = caseExp(letBinding);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.IF_STATEMENT:
+      {
+        IfStatement ifStatement = (IfStatement)theEObject;
+        T result = caseIfStatement(ifStatement);
+        if (result == null) result = caseAtomic(ifStatement);
+        if (result == null) result = caseExpression(ifStatement);
+        if (result == null) result = caseExp(ifStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.LOGIC_EXP:
+      {
+        LogicExp logicExp = (LogicExp)theEObject;
+        T result = caseLogicExp(logicExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.PLUS:
+      {
+        Plus plus = (Plus)theEObject;
+        T result = casePlus(plus);
+        if (result == null) result = caseExpression(plus);
+        if (result == null) result = caseExp(plus);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.MINUS:
+      {
+        Minus minus = (Minus)theEObject;
+        T result = caseMinus(minus);
+        if (result == null) result = caseExpression(minus);
+        if (result == null) result = caseExp(minus);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.MULT:
+      {
+        Mult mult = (Mult)theEObject;
+        T result = caseMult(mult);
+        if (result == null) result = caseExpression(mult);
+        if (result == null) result = caseExp(mult);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.DIV:
+      {
+        Div div = (Div)theEObject;
+        T result = caseDiv(div);
+        if (result == null) result = caseExpression(div);
+        if (result == null) result = caseExp(div);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.PARENTHESIS:
+      {
+        Parenthesis parenthesis = (Parenthesis)theEObject;
+        T result = caseParenthesis(parenthesis);
+        if (result == null) result = caseExpression(parenthesis);
+        if (result == null) result = caseExp(parenthesis);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.INT_VALUE:
+      {
+        IntValue intValue = (IntValue)theEObject;
+        T result = caseIntValue(intValue);
+        if (result == null) result = caseAtomic(intValue);
+        if (result == null) result = caseExpression(intValue);
+        if (result == null) result = caseExp(intValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.NONE:
+      {
+        None none = (None)theEObject;
+        T result = caseNone(none);
+        if (result == null) result = caseAtomic(none);
+        if (result == null) result = caseExpression(none);
+        if (result == null) result = caseExp(none);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -92,33 +270,369 @@ public class X21Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>X21</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>X21</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T caseX21(X21 object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Declaration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGreeting(Greeting object)
+  public T caseDeclaration(Declaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameter(Parameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunction(Function object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Lambda</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Lambda</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLambda(Lambda object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Input</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInput(Input object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Node</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNode(Node object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Stream</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Stream</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStream(Stream object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseElement(Element object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Decl</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Decl</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataDecl(DataDecl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExp(Exp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Atomic</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Atomic</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAtomic(Atomic object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Let Binding</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Let Binding</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLetBinding(LetBinding object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfStatement(IfStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Logic Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logic Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogicExp(LogicExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Plus</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Plus</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePlus(Plus object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMinus(Minus object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mult</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mult</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMult(Mult object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Div</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Div</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDiv(Div object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parenthesis</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parenthesis</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParenthesis(Parenthesis object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Int Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Int Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntValue(IntValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>None</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>None</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNone(None object)
   {
     return null;
   }

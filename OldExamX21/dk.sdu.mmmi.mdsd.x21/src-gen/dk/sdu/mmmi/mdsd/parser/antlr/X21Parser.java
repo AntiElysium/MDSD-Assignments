@@ -27,7 +27,7 @@ public class X21Parser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "X21";
 	}
 
 	public X21GrammarAccess getGrammarAccess() {

@@ -24,22 +24,211 @@ public interface X21Factory extends EFactory
   X21Factory eINSTANCE = dk.sdu.mmmi.mdsd.x21.impl.X21FactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>X21</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>X21</em>'.
    * @generated
    */
-  Model createModel();
+  X21 createX21();
 
   /**
-   * Returns a new object of class '<em>Greeting</em>'.
+   * Returns a new object of class '<em>Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Greeting</em>'.
+   * @return a new object of class '<em>Declaration</em>'.
    * @generated
    */
-  Greeting createGreeting();
+  Declaration createDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter</em>'.
+   * @generated
+   */
+  Parameter createParameter();
+
+  /**
+   * Returns a new object of class '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function</em>'.
+   * @generated
+   */
+  Function createFunction();
+
+  /**
+   * Returns a new object of class '<em>Lambda</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Lambda</em>'.
+   * @generated
+   */
+  Lambda createLambda();
+
+  /**
+   * Returns a new object of class '<em>Input</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input</em>'.
+   * @generated
+   */
+  Input createInput();
+
+  /**
+   * Returns a new object of class '<em>Node</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Node</em>'.
+   * @generated
+   */
+  Node createNode();
+
+  /**
+   * Returns a new object of class '<em>Stream</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Stream</em>'.
+   * @generated
+   */
+  Stream createStream();
+
+  /**
+   * Returns a new object of class '<em>Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Element</em>'.
+   * @generated
+   */
+  Element createElement();
+
+  /**
+   * Returns a new object of class '<em>Data Decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Decl</em>'.
+   * @generated
+   */
+  DataDecl createDataDecl();
+
+  /**
+   * Returns a new object of class '<em>Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exp</em>'.
+   * @generated
+   */
+  Exp createExp();
+
+  /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Atomic</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Atomic</em>'.
+   * @generated
+   */
+  Atomic createAtomic();
+
+  /**
+   * Returns a new object of class '<em>Let Binding</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Let Binding</em>'.
+   * @generated
+   */
+  LetBinding createLetBinding();
+
+  /**
+   * Returns a new object of class '<em>If Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Statement</em>'.
+   * @generated
+   */
+  IfStatement createIfStatement();
+
+  /**
+   * Returns a new object of class '<em>Logic Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logic Exp</em>'.
+   * @generated
+   */
+  LogicExp createLogicExp();
+
+  /**
+   * Returns a new object of class '<em>Plus</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Plus</em>'.
+   * @generated
+   */
+  Plus createPlus();
+
+  /**
+   * Returns a new object of class '<em>Minus</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Minus</em>'.
+   * @generated
+   */
+  Minus createMinus();
+
+  /**
+   * Returns a new object of class '<em>Mult</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mult</em>'.
+   * @generated
+   */
+  Mult createMult();
+
+  /**
+   * Returns a new object of class '<em>Div</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Div</em>'.
+   * @generated
+   */
+  Div createDiv();
+
+  /**
+   * Returns a new object of class '<em>Parenthesis</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parenthesis</em>'.
+   * @generated
+   */
+  Parenthesis createParenthesis();
+
+  /**
+   * Returns a new object of class '<em>Int Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Int Value</em>'.
+   * @generated
+   */
+  IntValue createIntValue();
+
+  /**
+   * Returns a new object of class '<em>None</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>None</em>'.
+   * @generated
+   */
+  None createNone();
 
   /**
    * Returns the package supported by this factory.

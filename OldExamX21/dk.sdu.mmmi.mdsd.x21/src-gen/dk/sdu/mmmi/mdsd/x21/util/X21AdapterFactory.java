@@ -76,14 +76,119 @@ public class X21AdapterFactory extends AdapterFactoryImpl
     new X21Switch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter caseX21(X21 object)
       {
-        return createModelAdapter();
+        return createX21Adapter();
       }
       @Override
-      public Adapter caseGreeting(Greeting object)
+      public Adapter caseDeclaration(Declaration object)
       {
-        return createGreetingAdapter();
+        return createDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseParameter(Parameter object)
+      {
+        return createParameterAdapter();
+      }
+      @Override
+      public Adapter caseFunction(Function object)
+      {
+        return createFunctionAdapter();
+      }
+      @Override
+      public Adapter caseLambda(Lambda object)
+      {
+        return createLambdaAdapter();
+      }
+      @Override
+      public Adapter caseInput(Input object)
+      {
+        return createInputAdapter();
+      }
+      @Override
+      public Adapter caseNode(Node object)
+      {
+        return createNodeAdapter();
+      }
+      @Override
+      public Adapter caseStream(Stream object)
+      {
+        return createStreamAdapter();
+      }
+      @Override
+      public Adapter caseElement(Element object)
+      {
+        return createElementAdapter();
+      }
+      @Override
+      public Adapter caseDataDecl(DataDecl object)
+      {
+        return createDataDeclAdapter();
+      }
+      @Override
+      public Adapter caseExp(Exp object)
+      {
+        return createExpAdapter();
+      }
+      @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseAtomic(Atomic object)
+      {
+        return createAtomicAdapter();
+      }
+      @Override
+      public Adapter caseLetBinding(LetBinding object)
+      {
+        return createLetBindingAdapter();
+      }
+      @Override
+      public Adapter caseIfStatement(IfStatement object)
+      {
+        return createIfStatementAdapter();
+      }
+      @Override
+      public Adapter caseLogicExp(LogicExp object)
+      {
+        return createLogicExpAdapter();
+      }
+      @Override
+      public Adapter casePlus(Plus object)
+      {
+        return createPlusAdapter();
+      }
+      @Override
+      public Adapter caseMinus(Minus object)
+      {
+        return createMinusAdapter();
+      }
+      @Override
+      public Adapter caseMult(Mult object)
+      {
+        return createMultAdapter();
+      }
+      @Override
+      public Adapter caseDiv(Div object)
+      {
+        return createDivAdapter();
+      }
+      @Override
+      public Adapter caseParenthesis(Parenthesis object)
+      {
+        return createParenthesisAdapter();
+      }
+      @Override
+      public Adapter caseIntValue(IntValue object)
+      {
+        return createIntValueAdapter();
+      }
+      @Override
+      public Adapter caseNone(None object)
+      {
+        return createNoneAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -108,31 +213,346 @@ public class X21AdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.X21 <em>X21</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mmmi.mdsd.x21.Model
+   * @see dk.sdu.mmmi.mdsd.x21.X21
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createX21Adapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Greeting <em>Greeting</em>}'.
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Declaration <em>Declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see dk.sdu.mmmi.mdsd.x21.Greeting
+   * @see dk.sdu.mmmi.mdsd.x21.Declaration
    * @generated
    */
-  public Adapter createGreetingAdapter()
+  public Adapter createDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Parameter
+   * @generated
+   */
+  public Adapter createParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Function
+   * @generated
+   */
+  public Adapter createFunctionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Lambda <em>Lambda</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Lambda
+   * @generated
+   */
+  public Adapter createLambdaAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Input <em>Input</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Input
+   * @generated
+   */
+  public Adapter createInputAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Node <em>Node</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Node
+   * @generated
+   */
+  public Adapter createNodeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Stream <em>Stream</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Stream
+   * @generated
+   */
+  public Adapter createStreamAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Element <em>Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Element
+   * @generated
+   */
+  public Adapter createElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.DataDecl <em>Data Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.DataDecl
+   * @generated
+   */
+  public Adapter createDataDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Exp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Exp
+   * @generated
+   */
+  public Adapter createExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Atomic <em>Atomic</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Atomic
+   * @generated
+   */
+  public Adapter createAtomicAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.LetBinding <em>Let Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.LetBinding
+   * @generated
+   */
+  public Adapter createLetBindingAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.IfStatement <em>If Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.IfStatement
+   * @generated
+   */
+  public Adapter createIfStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.LogicExp <em>Logic Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.LogicExp
+   * @generated
+   */
+  public Adapter createLogicExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Plus <em>Plus</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Plus
+   * @generated
+   */
+  public Adapter createPlusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Minus <em>Minus</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Minus
+   * @generated
+   */
+  public Adapter createMinusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Mult <em>Mult</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Mult
+   * @generated
+   */
+  public Adapter createMultAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Div <em>Div</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Div
+   * @generated
+   */
+  public Adapter createDivAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.Parenthesis <em>Parenthesis</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.Parenthesis
+   * @generated
+   */
+  public Adapter createParenthesisAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.IntValue <em>Int Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.IntValue
+   * @generated
+   */
+  public Adapter createIntValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.None <em>None</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.None
+   * @generated
+   */
+  public Adapter createNoneAdapter()
   {
     return null;
   }

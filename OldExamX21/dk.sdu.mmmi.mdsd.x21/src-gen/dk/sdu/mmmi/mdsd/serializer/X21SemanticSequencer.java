@@ -5,8 +5,24 @@ package dk.sdu.mmmi.mdsd.serializer;
 
 import com.google.inject.Inject;
 import dk.sdu.mmmi.mdsd.services.X21GrammarAccess;
-import dk.sdu.mmmi.mdsd.x21.Greeting;
-import dk.sdu.mmmi.mdsd.x21.Model;
+import dk.sdu.mmmi.mdsd.x21.DataDecl;
+import dk.sdu.mmmi.mdsd.x21.Div;
+import dk.sdu.mmmi.mdsd.x21.Element;
+import dk.sdu.mmmi.mdsd.x21.Function;
+import dk.sdu.mmmi.mdsd.x21.IfStatement;
+import dk.sdu.mmmi.mdsd.x21.Input;
+import dk.sdu.mmmi.mdsd.x21.IntValue;
+import dk.sdu.mmmi.mdsd.x21.Lambda;
+import dk.sdu.mmmi.mdsd.x21.LetBinding;
+import dk.sdu.mmmi.mdsd.x21.LogicExp;
+import dk.sdu.mmmi.mdsd.x21.Minus;
+import dk.sdu.mmmi.mdsd.x21.Mult;
+import dk.sdu.mmmi.mdsd.x21.Node;
+import dk.sdu.mmmi.mdsd.x21.None;
+import dk.sdu.mmmi.mdsd.x21.Parenthesis;
+import dk.sdu.mmmi.mdsd.x21.Plus;
+import dk.sdu.mmmi.mdsd.x21.Stream;
+import dk.sdu.mmmi.mdsd.x21.X21;
 import dk.sdu.mmmi.mdsd.x21.X21Package;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -33,11 +49,62 @@ public class X21SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == X21Package.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case X21Package.GREETING:
-				sequence_Greeting(context, (Greeting) semanticObject); 
+			case X21Package.DATA_DECL:
+				sequence_DataDecl(context, (DataDecl) semanticObject); 
 				return; 
-			case X21Package.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case X21Package.DIV:
+				sequence_MulDiv(context, (Div) semanticObject); 
+				return; 
+			case X21Package.ELEMENT:
+				sequence_Element(context, (Element) semanticObject); 
+				return; 
+			case X21Package.FUNCTION:
+				sequence_Function(context, (Function) semanticObject); 
+				return; 
+			case X21Package.IF_STATEMENT:
+				sequence_IfStatement(context, (IfStatement) semanticObject); 
+				return; 
+			case X21Package.INPUT:
+				sequence_Input(context, (Input) semanticObject); 
+				return; 
+			case X21Package.INT_VALUE:
+				sequence_Atomic(context, (IntValue) semanticObject); 
+				return; 
+			case X21Package.LAMBDA:
+				sequence_Lambda(context, (Lambda) semanticObject); 
+				return; 
+			case X21Package.LET_BINDING:
+				sequence_LetBinding(context, (LetBinding) semanticObject); 
+				return; 
+			case X21Package.LOGIC_EXP:
+				sequence_LogicExp(context, (LogicExp) semanticObject); 
+				return; 
+			case X21Package.MINUS:
+				sequence_PlusMinus(context, (Minus) semanticObject); 
+				return; 
+			case X21Package.MULT:
+				sequence_MulDiv(context, (Mult) semanticObject); 
+				return; 
+			case X21Package.NODE:
+				sequence_Node(context, (Node) semanticObject); 
+				return; 
+			case X21Package.NONE:
+				sequence_Atomic(context, (None) semanticObject); 
+				return; 
+			case X21Package.PARAMETER:
+				sequence_Parameter(context, (dk.sdu.mmmi.mdsd.x21.Parameter) semanticObject); 
+				return; 
+			case X21Package.PARENTHESIS:
+				sequence_Primary(context, (Parenthesis) semanticObject); 
+				return; 
+			case X21Package.PLUS:
+				sequence_PlusMinus(context, (Plus) semanticObject); 
+				return; 
+			case X21Package.STREAM:
+				sequence_Stream(context, (Stream) semanticObject); 
+				return; 
+			case X21Package.X21:
+				sequence_X21(context, (X21) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -46,30 +113,404 @@ public class X21SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Greeting returns Greeting
+	 *     Exp returns IntValue
+	 *     PlusMinus returns IntValue
+	 *     PlusMinus.Plus_1_0_0_0 returns IntValue
+	 *     PlusMinus.Minus_1_0_1_0 returns IntValue
+	 *     MulDiv returns IntValue
+	 *     MulDiv.Mult_1_0_0_0 returns IntValue
+	 *     MulDiv.Div_1_0_1_0 returns IntValue
+	 *     Primary returns IntValue
+	 *     Atomic returns IntValue
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     value=INT
 	 */
-	protected void sequence_Greeting(ISerializationContext context, Greeting semanticObject) {
+	protected void sequence_Atomic(ISerializationContext context, IntValue semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.GREETING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.GREETING__NAME));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.INT_VALUE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.INT_VALUE__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGreetingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAtomicAccess().getValueINTTerminalRuleCall_0_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Model returns Model
+	 *     Exp returns None
+	 *     PlusMinus returns None
+	 *     PlusMinus.Plus_1_0_0_0 returns None
+	 *     PlusMinus.Minus_1_0_1_0 returns None
+	 *     MulDiv returns None
+	 *     MulDiv.Mult_1_0_0_0 returns None
+	 *     MulDiv.Div_1_0_1_0 returns None
+	 *     Primary returns None
+	 *     Atomic returns None
 	 *
 	 * Constraint:
-	 *     greetings+=Greeting+
+	 *     {None}
 	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+	protected void sequence_Atomic(ISerializationContext context, None semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Declaration returns DataDecl
+	 *     DataDecl returns DataDecl
+	 *
+	 * Constraint:
+	 *     (name=ID declNames+=ID types+=Type (declNames+=ID types+=Type)*)
+	 */
+	protected void sequence_DataDecl(ISerializationContext context, DataDecl semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Element returns Element
+	 *
+	 * Constraint:
+	 *     (nodeName=ID | function=ID | Lambda=Lambda | outputName=ID)
+	 */
+	protected void sequence_Element(ISerializationContext context, Element semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Declaration returns Function
+	 *     Function returns Function
+	 *
+	 * Constraint:
+	 *     (name=ID lambda=Lambda)
+	 */
+	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.DECLARATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.DECLARATION__NAME));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.FUNCTION__LAMBDA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.FUNCTION__LAMBDA));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFunctionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getFunctionAccess().getLambdaLambdaParserRuleCall_2_0(), semanticObject.getLambda());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns IfStatement
+	 *     PlusMinus returns IfStatement
+	 *     PlusMinus.Plus_1_0_0_0 returns IfStatement
+	 *     PlusMinus.Minus_1_0_1_0 returns IfStatement
+	 *     MulDiv returns IfStatement
+	 *     MulDiv.Mult_1_0_0_0 returns IfStatement
+	 *     MulDiv.Div_1_0_1_0 returns IfStatement
+	 *     Primary returns IfStatement
+	 *     Atomic returns IfStatement
+	 *     IfStatement returns IfStatement
+	 *
+	 * Constraint:
+	 *     (statement=LogicExp trueExpression=Exp falseExpression=Exp)
+	 */
+	protected void sequence_IfStatement(ISerializationContext context, IfStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.IF_STATEMENT__STATEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.IF_STATEMENT__STATEMENT));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.IF_STATEMENT__TRUE_EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.IF_STATEMENT__TRUE_EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.IF_STATEMENT__FALSE_EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.IF_STATEMENT__FALSE_EXPRESSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIfStatementAccess().getStatementLogicExpParserRuleCall_1_0(), semanticObject.getStatement());
+		feeder.accept(grammarAccess.getIfStatementAccess().getTrueExpressionExpParserRuleCall_3_0(), semanticObject.getTrueExpression());
+		feeder.accept(grammarAccess.getIfStatementAccess().getFalseExpressionExpParserRuleCall_5_0(), semanticObject.getFalseExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Declaration returns Input
+	 *     Input returns Input
+	 *
+	 * Constraint:
+	 *     (name=ID type=Type)
+	 */
+	protected void sequence_Input(ISerializationContext context, Input semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.DECLARATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.DECLARATION__NAME));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.INPUT__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.INPUT__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getInputAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getInputAccess().getTypeTypeParserRuleCall_3_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Lambda returns Lambda
+	 *
+	 * Constraint:
+	 *     (name=ID type=Type exp=Exp)
+	 */
+	protected void sequence_Lambda(ISerializationContext context, Lambda semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.LAMBDA__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.LAMBDA__NAME));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.LAMBDA__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.LAMBDA__TYPE));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.LAMBDA__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.LAMBDA__EXP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLambdaAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getLambdaAccess().getTypeTypeParserRuleCall_3_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getLambdaAccess().getExpExpParserRuleCall_6_0(), semanticObject.getExp());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns LetBinding
+	 *     PlusMinus returns LetBinding
+	 *     PlusMinus.Plus_1_0_0_0 returns LetBinding
+	 *     PlusMinus.Minus_1_0_1_0 returns LetBinding
+	 *     MulDiv returns LetBinding
+	 *     MulDiv.Mult_1_0_0_0 returns LetBinding
+	 *     MulDiv.Div_1_0_1_0 returns LetBinding
+	 *     Primary returns LetBinding
+	 *     Atomic returns LetBinding
+	 *     LetBinding returns LetBinding
+	 *
+	 * Constraint:
+	 *     (name=ID binding=Exp body=Exp)
+	 */
+	protected void sequence_LetBinding(ISerializationContext context, LetBinding semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.LET_BINDING__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.LET_BINDING__NAME));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.LET_BINDING__BINDING) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.LET_BINDING__BINDING));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.LET_BINDING__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.LET_BINDING__BODY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLetBindingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getLetBindingAccess().getBindingExpParserRuleCall_3_0(), semanticObject.getBinding());
+		feeder.accept(grammarAccess.getLetBindingAccess().getBodyExpParserRuleCall_5_0(), semanticObject.getBody());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LogicExp returns LogicExp
+	 *
+	 * Constraint:
+	 *     (left=Exp (operator='=' | operator='<' | operator='>' | operator='<=' | operator='>=') right=Exp)
+	 */
+	protected void sequence_LogicExp(ISerializationContext context, LogicExp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns Div
+	 *     PlusMinus returns Div
+	 *     PlusMinus.Plus_1_0_0_0 returns Div
+	 *     PlusMinus.Minus_1_0_1_0 returns Div
+	 *     MulDiv returns Div
+	 *     MulDiv.Mult_1_0_0_0 returns Div
+	 *     MulDiv.Div_1_0_1_0 returns Div
+	 *
+	 * Constraint:
+	 *     (left=MulDiv_Div_1_0_1_0 right=Primary)
+	 */
+	protected void sequence_MulDiv(ISerializationContext context, Div semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.DIV__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.DIV__LEFT));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.DIV__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.DIV__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMulDivAccess().getDivLeftAction_1_0_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getMulDivAccess().getRightPrimaryParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns Mult
+	 *     PlusMinus returns Mult
+	 *     PlusMinus.Plus_1_0_0_0 returns Mult
+	 *     PlusMinus.Minus_1_0_1_0 returns Mult
+	 *     MulDiv returns Mult
+	 *     MulDiv.Mult_1_0_0_0 returns Mult
+	 *     MulDiv.Div_1_0_1_0 returns Mult
+	 *
+	 * Constraint:
+	 *     (left=MulDiv_Mult_1_0_0_0 right=Primary)
+	 */
+	protected void sequence_MulDiv(ISerializationContext context, Mult semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.MULT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.MULT__LEFT));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.MULT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.MULT__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMulDivAccess().getMultLeftAction_1_0_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getMulDivAccess().getRightPrimaryParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Declaration returns Node
+	 *     Node returns Node
+	 *
+	 * Constraint:
+	 *     (name=ID (function=ID | lambda=Lambda))
+	 */
+	protected void sequence_Node(ISerializationContext context, Node semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Declaration returns Parameter
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     (name=ID type=Type)
+	 */
+	protected void sequence_Parameter(ISerializationContext context, dk.sdu.mmmi.mdsd.x21.Parameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.DECLARATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.DECLARATION__NAME));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.PARAMETER__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.PARAMETER__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getParameterAccess().getTypeTypeParserRuleCall_3_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns Minus
+	 *     PlusMinus returns Minus
+	 *     PlusMinus.Plus_1_0_0_0 returns Minus
+	 *     PlusMinus.Minus_1_0_1_0 returns Minus
+	 *
+	 * Constraint:
+	 *     (left=PlusMinus_Minus_1_0_1_0 right=MulDiv)
+	 */
+	protected void sequence_PlusMinus(ISerializationContext context, Minus semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.MINUS__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.MINUS__LEFT));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.MINUS__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.MINUS__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPlusMinusAccess().getMinusLeftAction_1_0_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getPlusMinusAccess().getRightMulDivParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns Plus
+	 *     PlusMinus returns Plus
+	 *     PlusMinus.Plus_1_0_0_0 returns Plus
+	 *     PlusMinus.Minus_1_0_1_0 returns Plus
+	 *
+	 * Constraint:
+	 *     (left=PlusMinus_Plus_1_0_0_0 right=MulDiv)
+	 */
+	protected void sequence_PlusMinus(ISerializationContext context, Plus semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.PLUS__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.PLUS__LEFT));
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.PLUS__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.PLUS__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPlusMinusAccess().getPlusLeftAction_1_0_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getPlusMinusAccess().getRightMulDivParserRuleCall_1_1_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns Parenthesis
+	 *     PlusMinus returns Parenthesis
+	 *     PlusMinus.Plus_1_0_0_0 returns Parenthesis
+	 *     PlusMinus.Minus_1_0_1_0 returns Parenthesis
+	 *     MulDiv returns Parenthesis
+	 *     MulDiv.Mult_1_0_0_0 returns Parenthesis
+	 *     MulDiv.Div_1_0_1_0 returns Parenthesis
+	 *     Primary returns Parenthesis
+	 *
+	 * Constraint:
+	 *     expression=Exp
+	 */
+	protected void sequence_Primary(ISerializationContext context, Parenthesis semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, X21Package.Literals.PARENTHESIS__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, X21Package.Literals.PARENTHESIS__EXPRESSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryAccess().getExpressionExpParserRuleCall_1_2_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Declaration returns Stream
+	 *     Stream returns Stream
+	 *
+	 * Constraint:
+	 *     (name=ID inputs+=ID* (elements+=Element elements+=Element*)+)
+	 */
+	protected void sequence_Stream(ISerializationContext context, Stream semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     X21 returns X21
+	 *
+	 * Constraint:
+	 *     (name=ID declarations+=Declaration*)
+	 */
+	protected void sequence_X21(ISerializationContext context, X21 semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

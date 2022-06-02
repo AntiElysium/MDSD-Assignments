@@ -58,42 +58,14 @@ public interface X21Package extends EPackage
   X21Package eINSTANCE = dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl.init();
 
   /**
-   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.X21Impl <em>X21</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see dk.sdu.mmmi.mdsd.x21.impl.ModelImpl
-   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getModel()
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21Impl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getX21()
    * @generated
    */
-  int MODEL = 0;
-
-  /**
-   * The feature id for the '<em><b>Greetings</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__GREETINGS = 0;
-
-  /**
-   * The number of structural features of the '<em>Model</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.GreetingImpl <em>Greeting</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see dk.sdu.mmmi.mdsd.x21.impl.GreetingImpl
-   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getGreeting()
-   * @generated
-   */
-  int GREETING = 1;
+  int X21 = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -102,59 +74,1470 @@ public interface X21Package extends EPackage
    * @generated
    * @ordered
    */
-  int GREETING__NAME = 0;
+  int X21__NAME = 0;
 
   /**
-   * The number of structural features of the '<em>Greeting</em>' class.
+   * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GREETING_FEATURE_COUNT = 1;
-
+  int X21__DECLARATIONS = 1;
 
   /**
-   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Model <em>Model</em>}'.
+   * The number of structural features of the '<em>X21</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see dk.sdu.mmmi.mdsd.x21.Model
    * @generated
+   * @ordered
    */
-  EClass getModel();
+  int X21_FEATURE_COUNT = 2;
 
   /**
-   * Returns the meta object for the containment reference list '{@link dk.sdu.mmmi.mdsd.x21.Model#getGreetings <em>Greetings</em>}'.
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.DeclarationImpl <em>Declaration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Greetings</em>'.
-   * @see dk.sdu.mmmi.mdsd.x21.Model#getGreetings()
-   * @see #getModel()
+   * @see dk.sdu.mmmi.mdsd.x21.impl.DeclarationImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getDeclaration()
    * @generated
    */
-  EReference getModel_Greetings();
+  int DECLARATION = 1;
 
   /**
-   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Greeting <em>Greeting</em>}'.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Greeting</em>'.
-   * @see dk.sdu.mmmi.mdsd.x21.Greeting
    * @generated
+   * @ordered
    */
-  EClass getGreeting();
+  int DECLARATION__NAME = 0;
 
   /**
-   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.Greeting#getName <em>Name</em>}'.
+   * The number of structural features of the '<em>Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ParameterImpl <em>Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.ParameterImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getParameter()
+   * @generated
+   */
+  int PARAMETER = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__NAME = DECLARATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__TYPE = DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.FunctionImpl <em>Function</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.FunctionImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getFunction()
+   * @generated
+   */
+  int FUNCTION = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__NAME = DECLARATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Lambda</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__LAMBDA = DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Function</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.LambdaImpl <em>Lambda</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.LambdaImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getLambda()
+   * @generated
+   */
+  int LAMBDA = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA__TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA__EXP = 2;
+
+  /**
+   * The number of structural features of the '<em>Lambda</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.InputImpl <em>Input</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.InputImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getInput()
+   * @generated
+   */
+  int INPUT = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT__NAME = DECLARATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT__TYPE = DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Input</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.NodeImpl <em>Node</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.NodeImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getNode()
+   * @generated
+   */
+  int NODE = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE__NAME = DECLARATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Function</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE__FUNCTION = DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Lambda</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE__LAMBDA = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Node</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NODE_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.StreamImpl <em>Stream</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.StreamImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getStream()
+   * @generated
+   */
+  int STREAM = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STREAM__NAME = DECLARATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Inputs</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STREAM__INPUTS = DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STREAM__ELEMENTS = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Stream</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STREAM_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ElementImpl <em>Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.ElementImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getElement()
+   * @generated
+   */
+  int ELEMENT = 8;
+
+  /**
+   * The feature id for the '<em><b>Node Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__NODE_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Function</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__FUNCTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Lambda</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__LAMBDA = 2;
+
+  /**
+   * The feature id for the '<em><b>Output Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__OUTPUT_NAME = 3;
+
+  /**
+   * The number of structural features of the '<em>Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.DataDeclImpl <em>Data Decl</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.DataDeclImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getDataDecl()
+   * @generated
+   */
+  int DATA_DECL = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_DECL__NAME = DECLARATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Decl Names</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_DECL__DECL_NAMES = DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Types</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_DECL__TYPES = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Data Decl</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ExpImpl <em>Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.ExpImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getExp()
+   * @generated
+   */
+  int EXP = 10;
+
+  /**
+   * The number of structural features of the '<em>Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.ExpressionImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 11;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = EXP_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.AtomicImpl <em>Atomic</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.AtomicImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getAtomic()
+   * @generated
+   */
+  int ATOMIC = 12;
+
+  /**
+   * The number of structural features of the '<em>Atomic</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATOMIC_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.LetBindingImpl <em>Let Binding</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.LetBindingImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getLetBinding()
+   * @generated
+   */
+  int LET_BINDING = 13;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING__NAME = ATOMIC_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING__BINDING = ATOMIC_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING__BODY = ATOMIC_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Let Binding</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_BINDING_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.IfStatementImpl <em>If Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.IfStatementImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getIfStatement()
+   * @generated
+   */
+  int IF_STATEMENT = 14;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT__STATEMENT = ATOMIC_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>True Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT__TRUE_EXPRESSION = ATOMIC_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>False Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT__FALSE_EXPRESSION = ATOMIC_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>If Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.LogicExpImpl <em>Logic Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.LogicExpImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getLogicExp()
+   * @generated
+   */
+  int LOGIC_EXP = 15;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_EXP__LEFT = 0;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_EXP__OPERATOR = 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_EXP__RIGHT = 2;
+
+  /**
+   * The number of structural features of the '<em>Logic Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGIC_EXP_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.PlusImpl <em>Plus</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.PlusImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getPlus()
+   * @generated
+   */
+  int PLUS = 16;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Plus</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLUS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.MinusImpl <em>Minus</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.MinusImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getMinus()
+   * @generated
+   */
+  int MINUS = 17;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Minus</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINUS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.MultImpl <em>Mult</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.MultImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getMult()
+   * @generated
+   */
+  int MULT = 18;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULT__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULT__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Mult</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.DivImpl <em>Div</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.DivImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getDiv()
+   * @generated
+   */
+  int DIV = 19;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Div</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIV_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ParenthesisImpl <em>Parenthesis</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.ParenthesisImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getParenthesis()
+   * @generated
+   */
+  int PARENTHESIS = 20;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESIS__EXPRESSION = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Parenthesis</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARENTHESIS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.IntValueImpl <em>Int Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.IntValueImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getIntValue()
+   * @generated
+   */
+  int INT_VALUE = 21;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INT_VALUE__VALUE = ATOMIC_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Int Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INT_VALUE_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.NoneImpl <em>None</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.NoneImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getNone()
+   * @generated
+   */
+  int NONE = 22;
+
+  /**
+   * The number of structural features of the '<em>None</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NONE_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 0;
+
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.X21 <em>X21</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>X21</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.X21
+   * @generated
+   */
+  EClass getX21();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.X21#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see dk.sdu.mmmi.mdsd.x21.Greeting#getName()
-   * @see #getGreeting()
+   * @see dk.sdu.mmmi.mdsd.x21.X21#getName()
+   * @see #getX21()
    * @generated
    */
-  EAttribute getGreeting_Name();
+  EAttribute getX21_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mmmi.mdsd.x21.X21#getDeclarations <em>Declarations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Declarations</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.X21#getDeclarations()
+   * @see #getX21()
+   * @generated
+   */
+  EReference getX21_Declarations();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Declaration <em>Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Declaration</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Declaration
+   * @generated
+   */
+  EClass getDeclaration();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.Declaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Declaration#getName()
+   * @see #getDeclaration()
+   * @generated
+   */
+  EAttribute getDeclaration_Name();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Parameter
+   * @generated
+   */
+  EClass getParameter();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.Parameter#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Parameter#getType()
+   * @see #getParameter()
+   * @generated
+   */
+  EAttribute getParameter_Type();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Function
+   * @generated
+   */
+  EClass getFunction();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Function#getLambda <em>Lambda</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lambda</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Function#getLambda()
+   * @see #getFunction()
+   * @generated
+   */
+  EReference getFunction_Lambda();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Lambda <em>Lambda</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Lambda</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Lambda
+   * @generated
+   */
+  EClass getLambda();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.Lambda#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Lambda#getName()
+   * @see #getLambda()
+   * @generated
+   */
+  EAttribute getLambda_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.Lambda#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Lambda#getType()
+   * @see #getLambda()
+   * @generated
+   */
+  EAttribute getLambda_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Lambda#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Lambda#getExp()
+   * @see #getLambda()
+   * @generated
+   */
+  EReference getLambda_Exp();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Input <em>Input</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Input</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Input
+   * @generated
+   */
+  EClass getInput();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.Input#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Input#getType()
+   * @see #getInput()
+   * @generated
+   */
+  EAttribute getInput_Type();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Node <em>Node</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Node</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Node
+   * @generated
+   */
+  EClass getNode();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.Node#getFunction <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Function</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Node#getFunction()
+   * @see #getNode()
+   * @generated
+   */
+  EAttribute getNode_Function();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Node#getLambda <em>Lambda</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lambda</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Node#getLambda()
+   * @see #getNode()
+   * @generated
+   */
+  EReference getNode_Lambda();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Stream <em>Stream</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Stream</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Stream
+   * @generated
+   */
+  EClass getStream();
+
+  /**
+   * Returns the meta object for the attribute list '{@link dk.sdu.mmmi.mdsd.x21.Stream#getInputs <em>Inputs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Inputs</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Stream#getInputs()
+   * @see #getStream()
+   * @generated
+   */
+  EAttribute getStream_Inputs();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mmmi.mdsd.x21.Stream#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Stream#getElements()
+   * @see #getStream()
+   * @generated
+   */
+  EReference getStream_Elements();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Element <em>Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Element</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Element
+   * @generated
+   */
+  EClass getElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.Element#getNodeName <em>Node Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Node Name</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Element#getNodeName()
+   * @see #getElement()
+   * @generated
+   */
+  EAttribute getElement_NodeName();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.Element#getFunction <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Function</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Element#getFunction()
+   * @see #getElement()
+   * @generated
+   */
+  EAttribute getElement_Function();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Element#getLambda <em>Lambda</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lambda</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Element#getLambda()
+   * @see #getElement()
+   * @generated
+   */
+  EReference getElement_Lambda();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.Element#getOutputName <em>Output Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Output Name</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Element#getOutputName()
+   * @see #getElement()
+   * @generated
+   */
+  EAttribute getElement_OutputName();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.DataDecl <em>Data Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Data Decl</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.DataDecl
+   * @generated
+   */
+  EClass getDataDecl();
+
+  /**
+   * Returns the meta object for the attribute list '{@link dk.sdu.mmmi.mdsd.x21.DataDecl#getDeclNames <em>Decl Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Decl Names</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.DataDecl#getDeclNames()
+   * @see #getDataDecl()
+   * @generated
+   */
+  EAttribute getDataDecl_DeclNames();
+
+  /**
+   * Returns the meta object for the attribute list '{@link dk.sdu.mmmi.mdsd.x21.DataDecl#getTypes <em>Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Types</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.DataDecl#getTypes()
+   * @see #getDataDecl()
+   * @generated
+   */
+  EAttribute getDataDecl_Types();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Exp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Exp</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Exp
+   * @generated
+   */
+  EClass getExp();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Expression
+   * @generated
+   */
+  EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Atomic <em>Atomic</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Atomic</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Atomic
+   * @generated
+   */
+  EClass getAtomic();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.LetBinding <em>Let Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Let Binding</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.LetBinding
+   * @generated
+   */
+  EClass getLetBinding();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.LetBinding#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.LetBinding#getName()
+   * @see #getLetBinding()
+   * @generated
+   */
+  EAttribute getLetBinding_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.LetBinding#getBinding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Binding</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.LetBinding#getBinding()
+   * @see #getLetBinding()
+   * @generated
+   */
+  EReference getLetBinding_Binding();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.LetBinding#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.LetBinding#getBody()
+   * @see #getLetBinding()
+   * @generated
+   */
+  EReference getLetBinding_Body();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.IfStatement <em>If Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Statement</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.IfStatement
+   * @generated
+   */
+  EClass getIfStatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.IfStatement#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statement</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.IfStatement#getStatement()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EReference getIfStatement_Statement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.IfStatement#getTrueExpression <em>True Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>True Expression</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.IfStatement#getTrueExpression()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EReference getIfStatement_TrueExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.IfStatement#getFalseExpression <em>False Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>False Expression</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.IfStatement#getFalseExpression()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EReference getIfStatement_FalseExpression();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.LogicExp <em>Logic Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logic Exp</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.LogicExp
+   * @generated
+   */
+  EClass getLogicExp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.LogicExp#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.LogicExp#getLeft()
+   * @see #getLogicExp()
+   * @generated
+   */
+  EReference getLogicExp_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.LogicExp#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.LogicExp#getOperator()
+   * @see #getLogicExp()
+   * @generated
+   */
+  EAttribute getLogicExp_Operator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.LogicExp#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.LogicExp#getRight()
+   * @see #getLogicExp()
+   * @generated
+   */
+  EReference getLogicExp_Right();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Plus <em>Plus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Plus</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Plus
+   * @generated
+   */
+  EClass getPlus();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Plus#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Plus#getLeft()
+   * @see #getPlus()
+   * @generated
+   */
+  EReference getPlus_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Plus#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Plus#getRight()
+   * @see #getPlus()
+   * @generated
+   */
+  EReference getPlus_Right();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Minus <em>Minus</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Minus</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Minus
+   * @generated
+   */
+  EClass getMinus();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Minus#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Minus#getLeft()
+   * @see #getMinus()
+   * @generated
+   */
+  EReference getMinus_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Minus#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Minus#getRight()
+   * @see #getMinus()
+   * @generated
+   */
+  EReference getMinus_Right();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Mult <em>Mult</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mult</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Mult
+   * @generated
+   */
+  EClass getMult();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Mult#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Mult#getLeft()
+   * @see #getMult()
+   * @generated
+   */
+  EReference getMult_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Mult#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Mult#getRight()
+   * @see #getMult()
+   * @generated
+   */
+  EReference getMult_Right();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Div <em>Div</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Div</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Div
+   * @generated
+   */
+  EClass getDiv();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Div#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Div#getLeft()
+   * @see #getDiv()
+   * @generated
+   */
+  EReference getDiv_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Div#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Div#getRight()
+   * @see #getDiv()
+   * @generated
+   */
+  EReference getDiv_Right();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Parenthesis <em>Parenthesis</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parenthesis</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Parenthesis
+   * @generated
+   */
+  EClass getParenthesis();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.sdu.mmmi.mdsd.x21.Parenthesis#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.Parenthesis#getExpression()
+   * @see #getParenthesis()
+   * @generated
+   */
+  EReference getParenthesis_Expression();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.IntValue <em>Int Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Int Value</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.IntValue
+   * @generated
+   */
+  EClass getIntValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.IntValue#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.IntValue#getValue()
+   * @see #getIntValue()
+   * @generated
+   */
+  EAttribute getIntValue_Value();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.None <em>None</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>None</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.None
+   * @generated
+   */
+  EClass getNone();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -180,32 +1563,14 @@ public interface X21Package extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.X21Impl <em>X21</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see dk.sdu.mmmi.mdsd.x21.impl.ModelImpl
-     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getModel()
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21Impl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getX21()
      * @generated
      */
-    EClass MODEL = eINSTANCE.getModel();
-
-    /**
-     * The meta object literal for the '<em><b>Greetings</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODEL__GREETINGS = eINSTANCE.getModel_Greetings();
-
-    /**
-     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.GreetingImpl <em>Greeting</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see dk.sdu.mmmi.mdsd.x21.impl.GreetingImpl
-     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getGreeting()
-     * @generated
-     */
-    EClass GREETING = eINSTANCE.getGreeting();
+    EClass X21 = eINSTANCE.getX21();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -213,7 +1578,523 @@ public interface X21Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GREETING__NAME = eINSTANCE.getGreeting_Name();
+    EAttribute X21__NAME = eINSTANCE.getX21_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Declarations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference X21__DECLARATIONS = eINSTANCE.getX21_Declarations();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.DeclarationImpl <em>Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.DeclarationImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getDeclaration()
+     * @generated
+     */
+    EClass DECLARATION = eINSTANCE.getDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECLARATION__NAME = eINSTANCE.getDeclaration_Name();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ParameterImpl <em>Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.ParameterImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getParameter()
+     * @generated
+     */
+    EClass PARAMETER = eINSTANCE.getParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER__TYPE = eINSTANCE.getParameter_Type();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.FunctionImpl <em>Function</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.FunctionImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getFunction()
+     * @generated
+     */
+    EClass FUNCTION = eINSTANCE.getFunction();
+
+    /**
+     * The meta object literal for the '<em><b>Lambda</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION__LAMBDA = eINSTANCE.getFunction_Lambda();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.LambdaImpl <em>Lambda</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.LambdaImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getLambda()
+     * @generated
+     */
+    EClass LAMBDA = eINSTANCE.getLambda();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LAMBDA__NAME = eINSTANCE.getLambda_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LAMBDA__TYPE = eINSTANCE.getLambda_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAMBDA__EXP = eINSTANCE.getLambda_Exp();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.InputImpl <em>Input</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.InputImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getInput()
+     * @generated
+     */
+    EClass INPUT = eINSTANCE.getInput();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INPUT__TYPE = eINSTANCE.getInput_Type();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.NodeImpl <em>Node</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.NodeImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getNode()
+     * @generated
+     */
+    EClass NODE = eINSTANCE.getNode();
+
+    /**
+     * The meta object literal for the '<em><b>Function</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NODE__FUNCTION = eINSTANCE.getNode_Function();
+
+    /**
+     * The meta object literal for the '<em><b>Lambda</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NODE__LAMBDA = eINSTANCE.getNode_Lambda();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.StreamImpl <em>Stream</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.StreamImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getStream()
+     * @generated
+     */
+    EClass STREAM = eINSTANCE.getStream();
+
+    /**
+     * The meta object literal for the '<em><b>Inputs</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STREAM__INPUTS = eINSTANCE.getStream_Inputs();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STREAM__ELEMENTS = eINSTANCE.getStream_Elements();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ElementImpl <em>Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.ElementImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getElement()
+     * @generated
+     */
+    EClass ELEMENT = eINSTANCE.getElement();
+
+    /**
+     * The meta object literal for the '<em><b>Node Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ELEMENT__NODE_NAME = eINSTANCE.getElement_NodeName();
+
+    /**
+     * The meta object literal for the '<em><b>Function</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ELEMENT__FUNCTION = eINSTANCE.getElement_Function();
+
+    /**
+     * The meta object literal for the '<em><b>Lambda</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELEMENT__LAMBDA = eINSTANCE.getElement_Lambda();
+
+    /**
+     * The meta object literal for the '<em><b>Output Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ELEMENT__OUTPUT_NAME = eINSTANCE.getElement_OutputName();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.DataDeclImpl <em>Data Decl</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.DataDeclImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getDataDecl()
+     * @generated
+     */
+    EClass DATA_DECL = eINSTANCE.getDataDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Decl Names</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_DECL__DECL_NAMES = eINSTANCE.getDataDecl_DeclNames();
+
+    /**
+     * The meta object literal for the '<em><b>Types</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_DECL__TYPES = eINSTANCE.getDataDecl_Types();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ExpImpl <em>Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.ExpImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getExp()
+     * @generated
+     */
+    EClass EXP = eINSTANCE.getExp();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ExpressionImpl <em>Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.ExpressionImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getExpression()
+     * @generated
+     */
+    EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.AtomicImpl <em>Atomic</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.AtomicImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getAtomic()
+     * @generated
+     */
+    EClass ATOMIC = eINSTANCE.getAtomic();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.LetBindingImpl <em>Let Binding</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.LetBindingImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getLetBinding()
+     * @generated
+     */
+    EClass LET_BINDING = eINSTANCE.getLetBinding();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LET_BINDING__NAME = eINSTANCE.getLetBinding_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_BINDING__BINDING = eINSTANCE.getLetBinding_Binding();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_BINDING__BODY = eINSTANCE.getLetBinding_Body();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.IfStatementImpl <em>If Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.IfStatementImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getIfStatement()
+     * @generated
+     */
+    EClass IF_STATEMENT = eINSTANCE.getIfStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STATEMENT__STATEMENT = eINSTANCE.getIfStatement_Statement();
+
+    /**
+     * The meta object literal for the '<em><b>True Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STATEMENT__TRUE_EXPRESSION = eINSTANCE.getIfStatement_TrueExpression();
+
+    /**
+     * The meta object literal for the '<em><b>False Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STATEMENT__FALSE_EXPRESSION = eINSTANCE.getIfStatement_FalseExpression();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.LogicExpImpl <em>Logic Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.LogicExpImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getLogicExp()
+     * @generated
+     */
+    EClass LOGIC_EXP = eINSTANCE.getLogicExp();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGIC_EXP__LEFT = eINSTANCE.getLogicExp_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOGIC_EXP__OPERATOR = eINSTANCE.getLogicExp_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGIC_EXP__RIGHT = eINSTANCE.getLogicExp_Right();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.PlusImpl <em>Plus</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.PlusImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getPlus()
+     * @generated
+     */
+    EClass PLUS = eINSTANCE.getPlus();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLUS__LEFT = eINSTANCE.getPlus_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLUS__RIGHT = eINSTANCE.getPlus_Right();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.MinusImpl <em>Minus</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.MinusImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getMinus()
+     * @generated
+     */
+    EClass MINUS = eINSTANCE.getMinus();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MINUS__LEFT = eINSTANCE.getMinus_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MINUS__RIGHT = eINSTANCE.getMinus_Right();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.MultImpl <em>Mult</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.MultImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getMult()
+     * @generated
+     */
+    EClass MULT = eINSTANCE.getMult();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MULT__LEFT = eINSTANCE.getMult_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MULT__RIGHT = eINSTANCE.getMult_Right();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.DivImpl <em>Div</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.DivImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getDiv()
+     * @generated
+     */
+    EClass DIV = eINSTANCE.getDiv();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIV__LEFT = eINSTANCE.getDiv_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIV__RIGHT = eINSTANCE.getDiv_Right();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ParenthesisImpl <em>Parenthesis</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.ParenthesisImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getParenthesis()
+     * @generated
+     */
+    EClass PARENTHESIS = eINSTANCE.getParenthesis();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARENTHESIS__EXPRESSION = eINSTANCE.getParenthesis_Expression();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.IntValueImpl <em>Int Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.IntValueImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getIntValue()
+     * @generated
+     */
+    EClass INT_VALUE = eINSTANCE.getIntValue();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INT_VALUE__VALUE = eINSTANCE.getIntValue_Value();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.NoneImpl <em>None</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.NoneImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getNone()
+     * @generated
+     */
+    EClass NONE = eINSTANCE.getNone();
 
   }
 
