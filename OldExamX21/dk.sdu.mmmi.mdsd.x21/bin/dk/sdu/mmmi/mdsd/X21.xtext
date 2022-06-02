@@ -3,7 +3,7 @@ grammar dk.sdu.mmmi.mdsd.X21 with org.eclipse.xtext.common.Terminals
 generate x21 "http://www.sdu.dk/mmmi/mdsd/X21"
 
 X21:
-	name=ID declarations+=Declaration*
+	'program' name=ID declarations+=Declaration*
 ;
 
 Declaration:
@@ -73,7 +73,7 @@ Primary returns Expression:
 ;
 
 Atomic:
-	{IntValue} value=INT | LetBinding | {None} 'none' | IfStatement
+	{IntValue} value=INT | LetBinding | {None} 'none' | IfStatement | NewStatement | ParameterStatement
 ;
 
 LetBinding:
@@ -86,4 +86,12 @@ IfStatement:
 
 LogicExp:
 	left=Exp operator=('=' | '<' | '>' | '<=' | '>=') right=Exp 
+;
+
+ParameterStatement:
+	objName=ID ('.' paramNames+=ID)*
+;
+
+NewStatement:
+	'new' customName=ID '[' paramNames+=ID '=' paramValues+=Exp (',' paramNames+=ID '=' paramValues+=Exp)* ']'
 ;

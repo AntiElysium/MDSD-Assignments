@@ -668,6 +668,89 @@ public interface X21Package extends EPackage
   int LOGIC_EXP_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ParameterStatementImpl <em>Parameter Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.ParameterStatementImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getParameterStatement()
+   * @generated
+   */
+  int PARAMETER_STATEMENT = 16;
+
+  /**
+   * The feature id for the '<em><b>Obj Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_STATEMENT__OBJ_NAME = ATOMIC_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Param Names</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_STATEMENT__PARAM_NAMES = ATOMIC_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Parameter Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_STATEMENT_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.NewStatementImpl <em>New Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.sdu.mmmi.mdsd.x21.impl.NewStatementImpl
+   * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getNewStatement()
+   * @generated
+   */
+  int NEW_STATEMENT = 17;
+
+  /**
+   * The feature id for the '<em><b>Custom Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEW_STATEMENT__CUSTOM_NAME = ATOMIC_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Param Names</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEW_STATEMENT__PARAM_NAMES = ATOMIC_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Param Values</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEW_STATEMENT__PARAM_VALUES = ATOMIC_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>New Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEW_STATEMENT_FEATURE_COUNT = ATOMIC_FEATURE_COUNT + 3;
+
+  /**
    * The meta object id for the '{@link dk.sdu.mmmi.mdsd.x21.impl.PlusImpl <em>Plus</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -675,7 +758,7 @@ public interface X21Package extends EPackage
    * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getPlus()
    * @generated
    */
-  int PLUS = 16;
+  int PLUS = 18;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -712,7 +795,7 @@ public interface X21Package extends EPackage
    * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 17;
+  int MINUS = 19;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -749,7 +832,7 @@ public interface X21Package extends EPackage
    * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getMult()
    * @generated
    */
-  int MULT = 18;
+  int MULT = 20;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -786,7 +869,7 @@ public interface X21Package extends EPackage
    * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getDiv()
    * @generated
    */
-  int DIV = 19;
+  int DIV = 21;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -823,7 +906,7 @@ public interface X21Package extends EPackage
    * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getParenthesis()
    * @generated
    */
-  int PARENTHESIS = 20;
+  int PARENTHESIS = 22;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -851,7 +934,7 @@ public interface X21Package extends EPackage
    * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getIntValue()
    * @generated
    */
-  int INT_VALUE = 21;
+  int INT_VALUE = 23;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -879,7 +962,7 @@ public interface X21Package extends EPackage
    * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getNone()
    * @generated
    */
-  int NONE = 22;
+  int NONE = 24;
 
   /**
    * The number of structural features of the '<em>None</em>' class.
@@ -1358,6 +1441,81 @@ public interface X21Package extends EPackage
    * @generated
    */
   EReference getLogicExp_Right();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.ParameterStatement <em>Parameter Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter Statement</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.ParameterStatement
+   * @generated
+   */
+  EClass getParameterStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.ParameterStatement#getObjName <em>Obj Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Obj Name</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.ParameterStatement#getObjName()
+   * @see #getParameterStatement()
+   * @generated
+   */
+  EAttribute getParameterStatement_ObjName();
+
+  /**
+   * Returns the meta object for the attribute list '{@link dk.sdu.mmmi.mdsd.x21.ParameterStatement#getParamNames <em>Param Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Param Names</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.ParameterStatement#getParamNames()
+   * @see #getParameterStatement()
+   * @generated
+   */
+  EAttribute getParameterStatement_ParamNames();
+
+  /**
+   * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.NewStatement <em>New Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>New Statement</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.NewStatement
+   * @generated
+   */
+  EClass getNewStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.sdu.mmmi.mdsd.x21.NewStatement#getCustomName <em>Custom Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Custom Name</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.NewStatement#getCustomName()
+   * @see #getNewStatement()
+   * @generated
+   */
+  EAttribute getNewStatement_CustomName();
+
+  /**
+   * Returns the meta object for the attribute list '{@link dk.sdu.mmmi.mdsd.x21.NewStatement#getParamNames <em>Param Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Param Names</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.NewStatement#getParamNames()
+   * @see #getNewStatement()
+   * @generated
+   */
+  EAttribute getNewStatement_ParamNames();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link dk.sdu.mmmi.mdsd.x21.NewStatement#getParamValues <em>Param Values</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Param Values</em>'.
+   * @see dk.sdu.mmmi.mdsd.x21.NewStatement#getParamValues()
+   * @see #getNewStatement()
+   * @generated
+   */
+  EReference getNewStatement_ParamValues();
 
   /**
    * Returns the meta object for class '{@link dk.sdu.mmmi.mdsd.x21.Plus <em>Plus</em>}'.
@@ -1945,6 +2103,66 @@ public interface X21Package extends EPackage
      * @generated
      */
     EReference LOGIC_EXP__RIGHT = eINSTANCE.getLogicExp_Right();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.ParameterStatementImpl <em>Parameter Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.ParameterStatementImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getParameterStatement()
+     * @generated
+     */
+    EClass PARAMETER_STATEMENT = eINSTANCE.getParameterStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Obj Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER_STATEMENT__OBJ_NAME = eINSTANCE.getParameterStatement_ObjName();
+
+    /**
+     * The meta object literal for the '<em><b>Param Names</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER_STATEMENT__PARAM_NAMES = eINSTANCE.getParameterStatement_ParamNames();
+
+    /**
+     * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.NewStatementImpl <em>New Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.sdu.mmmi.mdsd.x21.impl.NewStatementImpl
+     * @see dk.sdu.mmmi.mdsd.x21.impl.X21PackageImpl#getNewStatement()
+     * @generated
+     */
+    EClass NEW_STATEMENT = eINSTANCE.getNewStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Custom Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NEW_STATEMENT__CUSTOM_NAME = eINSTANCE.getNewStatement_CustomName();
+
+    /**
+     * The meta object literal for the '<em><b>Param Names</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NEW_STATEMENT__PARAM_NAMES = eINSTANCE.getNewStatement_ParamNames();
+
+    /**
+     * The meta object literal for the '<em><b>Param Values</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NEW_STATEMENT__PARAM_VALUES = eINSTANCE.getNewStatement_ParamValues();
 
     /**
      * The meta object literal for the '{@link dk.sdu.mmmi.mdsd.x21.impl.PlusImpl <em>Plus</em>}' class.

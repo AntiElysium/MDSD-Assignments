@@ -168,6 +168,24 @@ public interface X21Factory extends EFactory
   LogicExp createLogicExp();
 
   /**
+   * Returns a new object of class '<em>Parameter Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter Statement</em>'.
+   * @generated
+   */
+  ParameterStatement createParameterStatement();
+
+  /**
+   * Returns a new object of class '<em>New Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>New Statement</em>'.
+   * @generated
+   */
+  NewStatement createNewStatement();
+
+  /**
    * Returns a new object of class '<em>Plus</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

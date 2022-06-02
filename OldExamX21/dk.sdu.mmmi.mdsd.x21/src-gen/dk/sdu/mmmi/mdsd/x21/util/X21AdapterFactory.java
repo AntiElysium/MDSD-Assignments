@@ -156,6 +156,16 @@ public class X21AdapterFactory extends AdapterFactoryImpl
         return createLogicExpAdapter();
       }
       @Override
+      public Adapter caseParameterStatement(ParameterStatement object)
+      {
+        return createParameterStatementAdapter();
+      }
+      @Override
+      public Adapter caseNewStatement(NewStatement object)
+      {
+        return createNewStatementAdapter();
+      }
+      @Override
       public Adapter casePlus(Plus object)
       {
         return createPlusAdapter();
@@ -448,6 +458,36 @@ public class X21AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLogicExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.ParameterStatement <em>Parameter Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.ParameterStatement
+   * @generated
+   */
+  public Adapter createParameterStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.sdu.mmmi.mdsd.x21.NewStatement <em>New Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.sdu.mmmi.mdsd.x21.NewStatement
+   * @generated
+   */
+  public Adapter createNewStatementAdapter()
   {
     return null;
   }

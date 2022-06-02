@@ -69,8 +69,12 @@ public class X21Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLetBindingAccess().getGroup(), "rule__LetBinding__Group__0");
 			builder.put(grammarAccess.getIfStatementAccess().getGroup(), "rule__IfStatement__Group__0");
 			builder.put(grammarAccess.getLogicExpAccess().getGroup(), "rule__LogicExp__Group__0");
-			builder.put(grammarAccess.getX21Access().getNameAssignment_0(), "rule__X21__NameAssignment_0");
-			builder.put(grammarAccess.getX21Access().getDeclarationsAssignment_1(), "rule__X21__DeclarationsAssignment_1");
+			builder.put(grammarAccess.getParameterStatementAccess().getGroup(), "rule__ParameterStatement__Group__0");
+			builder.put(grammarAccess.getParameterStatementAccess().getGroup_1(), "rule__ParameterStatement__Group_1__0");
+			builder.put(grammarAccess.getNewStatementAccess().getGroup(), "rule__NewStatement__Group__0");
+			builder.put(grammarAccess.getNewStatementAccess().getGroup_6(), "rule__NewStatement__Group_6__0");
+			builder.put(grammarAccess.getX21Access().getNameAssignment_1(), "rule__X21__NameAssignment_1");
+			builder.put(grammarAccess.getX21Access().getDeclarationsAssignment_2(), "rule__X21__DeclarationsAssignment_2");
 			builder.put(grammarAccess.getParameterAccess().getNameAssignment_1(), "rule__Parameter__NameAssignment_1");
 			builder.put(grammarAccess.getParameterAccess().getTypeAssignment_3(), "rule__Parameter__TypeAssignment_3");
 			builder.put(grammarAccess.getFunctionAccess().getNameAssignment_1(), "rule__Function__NameAssignment_1");
@@ -109,6 +113,13 @@ public class X21Parser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLogicExpAccess().getLeftAssignment_0(), "rule__LogicExp__LeftAssignment_0");
 			builder.put(grammarAccess.getLogicExpAccess().getOperatorAssignment_1(), "rule__LogicExp__OperatorAssignment_1");
 			builder.put(grammarAccess.getLogicExpAccess().getRightAssignment_2(), "rule__LogicExp__RightAssignment_2");
+			builder.put(grammarAccess.getParameterStatementAccess().getObjNameAssignment_0(), "rule__ParameterStatement__ObjNameAssignment_0");
+			builder.put(grammarAccess.getParameterStatementAccess().getParamNamesAssignment_1_1(), "rule__ParameterStatement__ParamNamesAssignment_1_1");
+			builder.put(grammarAccess.getNewStatementAccess().getCustomNameAssignment_1(), "rule__NewStatement__CustomNameAssignment_1");
+			builder.put(grammarAccess.getNewStatementAccess().getParamNamesAssignment_3(), "rule__NewStatement__ParamNamesAssignment_3");
+			builder.put(grammarAccess.getNewStatementAccess().getParamValuesAssignment_5(), "rule__NewStatement__ParamValuesAssignment_5");
+			builder.put(grammarAccess.getNewStatementAccess().getParamNamesAssignment_6_1(), "rule__NewStatement__ParamNamesAssignment_6_1");
+			builder.put(grammarAccess.getNewStatementAccess().getParamValuesAssignment_6_3(), "rule__NewStatement__ParamValuesAssignment_6_3");
 		}
 	}
 	

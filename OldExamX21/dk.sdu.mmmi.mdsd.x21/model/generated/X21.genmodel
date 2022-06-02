@@ -63,6 +63,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//LogicExp/operator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//LogicExp/right"/>
     </genClasses>
+    <genClasses ecoreClass="X21.ecore#//ParameterStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//ParameterStatement/objName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//ParameterStatement/paramNames"/>
+    </genClasses>
+    <genClasses ecoreClass="X21.ecore#//NewStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//NewStatement/customName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute X21.ecore#//NewStatement/paramNames"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//NewStatement/paramValues"/>
+    </genClasses>
     <genClasses ecoreClass="X21.ecore#//Plus">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Plus/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference X21.ecore#//Plus/right"/>

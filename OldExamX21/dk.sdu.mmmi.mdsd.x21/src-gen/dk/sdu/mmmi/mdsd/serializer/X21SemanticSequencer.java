@@ -17,8 +17,10 @@ import dk.sdu.mmmi.mdsd.x21.LetBinding;
 import dk.sdu.mmmi.mdsd.x21.LogicExp;
 import dk.sdu.mmmi.mdsd.x21.Minus;
 import dk.sdu.mmmi.mdsd.x21.Mult;
+import dk.sdu.mmmi.mdsd.x21.NewStatement;
 import dk.sdu.mmmi.mdsd.x21.Node;
 import dk.sdu.mmmi.mdsd.x21.None;
+import dk.sdu.mmmi.mdsd.x21.ParameterStatement;
 import dk.sdu.mmmi.mdsd.x21.Parenthesis;
 import dk.sdu.mmmi.mdsd.x21.Plus;
 import dk.sdu.mmmi.mdsd.x21.Stream;
@@ -85,6 +87,9 @@ public class X21SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case X21Package.MULT:
 				sequence_MulDiv(context, (Mult) semanticObject); 
 				return; 
+			case X21Package.NEW_STATEMENT:
+				sequence_NewStatement(context, (NewStatement) semanticObject); 
+				return; 
 			case X21Package.NODE:
 				sequence_Node(context, (Node) semanticObject); 
 				return; 
@@ -93,6 +98,9 @@ public class X21SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case X21Package.PARAMETER:
 				sequence_Parameter(context, (dk.sdu.mmmi.mdsd.x21.Parameter) semanticObject); 
+				return; 
+			case X21Package.PARAMETER_STATEMENT:
+				sequence_ParameterStatement(context, (ParameterStatement) semanticObject); 
 				return; 
 			case X21Package.PARENTHESIS:
 				sequence_Primary(context, (Parenthesis) semanticObject); 
@@ -384,6 +392,27 @@ public class X21SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Exp returns NewStatement
+	 *     PlusMinus returns NewStatement
+	 *     PlusMinus.Plus_1_0_0_0 returns NewStatement
+	 *     PlusMinus.Minus_1_0_1_0 returns NewStatement
+	 *     MulDiv returns NewStatement
+	 *     MulDiv.Mult_1_0_0_0 returns NewStatement
+	 *     MulDiv.Div_1_0_1_0 returns NewStatement
+	 *     Primary returns NewStatement
+	 *     Atomic returns NewStatement
+	 *     NewStatement returns NewStatement
+	 *
+	 * Constraint:
+	 *     (customName=ID paramNames+=ID paramValues+=Exp (paramNames+=ID paramValues+=Exp)*)
+	 */
+	protected void sequence_NewStatement(ISerializationContext context, NewStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Declaration returns Node
 	 *     Node returns Node
 	 *
@@ -391,6 +420,27 @@ public class X21SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (name=ID (function=ID | lambda=Lambda))
 	 */
 	protected void sequence_Node(ISerializationContext context, Node semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exp returns ParameterStatement
+	 *     PlusMinus returns ParameterStatement
+	 *     PlusMinus.Plus_1_0_0_0 returns ParameterStatement
+	 *     PlusMinus.Minus_1_0_1_0 returns ParameterStatement
+	 *     MulDiv returns ParameterStatement
+	 *     MulDiv.Mult_1_0_0_0 returns ParameterStatement
+	 *     MulDiv.Div_1_0_1_0 returns ParameterStatement
+	 *     Primary returns ParameterStatement
+	 *     Atomic returns ParameterStatement
+	 *     ParameterStatement returns ParameterStatement
+	 *
+	 * Constraint:
+	 *     (objName=ID paramNames+=ID*)
+	 */
+	protected void sequence_ParameterStatement(ISerializationContext context, ParameterStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

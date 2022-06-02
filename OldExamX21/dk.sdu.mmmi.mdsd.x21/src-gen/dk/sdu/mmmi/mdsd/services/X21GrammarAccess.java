@@ -26,30 +26,34 @@ public class X21GrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	public class X21Elements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mmmi.mdsd.X21.X21");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Assignment cDeclarationsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDeclarationsDeclarationParserRuleCall_1_0 = (RuleCall)cDeclarationsAssignment_1.eContents().get(0);
+		private final Keyword cProgramKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cDeclarationsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDeclarationsDeclarationParserRuleCall_2_0 = (RuleCall)cDeclarationsAssignment_2.eContents().get(0);
 		
 		//X21:
-		//    name=ID declarations+=Declaration*
+		//    'program' name=ID declarations+=Declaration*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID declarations+=Declaration*
+		//'program' name=ID declarations+=Declaration*
 		public Group getGroup() { return cGroup; }
 		
+		//'program'
+		public Keyword getProgramKeyword_0() { return cProgramKeyword_0; }
+		
 		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//declarations+=Declaration*
-		public Assignment getDeclarationsAssignment_1() { return cDeclarationsAssignment_1; }
+		public Assignment getDeclarationsAssignment_2() { return cDeclarationsAssignment_2; }
 		
 		//Declaration
-		public RuleCall getDeclarationsDeclarationParserRuleCall_1_0() { return cDeclarationsDeclarationParserRuleCall_1_0; }
+		public RuleCall getDeclarationsDeclarationParserRuleCall_2_0() { return cDeclarationsDeclarationParserRuleCall_2_0; }
 	}
 	public class DeclarationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mmmi.mdsd.X21.Declaration");
@@ -318,6 +322,15 @@ public class X21GrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cElementsAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
 		private final RuleCall cElementsElementParserRuleCall_3_2_1_0 = (RuleCall)cElementsAssignment_3_2_1.eContents().get(0);
 		
+		///*
+		// * Node:
+		// *  'node' name=ID body=FunctionOrLambda
+		// * ;
+		// *
+		// * FunctionOrLambda:
+		// *  '[' ({FunctionReference} ref=[Function] | Lambda) ']'
+		// * ;
+		// */
 		//Stream:
 		//    'stream' name=ID (',' inputs+=ID)* ('to' elements+=Element (',' elements+=Element)*)+
 		//;
@@ -719,13 +732,15 @@ public class X21GrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Action cNoneAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Keyword cNoneKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final RuleCall cIfStatementParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cNewStatementParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cParameterStatementParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Atomic:
-		//    {IntValue} value=INT | LetBinding | {None} 'none' | IfStatement
+		//    {IntValue} value=INT | LetBinding | {None} 'none' | IfStatement | NewStatement | ParameterStatement
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{IntValue} value=INT | LetBinding | {None} 'none' | IfStatement
+		//{IntValue} value=INT | LetBinding | {None} 'none' | IfStatement | NewStatement | ParameterStatement
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{IntValue} value=INT
@@ -754,6 +769,12 @@ public class X21GrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//IfStatement
 		public RuleCall getIfStatementParserRuleCall_3() { return cIfStatementParserRuleCall_3; }
+		
+		//NewStatement
+		public RuleCall getNewStatementParserRuleCall_4() { return cNewStatementParserRuleCall_4; }
+		
+		//ParameterStatement
+		public RuleCall getParameterStatementParserRuleCall_5() { return cParameterStatementParserRuleCall_5; }
 	}
 	public class LetBindingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mmmi.mdsd.X21.LetBinding");
@@ -915,6 +936,122 @@ public class X21GrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//Exp
 		public RuleCall getRightExpParserRuleCall_2_0() { return cRightExpParserRuleCall_2_0; }
 	}
+	public class ParameterStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mmmi.mdsd.X21.ParameterStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cObjNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cObjNameIDTerminalRuleCall_0_0 = (RuleCall)cObjNameAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cParamNamesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cParamNamesIDTerminalRuleCall_1_1_0 = (RuleCall)cParamNamesAssignment_1_1.eContents().get(0);
+		
+		//ParameterStatement:
+		//    objName=ID ('.' paramNames+=ID)*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//objName=ID ('.' paramNames+=ID)*
+		public Group getGroup() { return cGroup; }
+		
+		//objName=ID
+		public Assignment getObjNameAssignment_0() { return cObjNameAssignment_0; }
+		
+		//ID
+		public RuleCall getObjNameIDTerminalRuleCall_0_0() { return cObjNameIDTerminalRuleCall_0_0; }
+		
+		//('.' paramNames+=ID)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//paramNames+=ID
+		public Assignment getParamNamesAssignment_1_1() { return cParamNamesAssignment_1_1; }
+		
+		//ID
+		public RuleCall getParamNamesIDTerminalRuleCall_1_1_0() { return cParamNamesIDTerminalRuleCall_1_1_0; }
+	}
+	public class NewStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "dk.sdu.mmmi.mdsd.X21.NewStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNewKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cCustomNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCustomNameIDTerminalRuleCall_1_0 = (RuleCall)cCustomNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cParamNamesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cParamNamesIDTerminalRuleCall_3_0 = (RuleCall)cParamNamesAssignment_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cParamValuesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cParamValuesExpParserRuleCall_5_0 = (RuleCall)cParamValuesAssignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cParamNamesAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cParamNamesIDTerminalRuleCall_6_1_0 = (RuleCall)cParamNamesAssignment_6_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final Assignment cParamValuesAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
+		private final RuleCall cParamValuesExpParserRuleCall_6_3_0 = (RuleCall)cParamValuesAssignment_6_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//NewStatement:
+		//    'new' customName=ID '[' paramNames+=ID '=' paramValues+=Exp (',' paramNames+=ID '=' paramValues+=Exp)* ']'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'new' customName=ID '[' paramNames+=ID '=' paramValues+=Exp (',' paramNames+=ID '=' paramValues+=Exp)* ']'
+		public Group getGroup() { return cGroup; }
+		
+		//'new'
+		public Keyword getNewKeyword_0() { return cNewKeyword_0; }
+		
+		//customName=ID
+		public Assignment getCustomNameAssignment_1() { return cCustomNameAssignment_1; }
+		
+		//ID
+		public RuleCall getCustomNameIDTerminalRuleCall_1_0() { return cCustomNameIDTerminalRuleCall_1_0; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
+		
+		//paramNames+=ID
+		public Assignment getParamNamesAssignment_3() { return cParamNamesAssignment_3; }
+		
+		//ID
+		public RuleCall getParamNamesIDTerminalRuleCall_3_0() { return cParamNamesIDTerminalRuleCall_3_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_4() { return cEqualsSignKeyword_4; }
+		
+		//paramValues+=Exp
+		public Assignment getParamValuesAssignment_5() { return cParamValuesAssignment_5; }
+		
+		//Exp
+		public RuleCall getParamValuesExpParserRuleCall_5_0() { return cParamValuesExpParserRuleCall_5_0; }
+		
+		//(',' paramNames+=ID '=' paramValues+=Exp)*
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//','
+		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
+		
+		//paramNames+=ID
+		public Assignment getParamNamesAssignment_6_1() { return cParamNamesAssignment_6_1; }
+		
+		//ID
+		public RuleCall getParamNamesIDTerminalRuleCall_6_1_0() { return cParamNamesIDTerminalRuleCall_6_1_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_6_2() { return cEqualsSignKeyword_6_2; }
+		
+		//paramValues+=Exp
+		public Assignment getParamValuesAssignment_6_3() { return cParamValuesAssignment_6_3; }
+		
+		//Exp
+		public RuleCall getParamValuesExpParserRuleCall_6_3_0() { return cParamValuesExpParserRuleCall_6_3_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_7() { return cRightSquareBracketKeyword_7; }
+	}
 	
 	
 	private final X21Elements pX21;
@@ -936,6 +1073,8 @@ public class X21GrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final LetBindingElements pLetBinding;
 	private final IfStatementElements pIfStatement;
 	private final LogicExpElements pLogicExp;
+	private final ParameterStatementElements pParameterStatement;
+	private final NewStatementElements pNewStatement;
 	
 	private final Grammar grammar;
 	
@@ -965,6 +1104,8 @@ public class X21GrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pLetBinding = new LetBindingElements();
 		this.pIfStatement = new IfStatementElements();
 		this.pLogicExp = new LogicExpElements();
+		this.pParameterStatement = new ParameterStatementElements();
+		this.pNewStatement = new NewStatementElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -995,7 +1136,7 @@ public class X21GrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 
 	
 	//X21:
-	//    name=ID declarations+=Declaration*
+	//    'program' name=ID declarations+=Declaration*
 	//;
 	public X21Elements getX21Access() {
 		return pX21;
@@ -1071,6 +1212,15 @@ public class X21GrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getNodeAccess().getRule();
 	}
 	
+	///*
+	// * Node:
+	// *  'node' name=ID body=FunctionOrLambda
+	// * ;
+	// *
+	// * FunctionOrLambda:
+	// *  '[' ({FunctionReference} ref=[Function] | Lambda) ']'
+	// * ;
+	// */
 	//Stream:
 	//    'stream' name=ID (',' inputs+=ID)* ('to' elements+=Element (',' elements+=Element)*)+
 	//;
@@ -1160,7 +1310,7 @@ public class X21GrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Atomic:
-	//    {IntValue} value=INT | LetBinding | {None} 'none' | IfStatement
+	//    {IntValue} value=INT | LetBinding | {None} 'none' | IfStatement | NewStatement | ParameterStatement
 	//;
 	public AtomicElements getAtomicAccess() {
 		return pAtomic;
@@ -1201,6 +1351,28 @@ public class X21GrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getLogicExpRule() {
 		return getLogicExpAccess().getRule();
+	}
+	
+	//ParameterStatement:
+	//    objName=ID ('.' paramNames+=ID)*
+	//;
+	public ParameterStatementElements getParameterStatementAccess() {
+		return pParameterStatement;
+	}
+	
+	public ParserRule getParameterStatementRule() {
+		return getParameterStatementAccess().getRule();
+	}
+	
+	//NewStatement:
+	//    'new' customName=ID '[' paramNames+=ID '=' paramValues+=Exp (',' paramNames+=ID '=' paramValues+=Exp)* ']'
+	//;
+	public NewStatementElements getNewStatementAccess() {
+		return pNewStatement;
+	}
+	
+	public ParserRule getNewStatementRule() {
+		return getNewStatementAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

@@ -19,9 +19,11 @@ import dk.sdu.mmmi.mdsd.x21.LetBinding;
 import dk.sdu.mmmi.mdsd.x21.LogicExp;
 import dk.sdu.mmmi.mdsd.x21.Minus;
 import dk.sdu.mmmi.mdsd.x21.Mult;
+import dk.sdu.mmmi.mdsd.x21.NewStatement;
 import dk.sdu.mmmi.mdsd.x21.Node;
 import dk.sdu.mmmi.mdsd.x21.None;
 import dk.sdu.mmmi.mdsd.x21.Parameter;
+import dk.sdu.mmmi.mdsd.x21.ParameterStatement;
 import dk.sdu.mmmi.mdsd.x21.Parenthesis;
 import dk.sdu.mmmi.mdsd.x21.Plus;
 import dk.sdu.mmmi.mdsd.x21.Stream;
@@ -154,6 +156,20 @@ public class X21PackageImpl extends EPackageImpl implements X21Package
    * @generated
    */
   private EClass logicExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterStatementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass newStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -757,6 +773,83 @@ public class X21PackageImpl extends EPackageImpl implements X21Package
    * @generated
    */
   @Override
+  public EClass getParameterStatement()
+  {
+    return parameterStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getParameterStatement_ObjName()
+  {
+    return (EAttribute)parameterStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getParameterStatement_ParamNames()
+  {
+    return (EAttribute)parameterStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNewStatement()
+  {
+    return newStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNewStatement_CustomName()
+  {
+    return (EAttribute)newStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNewStatement_ParamNames()
+  {
+    return (EAttribute)newStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNewStatement_ParamValues()
+  {
+    return (EReference)newStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getPlus()
   {
     return plusEClass;
@@ -1029,6 +1122,15 @@ public class X21PackageImpl extends EPackageImpl implements X21Package
     createEAttribute(logicExpEClass, LOGIC_EXP__OPERATOR);
     createEReference(logicExpEClass, LOGIC_EXP__RIGHT);
 
+    parameterStatementEClass = createEClass(PARAMETER_STATEMENT);
+    createEAttribute(parameterStatementEClass, PARAMETER_STATEMENT__OBJ_NAME);
+    createEAttribute(parameterStatementEClass, PARAMETER_STATEMENT__PARAM_NAMES);
+
+    newStatementEClass = createEClass(NEW_STATEMENT);
+    createEAttribute(newStatementEClass, NEW_STATEMENT__CUSTOM_NAME);
+    createEAttribute(newStatementEClass, NEW_STATEMENT__PARAM_NAMES);
+    createEReference(newStatementEClass, NEW_STATEMENT__PARAM_VALUES);
+
     plusEClass = createEClass(PLUS);
     createEReference(plusEClass, PLUS__LEFT);
     createEReference(plusEClass, PLUS__RIGHT);
@@ -1093,6 +1195,8 @@ public class X21PackageImpl extends EPackageImpl implements X21Package
     atomicEClass.getESuperTypes().add(this.getExpression());
     letBindingEClass.getESuperTypes().add(this.getAtomic());
     ifStatementEClass.getESuperTypes().add(this.getAtomic());
+    parameterStatementEClass.getESuperTypes().add(this.getAtomic());
+    newStatementEClass.getESuperTypes().add(this.getAtomic());
     plusEClass.getESuperTypes().add(this.getExpression());
     minusEClass.getESuperTypes().add(this.getExpression());
     multEClass.getESuperTypes().add(this.getExpression());
@@ -1161,6 +1265,15 @@ public class X21PackageImpl extends EPackageImpl implements X21Package
     initEReference(getLogicExp_Left(), this.getExp(), null, "left", null, 0, 1, LogicExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLogicExp_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, LogicExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLogicExp_Right(), this.getExp(), null, "right", null, 0, 1, LogicExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterStatementEClass, ParameterStatement.class, "ParameterStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getParameterStatement_ObjName(), ecorePackage.getEString(), "objName", null, 0, 1, ParameterStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParameterStatement_ParamNames(), ecorePackage.getEString(), "paramNames", null, 0, -1, ParameterStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(newStatementEClass, NewStatement.class, "NewStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNewStatement_CustomName(), ecorePackage.getEString(), "customName", null, 0, 1, NewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNewStatement_ParamNames(), ecorePackage.getEString(), "paramNames", null, 0, -1, NewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNewStatement_ParamValues(), this.getExp(), null, "paramValues", null, 0, -1, NewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPlus_Left(), this.getExpression(), null, "left", null, 0, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

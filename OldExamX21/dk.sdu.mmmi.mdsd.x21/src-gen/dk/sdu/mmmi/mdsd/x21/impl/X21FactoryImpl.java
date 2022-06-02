@@ -81,6 +81,8 @@ public class X21FactoryImpl extends EFactoryImpl implements X21Factory
       case X21Package.LET_BINDING: return createLetBinding();
       case X21Package.IF_STATEMENT: return createIfStatement();
       case X21Package.LOGIC_EXP: return createLogicExp();
+      case X21Package.PARAMETER_STATEMENT: return createParameterStatement();
+      case X21Package.NEW_STATEMENT: return createNewStatement();
       case X21Package.PLUS: return createPlus();
       case X21Package.MINUS: return createMinus();
       case X21Package.MULT: return createMult();
@@ -283,6 +285,30 @@ public class X21FactoryImpl extends EFactoryImpl implements X21Factory
   {
     LogicExpImpl logicExp = new LogicExpImpl();
     return logicExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ParameterStatement createParameterStatement()
+  {
+    ParameterStatementImpl parameterStatement = new ParameterStatementImpl();
+    return parameterStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NewStatement createNewStatement()
+  {
+    NewStatementImpl newStatement = new NewStatementImpl();
+    return newStatement;
   }
 
   /**

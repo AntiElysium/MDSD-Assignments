@@ -200,6 +200,26 @@ public class X21Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case X21Package.PARAMETER_STATEMENT:
+      {
+        ParameterStatement parameterStatement = (ParameterStatement)theEObject;
+        T result = caseParameterStatement(parameterStatement);
+        if (result == null) result = caseAtomic(parameterStatement);
+        if (result == null) result = caseExpression(parameterStatement);
+        if (result == null) result = caseExp(parameterStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case X21Package.NEW_STATEMENT:
+      {
+        NewStatement newStatement = (NewStatement)theEObject;
+        T result = caseNewStatement(newStatement);
+        if (result == null) result = caseAtomic(newStatement);
+        if (result == null) result = caseExpression(newStatement);
+        if (result == null) result = caseExp(newStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case X21Package.PLUS:
       {
         Plus plus = (Plus)theEObject;
@@ -521,6 +541,38 @@ public class X21Switch<T> extends Switch<T>
    * @generated
    */
   public T caseLogicExp(LogicExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameterStatement(ParameterStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>New Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>New Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNewStatement(NewStatement object)
   {
     return null;
   }
